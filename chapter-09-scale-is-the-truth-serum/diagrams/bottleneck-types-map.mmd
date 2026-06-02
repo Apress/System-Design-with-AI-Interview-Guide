@@ -1,0 +1,16 @@
+flowchart TB
+    A[Scale Bottleneck] --> B[Compute]
+    A --> C[Storage]
+    A --> D[Network]
+    A --> E[Dependency]
+    A --> F[Queue]
+    A --> G[Policy / Human]
+    A --> H[AI Inference]
+
+    B --> B1[CPU/GPU saturation]
+    C --> C1[Hot partitions / locks]
+    D --> D1[Fan-out / egress]
+    E --> E1[Payment / inventory slowdown]
+    F --> F1[Backlog while system is up]
+    G --> G1[Approval becomes narrowest path]
+    H --> H1[Prompt/RAG/tool/GPU loops]

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PlaybackSession",
+  "type": "object",
+  "required": [
+    "playbackSessionId",
+    "viewerId",
+    "assetId",
+    "deviceClass",
+    "policyBundleVersion",
+    "sessionStatus",
+    "createdAt"
+  ],
+  "properties": {
+    "playbackSessionId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "viewerId": {
+      "type": "string"
+    },
+    "assetId": {
+      "type": "string"
+    },
+    "liveEventId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "deviceClass": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "entitlementTokenId": {
+      "type": "string"
+    },
+    "manifestVersionId": {
+      "type": "string"
+    },
+    "drmLicenseId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "adDecisionId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sessionStatus": {
+      "type": "string",
+      "enum": [
+        "granted",
+        "degraded",
+        "refused",
+        "ended",
+        "requires_remediation"
+      ]
+    },
+    "refusalReasonCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

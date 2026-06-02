@@ -1,0 +1,14 @@
+policyVersion: streaming-replay-coverage-hard-stop-v1
+requirements:
+  sessionGrantReplayCoveragePercent: 100
+  cdnSwitchReplayCoveragePercent: 100
+  drmGrantReplayCoveragePercent: 100
+  adDecisionReplayCoveragePercent: 100
+actions:
+  onSessionGrantCoverageDrop:
+    - freeze_new_grants_for_affected_path
+    - restore_receipt_path
+    - route_to_owner
+  onControlReceiptCoverageDrop:
+    - freeze_automated_expansion
+    - require_manual_review

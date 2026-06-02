@@ -1,0 +1,27 @@
+policyVersion: pricing-policy-v1
+quoteTtlSeconds: 120
+surge:
+  maxMultiplier: 3.0
+  rateOfChangeCapPerMinute: 0.25
+  hysteresisWindowSeconds: 180
+  dampeningEnabled: true
+crisisPosture:
+  enabled: false
+  maxMultiplierWhenEnabled: 1.25
+  requireReasonCode: crisis_dampening
+evidenceRequired:
+  - demandSnapshotId
+  - supplySnapshotId
+  - signalTimestamp
+  - regionId
+  - sampleSize
+  - uncertaintyBand
+  - cityPolicyVersion
+reasonCodes:
+  - demand_spike
+  - low_supply
+  - traffic_pressure
+  - driver_incentive
+  - city_cap_applied
+  - crisis_dampening
+  - rate_change_cap

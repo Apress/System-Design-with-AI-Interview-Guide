@@ -1,0 +1,19 @@
+policyVersion: hard-block-policy-v1
+principle: "Hard blocks are highest-liability actions."
+requires:
+  - hard_constraint_or_strong_tier1_evidence
+  - tier2_alignment
+  - tier3_not_sole_basis
+  - fresh_identity_evidence
+  - policy_pin
+  - replay_card
+  - appeal_path
+doNotHardBlockWhen:
+  - identity_provider_degraded
+  - tier1_tier2_conflict
+  - replay_gap
+  - stop_authority_active
+fallback:
+  - step_up
+  - account_restriction
+  - human_review

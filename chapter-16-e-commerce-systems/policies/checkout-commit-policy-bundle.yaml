@@ -1,0 +1,22 @@
+policyVersion: checkout-commit-policy-v1
+requiredBeforeConfirmed:
+  - checkoutIntentId
+  - idempotencyKey
+  - inventoryHoldId
+  - reservationId
+  - paymentAuthId
+  - fraudDecisionId
+  - fulfillmentEligibilityCheck
+  - pinnedPolicyVersion
+  - replayCard
+customerVisibleStates:
+  confirmed: "Only when token chain exists."
+  pending: "Evidence may arrive soon or reconciliation is active."
+  backorder: "Inventory unavailable but policy permits later fulfillment."
+  requires_review: "Risk, policy, fraud, or ambiguity requires human/specialist review."
+  refused: "Policy or evidence blocks commitment."
+failureBehavior:
+  inventoryHardStale: pending_allocation_or_refresh
+  paymentAmbiguous: pending_payment_confirmation
+  fraudReview: requires_review
+  fulfillmentCutoffCrossed: refuse_or_escalate

@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant Customer
+    participant Checkout
+    participant Inventory
+    participant Payment
+    participant Fraud
+    participant Fulfillment
+    participant Replay
+
+    Customer->>Checkout: Place Order
+    Checkout->>Checkout: Create checkoutIntentId + idempotency key
+    Checkout->>Inventory: Check freshness + create inventoryHoldId
+    Inventory-->>Checkout: inventoryHoldId
+    Checkout->>Payment: Authorize payment
+    Payment-->>Checkout: paymentAuthId
+    Checkout->>Fraud: Check risk/policy
+    Fraud-->>Checkout: pass/review/refuse
+    Checkout->>Fulfillment: Validate cutoff
+    Fulfillment-->>Checkout: eligible
+    Checkout->>Inventory: Promote hold to reservation
+    Inventory-->>Checkout: reservationId
+    Checkout->>Replay: Emit replay card
+    Checkout-->>Customer: Confirmed with orderCommitId

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OutboxEvent",
+  "type": "object",
+  "required": [
+    "eventId",
+    "businessTxnId",
+    "producer",
+    "eventType",
+    "schemaVersion",
+    "payload",
+    "createdAt",
+    "publishStatus"
+  ],
+  "properties": {
+    "eventId": {
+      "type": "string"
+    },
+    "businessTxnId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "eventType": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publishStatus": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "published",
+        "failed",
+        "quarantined"
+      ]
+    }
+  }
+}

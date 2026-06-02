@@ -1,0 +1,32 @@
+policyVersion: ranking-precedence-v1
+principle: "Ranking is a decision surface. Define what may outrank what before optimizing engagement."
+
+hardPrecedenceRules:
+  - policy_beats_popularity
+  - authority_beats_engagement
+  - freshness_beats_historical_clicks_in_governed_domains
+  - structured_truth_beats_free_text_implication
+  - safety_beats_personalization
+  - hard_user_constraints_beat_business_promotion
+
+governedDomains:
+  policySearch:
+    currentVersionRequired: true
+    staleVersionCanRankFirst: false
+    citationFreshnessRequired: true
+  productSearch:
+    structuredCatalogTruthRequired: true
+    sponsoredItemsMustSatisfyHardConstraints: true
+  supportSearch:
+    currentPolicyVersionRequired: true
+    sourceAuthorityRequired: true
+
+rankingEvidenceRequired:
+  - queryId
+  - extractedConstraints
+  - candidateSetHash
+  - rankPolicyId
+  - rankingModelVersion
+  - featureSnapshot
+  - filteredCandidates
+  - finalResultSetHash

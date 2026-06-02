@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WriteReceipt",
+  "type": "object",
+  "required": [
+    "writeReceiptId",
+    "objectId",
+    "versionId",
+    "contentHash",
+    "policyVersion",
+    "writtenAt"
+  ],
+  "properties": {
+    "writeReceiptId": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "pathId": {
+      "type": "string"
+    },
+    "versionId": {
+      "type": "string"
+    },
+    "contentHash": {
+      "type": "string"
+    },
+    "checksumAlgorithm": {
+      "type": "string"
+    },
+    "encryptionKeyId": {
+      "type": "string"
+    },
+    "keyLineageId": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "metadataVersion": {
+      "type": "string"
+    },
+    "writtenAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

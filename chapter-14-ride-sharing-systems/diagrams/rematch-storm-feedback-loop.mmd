@@ -1,0 +1,11 @@
+flowchart TB
+    A[Demand Spike] --> B[Traffic/GPS Staleness]
+    B --> C[Hold Expiry]
+    C --> D[Rerank / Redispatch]
+    D --> E[Rider Cancels]
+    D --> F[Driver Rejects]
+    E --> G[Supply Tightens]
+    F --> G
+    G --> D
+    D --> H[Compute + Tail Latency Increase]
+    H --> B

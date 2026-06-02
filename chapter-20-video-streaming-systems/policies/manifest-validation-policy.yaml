@@ -1,0 +1,36 @@
+policyVersion: manifest-validation-v1
+ingestTruth:
+  required:
+    - source_receipt
+    - decodable_video_track
+    - decodable_audio_track
+    - monotonic_timestamps
+    - caption_availability
+    - accessibility_metadata
+encodeTruth:
+  required:
+    - abr_ladder_version
+    - codec_rendition_availability
+    - gop_cadence
+    - keyframe_alignment
+    - device_compatibility
+packageTruth:
+  required:
+    - manifestVersionId
+    - segment_timeline
+    - media_sequence_continuity
+    - drm_packaging
+    - ad_markers
+    - cache_rules
+actions:
+  onInvalidIngest:
+    - quarantine
+    - reject_publish
+  onInvalidEncode:
+    - re_encode
+    - reduce_ladder
+    - block_publish
+  onInvalidPackage:
+    - repair_manifest
+    - fallback_manifest
+    - block_manifest_serve

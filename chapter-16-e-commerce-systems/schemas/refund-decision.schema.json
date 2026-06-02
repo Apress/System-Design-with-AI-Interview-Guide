@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RefundDecision",
+  "type": "object",
+  "required": [
+    "refundDecisionId",
+    "refundRequestId",
+    "orderId",
+    "customerId",
+    "amount",
+    "currency",
+    "decisionStatus",
+    "policyVersion",
+    "decidedAt"
+  ],
+  "properties": {
+    "refundDecisionId": {
+      "type": "string"
+    },
+    "refundRequestId": {
+      "type": "string"
+    },
+    "orderId": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "decisionStatus": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "deferred",
+        "requires_review",
+        "refused",
+        "compensated"
+      ]
+    },
+    "deliveryEvidenceId": {
+      "type": "string"
+    },
+    "returnEvidenceId": {
+      "type": "string"
+    },
+    "paymentStateId": {
+      "type": "string"
+    },
+    "fraudDecisionId": {
+      "type": "string"
+    },
+    "humanApprovalId": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "decidedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "appealOrReversalPath": {
+      "type": "string"
+    }
+  }
+}

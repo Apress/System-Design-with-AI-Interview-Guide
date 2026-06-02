@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RideDecisionReplayCard",
+  "type": "object",
+  "required": [
+    "correlationId",
+    "decisionType",
+    "decisionTime",
+    "policyVersions",
+    "evidence",
+    "outcome"
+  ],
+  "properties": {
+    "correlationId": {
+      "type": "string"
+    },
+    "rideRequestId": {
+      "type": "string"
+    },
+    "matchHoldId": {
+      "type": "string"
+    },
+    "matchId": {
+      "type": "string"
+    },
+    "decisionType": {
+      "type": "string",
+      "enum": [
+        "hold_created",
+        "commit_issued",
+        "commit_deferred",
+        "commit_refused",
+        "post_commit_repair",
+        "post_commit_reassignment",
+        "pricing_quote",
+        "safety_hard_stop"
+      ]
+    },
+    "decisionTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policyVersions": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "gateResults": {
+      "type": "object"
+    },
+    "reasonCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "compensation": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+policyVersion: churn-budget-v1
+principle: "Recovery must not amplify uncertainty."
+budgets:
+  retries: {required: true, exhaustedAction: [park_or_reconcile, do_not_blind_retry]}
+  fanout: {required: true, exhaustedAction: [narrow_sources, stop_low_value_calls]}
+  time: {required: true, exhaustedAction: [return_pending, defer_decision]}
+  toolCalls: {required: true, exhaustedAction: [stop_agent_loop, require_human_review]}
+  tokens: {required: true, exhaustedAction: [compress_context, show_sources_only]}
+  cost: {required: true, exhaustedAction: [tier_down, defer, require_approval]}
+onBudgetExhausted: [do_not_cross_commitment_boundary, emit_budget_exhausted_receipt, degrade_to_safer_mode]

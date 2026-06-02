@@ -1,0 +1,7 @@
+flowchart LR
+    A[Query] --> B{Truth Burden}
+    B -- Exact evidence --> C[Lexical]
+    B -- Structured truth --> D[Vectorless API/SQL/Graph]
+    B -- Semantic discovery --> E[Vector]
+    B -- Mixed constraints + meaning --> F[Hybrid]
+    F --> G[Policy Bounded Ranking]

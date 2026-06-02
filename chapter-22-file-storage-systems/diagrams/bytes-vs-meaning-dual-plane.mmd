@@ -1,0 +1,8 @@
+flowchart TB
+    A[Source Bytes] --> B[Object Version]
+    C[Source Metadata] --> D[ACL / Retention / Legal Hold / Classification]
+    B --> E[Derived Artifacts]
+    D --> E
+    E --> F[Search / Embeddings / OCR / Summary / Thumbnail]
+    D -. authority .-> F
+    F -. derived only .-> D

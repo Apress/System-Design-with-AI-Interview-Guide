@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CommerceDecisionReplayCard",
+  "type": "object",
+  "required": [
+    "correlationId",
+    "actionType",
+    "actor",
+    "policy",
+    "evidence",
+    "toolCalls",
+    "tokensMinted",
+    "customerVisibleOutcome"
+  ],
+  "properties": {
+    "correlationId": {
+      "type": "string"
+    },
+    "actionType": {
+      "type": "string",
+      "enum": [
+        "ORDER_CONFIRMATION",
+        "ADDRESS_MODIFICATION",
+        "REFUND_APPROVAL",
+        "FULFILLMENT_RELEASE",
+        "CARRIER_HANDOFF",
+        "COMPENSATION"
+      ]
+    },
+    "actor": {
+      "type": "object"
+    },
+    "orderContext": {
+      "type": "object"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "authorityEnvelope": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "toolCalls": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "tokensMinted": {
+      "type": "object"
+    },
+    "customerVisibleOutcome": {
+      "type": "string"
+    },
+    "reversalOrCompensationPath": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

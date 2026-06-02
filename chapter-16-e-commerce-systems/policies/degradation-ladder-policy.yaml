@@ -1,0 +1,21 @@
+policyVersion: degradation-ladder-v1
+rungs:
+  normal:
+    behavior: "Confirm only with full token chain."
+  cautious:
+    behavior: "Refresh soft-stale evidence and add confidence labels."
+  pending:
+    behavior: "Accept intent but do not create liability."
+  requiresReview:
+    behavior: "Route to human/specialist owner."
+  refused:
+    behavior: "Do not commit when proof is missing or hard-stale."
+  hardStop:
+    behavior: "Stop affected path and emit stop-authority receipt."
+states:
+  - pending_confirmation
+  - pending_payment_confirmation
+  - pending_allocation
+  - backorder
+  - requires_review
+  - refused

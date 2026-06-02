@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FulfillmentRelease",
+  "type": "object",
+  "required": [
+    "fulfillmentReleaseId",
+    "orderId",
+    "fulfillmentNodeId",
+    "releaseStatus",
+    "releasedAt",
+    "policyVersion"
+  ],
+  "properties": {
+    "fulfillmentReleaseId": {
+      "type": "string"
+    },
+    "orderId": {
+      "type": "string"
+    },
+    "fulfillmentNodeId": {
+      "type": "string"
+    },
+    "releaseStatus": {
+      "type": "string",
+      "enum": [
+        "eligible",
+        "released",
+        "picking_started",
+        "packed",
+        "blocked",
+        "cancelled"
+      ]
+    },
+    "releasedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "cutoffTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "modificationAllowed": {
+      "type": "boolean"
+    },
+    "policyVersion": {
+      "type": "string"
+    }
+  }
+}

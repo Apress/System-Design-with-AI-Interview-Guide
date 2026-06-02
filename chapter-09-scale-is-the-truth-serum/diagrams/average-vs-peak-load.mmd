@@ -1,0 +1,13 @@
+flowchart LR
+    A[Daily Requests] --> B[Average QPS]
+    B --> C{Enough?}
+    C -- No --> D[Need Peak Shape]
+
+    D --> E[Peak-to-Average Ratio]
+    D --> F[Burst Duration]
+    D --> G[Hot Products]
+    D --> H[Read/Write Mix]
+    D --> I[Retries]
+    D --> J[Queue Depth]
+    D --> K[AI Fan-Out]
+    D --> L[Commitment Path]

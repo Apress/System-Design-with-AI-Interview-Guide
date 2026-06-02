@@ -1,0 +1,29 @@
+policyVersion: metadata-authority-v1
+principle: "Bytes preserve content. Metadata preserves meaning."
+authorityLayers:
+  sourceBytes:
+    authoritativeFor:
+      - content
+      - source_version
+  sourceMetadata:
+    authoritativeFor:
+      - owner
+      - ACL
+      - classification
+      - retention
+      - legal_hold
+      - lineage
+  derivedSystems:
+    examples:
+      - search
+      - list_views
+      - embeddings
+      - OCR
+      - thumbnails
+      - summaries
+      - caches
+    authoritative: false
+conflictRules:
+  searchVsSourceMetadata: "Source metadata wins; invalidate and rebuild search."
+  embeddingVsSourceVersion: "Source version wins; mark derivative stale."
+  cacheVsACL: "Source ACL wins; purge or revalidate cache."

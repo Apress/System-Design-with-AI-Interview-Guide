@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant App
+    participant DB as Business DB + Outbox
+    participant Relay
+    participant Broker
+    participant Consumer
+    participant Idem as processed_effects
+    participant External as Side-Effect System
+    participant Replay
+
+    App->>DB: Commit business transaction + outbox row
+    Relay->>Broker: Publish event
+    Broker->>Consumer: Deliver event
+    Consumer->>Idem: Insert/check effectId
+    Idem-->>Consumer: IN_PROGRESS or COMMITTED
+    Consumer->>External: Execute side effect
+    External-->>Consumer: Success/Failure
+    Consumer->>Idem: Mark COMMITTED/FAILED
+    Consumer->>Replay: Write Decision Replay Card

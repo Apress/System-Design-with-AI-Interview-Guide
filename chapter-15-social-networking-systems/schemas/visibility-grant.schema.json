@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VisibilityGrant",
+  "type": "object",
+  "required": [
+    "visibilityGrantId",
+    "contentId",
+    "creatorId",
+    "surface",
+    "scope",
+    "policyVersion",
+    "createdAt",
+    "grantStatus"
+  ],
+  "properties": {
+    "visibilityGrantId": {
+      "type": "string"
+    },
+    "contentId": {
+      "type": "string"
+    },
+    "creatorId": {
+      "type": "string"
+    },
+    "surface": {
+      "type": "string",
+      "enum": [
+        "following",
+        "profile",
+        "search",
+        "topic",
+        "for_you",
+        "trending",
+        "notifications"
+      ]
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "followers",
+        "profile_view",
+        "limited_discovery",
+        "local_surface"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "grantStatus": {
+      "type": "string",
+      "enum": [
+        "active",
+        "filtered",
+        "revoked",
+        "expired"
+      ]
+    },
+    "reasonCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+flowchart TB
+    A[Sense Signals] --> B[Severity]
+    A --> C[Velocity]
+    A --> D[Uncertainty]
+    B --> E[Compute HVI]
+    C --> E
+    D --> E
+    E --> F{Threshold}
+    F -- HVI >= 8 --> G[Throttle]
+    F -- HVI >= 12 --> H[Freeze Amplification]
+    F -- HVI >= 16 --> I[Hard Stop]
+    G --> J[Emit Receipt]
+    H --> J
+    I --> J
+    J --> K[Review and Re-enable Criteria]

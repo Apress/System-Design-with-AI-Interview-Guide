@@ -1,0 +1,39 @@
+policyVersion: evidence-tier-policy-v1
+hardConstraints:
+  examples:
+    - jurisdiction
+    - regulatory_restriction
+    - privacy_consent
+    - product_policy
+    - sanctions_screening
+  allowedUse: "Can block or route to compliance regardless of model score."
+
+tier1SystemOfRecord:
+  requiredForLiabilityActions: true
+  examples:
+    - identity_verification
+    - payment_confirmation
+    - account_status
+    - enforcement_history
+    - active_policy_bundle
+  onMissing: "Do not enforce; step up, refresh, defer, or review."
+
+tier2ModelEvidence:
+  examples:
+    - fraud_score
+    - calibrated_risk
+    - reason_codes
+    - uncertainty_band
+    - model_version
+  allowedUse: "Supports decision; cannot override conflicting Tier 1 evidence."
+
+tier3SoftSignals:
+  examples:
+    - velocity
+    - device_fingerprint
+    - graph_proximity
+    - behavioral_pattern
+  allowedUse: "Can trigger friction, step-up, or review; cannot justify hard enforcement alone."
+
+conflictRule:
+  tier1VsTier2: "Do not average truth. Move to step-up, defer, evidence refresh, or case review."

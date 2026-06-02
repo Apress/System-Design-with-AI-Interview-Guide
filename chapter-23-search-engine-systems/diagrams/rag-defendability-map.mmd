@@ -1,0 +1,9 @@
+flowchart TB
+    A[Query Trace] --> B[Retrieval Trace]
+    B --> C[Filter Receipt]
+    C --> D[Citation Receipt]
+    D --> E{Citation Current + Authoritative?}
+    E -- Yes --> F[Answer Receipt]
+    E -- No --> G[Sources Only / Refusal / Human Review]
+    F --> H[Replay Card]
+    G --> H

@@ -1,0 +1,16 @@
+stateDiagram-v2
+    [*] --> Browse
+    Browse --> CartIntent
+    CartIntent --> CheckoutIntent
+    CheckoutIntent --> InventoryHold
+    InventoryHold --> PaymentAuthorized
+    PaymentAuthorized --> Reserved
+    Reserved --> Confirmed: orderCommitId
+    CheckoutIntent --> Pending
+    CheckoutIntent --> Backorder
+    CheckoutIntent --> RequiresReview
+    CheckoutIntent --> Refused
+    Confirmed --> FulfillmentReleased
+    FulfillmentReleased --> CarrierAccepted
+    CarrierAccepted --> Delivered
+    Delivered --> RefundReview

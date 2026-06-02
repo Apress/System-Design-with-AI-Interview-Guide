@@ -1,0 +1,27 @@
+policyVersion: reversible-control-ladder-v1
+ladder:
+  allowMonitor:
+    description: "Proceed and monitor."
+    allowedWhen: "Low risk and clean evidence."
+  stepUpOnly:
+    description: "Ask for reversible proof."
+    allowedWhen: "Elevated uncertainty or weak identity."
+  softHold:
+    description: "Time-boxed containment."
+    allowedWhen: "Money/access risk exists but proof is incomplete."
+  freezeLiabilityActions:
+    description: "Stop issuing liability tokens for affected path."
+    allowedWhen: "Replay gaps, appeal spikes, policy mismatch, or high uncertainty."
+  humanReviewOnly:
+    description: "Route to a reviewer."
+    allowedWhen: "Severe uncertainty or high-impact action."
+  hardEnforcement:
+    description: "Deny, hard block, or restrict."
+    allowedWhen:
+      - tier1_evidence_supports
+      - tier2_model_aligns
+      - tier3_not_sole_basis
+      - evidence_fresh
+      - policy_pinned
+      - replay_complete
+      - appeal_path_exists

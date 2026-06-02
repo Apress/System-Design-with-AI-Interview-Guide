@@ -1,0 +1,15 @@
+policyVersion: payout-hold-policy-v1
+principle: "Payout holds should be time-boxed and reversible unless strong evidence supports extended enforcement."
+requires:
+  - seller_context
+  - payout_amount
+  - tier1_account_payment_state
+  - risk_reason_codes
+  - hold_expiry
+  - appeal_or_review_path
+  - replay_card
+maxDefaultHoldHours: 72
+onUncertainty:
+  - step_up
+  - short_soft_hold
+  - case_review

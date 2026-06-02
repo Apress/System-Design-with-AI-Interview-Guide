@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EntitlementToken",
+  "type": "object",
+  "required": [
+    "entitlementTokenId",
+    "viewerId",
+    "assetId",
+    "policyBundleVersion",
+    "decision",
+    "issuedAt"
+  ],
+  "properties": {
+    "entitlementTokenId": {
+      "type": "string"
+    },
+    "viewerId": {
+      "type": "string"
+    },
+    "assetId": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "tier": {
+      "type": "string"
+    },
+    "licenseWindow": {
+      "type": "object"
+    },
+    "deviceClass": {
+      "type": "string"
+    },
+    "concurrencyState": {
+      "type": "object"
+    },
+    "parentalControlState": {
+      "type": "object"
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "allowed",
+        "refused",
+        "requires_refresh",
+        "requires_reauth",
+        "rights_safe_fallback"
+      ]
+    },
+    "reasonCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "issuedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

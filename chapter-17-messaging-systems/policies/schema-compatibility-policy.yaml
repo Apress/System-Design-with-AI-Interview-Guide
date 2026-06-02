@@ -1,0 +1,16 @@
+policyVersion: schema-compatibility-v1
+compatibility:
+  allowed:
+    - backward_compatible_optional_field_added
+    - enum_value_added_with_default_handling
+  requiresQuarantine:
+    - required_field_removed
+    - required_field_renamed
+    - incompatible_type_change
+    - semantic_meaning_changed_without_version_bump
+actions:
+  onMismatch:
+    - quarantine_event
+    - stop_affected_consumer
+    - route_to_schema_owner
+    - emit_schema_mismatch_receipt

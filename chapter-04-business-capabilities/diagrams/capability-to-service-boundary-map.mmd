@@ -1,0 +1,13 @@
+flowchart LR
+    A[Business Capability] --> B[Owned Outcome]
+    B --> C[Owned Data]
+    C --> D[Commands]
+    D --> E[Events]
+    E --> F[Service Boundary]
+    F --> G[APIs and Contracts]
+    G --> H[Observability and Replay]
+
+    F --> I{Boundary Healthy?}
+    I -- Too Large --> J[Split by outcome/state ownership]
+    I -- Too Small --> K[Merge if coordination dominates]
+    I -- Clear --> L[Proceed to architecture]

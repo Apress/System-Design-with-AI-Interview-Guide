@@ -1,0 +1,11 @@
+flowchart TB
+    A[Outbox] --> B[Stream/Event Log]
+    B --> C[Projection Builder]
+    B --> D[Work Dispatcher]
+    D --> E[Work Queue]
+    E --> F[Worker Consumer]
+    F --> G[Idempotency Gate]
+    G --> H[Side Effect]
+    B --> I[Replay Service]
+    I --> J[Simulate Mode]
+    J --> K[Execute Mode with Approval]

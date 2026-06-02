@@ -1,0 +1,19 @@
+policyVersion: refund-denial-policy-v1
+requires:
+  - pinned_policy_bundle
+  - refund_request_context
+  - tier1_payment_identity_evidence
+  - tier2_model_evidence
+  - evidence_freshness_check
+  - replay_card
+  - appeal_path
+doNotAutoDenyWhen:
+  - tier1_conflicts_with_model
+  - replay_coverage_missing
+  - identity_evidence_hard_stale
+  - refund_denial_stop_authority_active
+fallbacks:
+  - step_up
+  - defer
+  - case_review
+  - soft_hold

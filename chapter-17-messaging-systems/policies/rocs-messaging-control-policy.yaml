@@ -1,0 +1,30 @@
+policyVersion: rocs-messaging-control-v1
+reliability:
+  signals:
+    - duplicate_effect_rate
+    - idempotency_store_errors
+    - out_of_order_event_rate
+    - consumer_restarts_mid_flight
+observability:
+  signals:
+    - replay_coverage
+    - correlation_chain_breaks
+    - missing_schema_version
+    - missing_policy_version
+cost:
+  signals:
+    - retry_storm_rate
+    - dlq_triage_hours
+    - duplicate_side_effect_cost
+    - reprocessing_compute_cost
+sustainability:
+  signals:
+    - operator_replay_errors
+    - schema_drift_rate
+    - manual_compensation_rate
+actions:
+  - degrade
+  - quarantine
+  - simulate_only
+  - freeze_side_effect
+  - require_owner_approval

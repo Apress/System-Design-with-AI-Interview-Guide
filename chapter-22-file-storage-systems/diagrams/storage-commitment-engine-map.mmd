@@ -1,0 +1,17 @@
+flowchart TB
+    A[Upload Request] --> B[Validate + Hash]
+    B --> C[Write Object Version]
+    C --> D[versionId + writeReceiptId]
+    D --> E[Metadata Authority]
+    E --> F[Index Pipeline]
+    F --> G[indexReceiptId]
+    E --> H[Legal / Retention Holds]
+    H --> I[Lifecycle / Delete Gate]
+    I --> J[deleteReceiptId]
+    D --> K[Restore System]
+    K --> L[restoreReceiptId]
+    D --> M[AI Derivatives]
+    M --> N[Derivative Rebuild Receipt]
+    G --> R[Storage Decision Replay Card]
+    J --> R
+    L --> R

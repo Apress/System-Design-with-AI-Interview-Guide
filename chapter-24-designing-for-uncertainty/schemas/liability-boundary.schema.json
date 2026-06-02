@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LiabilityBoundary",
+  "type": "object",
+  "required": [
+    "boundaryId",
+    "domain",
+    "attemptState",
+    "committedState",
+    "liabilityLevel",
+    "requiredEvidence",
+    "requiredReceipt",
+    "owner"
+  ],
+  "properties": {
+    "boundaryId": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "attemptState": {
+      "type": "string"
+    },
+    "committedState": {
+      "type": "string"
+    },
+    "liabilityLevel": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "irreversible"
+      ]
+    },
+    "requiredEvidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiredPolicyVersion": {
+      "type": "string"
+    },
+    "requiredReceipt": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "reversible": {
+      "type": "boolean"
+    },
+    "compensationPath": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

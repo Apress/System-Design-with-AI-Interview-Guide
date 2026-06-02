@@ -1,0 +1,33 @@
+policyVersion: rocs-storage-control-v1
+reliability:
+  signals:
+    - write_receipt_rate
+    - integrity_verification_failure_rate
+    - restore_drill_success_rate
+    - delete_velocity
+observability:
+  signals:
+    - replay_coverage
+    - missing_receipt_rate
+    - index_drift
+    - policy_bundle_mismatch
+cost:
+  signals:
+    - replication_cost
+    - verification_cost
+    - restore_cost
+    - index_rebuild_cost
+    - ai_derivative_rebuild_cost
+sustainability:
+  signals:
+    - audit_reconstruction_time
+    - legal_hold_enforcement_latency
+    - lifecycle_error_rate
+    - recoverability_claim_accuracy
+actions:
+  - truth_first_mode
+  - freeze_destructive_actions
+  - rebuild_index
+  - quarantine_scope
+  - restore_certification
+  - derivative_invalidation

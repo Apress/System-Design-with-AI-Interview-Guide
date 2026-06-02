@@ -1,0 +1,13 @@
+flowchart LR
+    A[Data Value Produced] --> B[Readiness Gate]
+    B --> C{Status OK?}
+    C -- No --> H[Informational Only / Hold]
+    C -- Yes --> D{Version and Time OK?}
+    D -- No --> H
+    D -- Yes --> E{Permission OK?}
+    E -- No --> H
+    E -- Yes --> F{Policy Allows Action?}
+    F -- No --> H
+    F -- Yes --> G[Eligible for Action]
+    G --> I[Evidence Snapshot]
+    H --> I

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChurnBudget",
+  "type": "object",
+  "required": [
+    "budgetId",
+    "domain",
+    "budgets",
+    "onBudgetExhausted"
+  ],
+  "properties": {
+    "budgetId": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "budgets": {
+      "type": "object"
+    },
+    "onBudgetExhausted": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+policyVersion: deletion-policy-v1
+principle: "Deletion is a liability action, not cleanup."
+deleteModes:
+  soft_delete:
+    recoverable: true
+    requiresRecoveryWindow: true
+  hard_delete:
+    recoverable: false
+    requiresDestructionProof: true
+  lifecycle_expiry:
+    recoverable: false
+    requiresRetentionSatisfied: true
+  key_destruction:
+    recoverable: false
+    requiresKeyLineageProof: true
+preconditions:
+  - policy_pinned
+  - legal_hold_clear
+  - retention_clear
+  - version_lineage_known
+  - replay_receipt_ready
+  - approval_when_required
+onUnclearHoldOrRetention:
+  - refuse
+  - defer
+  - escalate
+  - freeze

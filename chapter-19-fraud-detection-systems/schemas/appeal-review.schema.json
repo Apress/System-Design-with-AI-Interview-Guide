@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AppealReview",
+  "type": "object",
+  "required": [
+    "appealReviewId",
+    "enforcementId",
+    "chainId",
+    "appealStatus",
+    "reviewedAt",
+    "reviewOutcome"
+  ],
+  "properties": {
+    "appealReviewId": {
+      "type": "string"
+    },
+    "enforcementId": {
+      "type": "string"
+    },
+    "chainId": {
+      "type": "string"
+    },
+    "appealStatus": {
+      "type": "string",
+      "enum": [
+        "opened",
+        "in_review",
+        "upheld",
+        "overturned",
+        "compensated",
+        "closed"
+      ]
+    },
+    "reviewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewOutcome": {
+      "type": "string"
+    },
+    "reviewerId": {
+      "type": "string"
+    },
+    "originalReplayCardId": {
+      "type": "string"
+    },
+    "labelLinked": {
+      "type": "boolean"
+    }
+  }
+}

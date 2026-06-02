@@ -1,0 +1,10 @@
+flowchart TD
+    A[Customer Action] --> B{Does the system make a promise?}
+    B -- No --> C[Approximate or Informational Response]
+    B -- Yes --> D[Identify System of Record]
+    D --> E[Validate Required State]
+    E --> F{State Confirmed?}
+    F -- Yes --> G[Commit and Record Evidence]
+    F -- No --> H[Retry, Degrade, Refuse, or Escalate]
+    G --> I[Expose Confirmation to Customer]
+    H --> J[Explain Safe Next Step]

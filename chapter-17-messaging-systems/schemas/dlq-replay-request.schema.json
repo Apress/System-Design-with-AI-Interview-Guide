@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DLQReplayRequest",
+  "type": "object",
+  "required": [
+    "replayRequestId",
+    "dlqMessageId",
+    "mode",
+    "requestedBy",
+    "requestedAt",
+    "approvalStatus"
+  ],
+  "properties": {
+    "replayRequestId": {
+      "type": "string"
+    },
+    "dlqMessageId": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "simulate",
+        "execute"
+      ]
+    },
+    "requestedBy": {
+      "type": "string"
+    },
+    "requestedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approvalStatus": {
+      "type": "string",
+      "enum": [
+        "not_required",
+        "pending",
+        "approved",
+        "denied"
+      ]
+    },
+    "approvalId": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "idempotencyCheckRequired": {
+      "type": "boolean"
+    },
+    "receiptId": {
+      "type": "string"
+    }
+  }
+}

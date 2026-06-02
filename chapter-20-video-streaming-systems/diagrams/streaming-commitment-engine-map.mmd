@@ -1,0 +1,13 @@
+flowchart TB
+    A[Ingest] --> B[Encode ABR Ladder]
+    B --> C[Package Manifest + Segments]
+    C --> D[Session Grant Gate]
+    D --> E[Entitlement + Region + Concurrency]
+    D --> F[Manifest Version]
+    D --> G[DRM License]
+    D --> H[Ad Decision]
+    D --> I[Playback Session]
+    I --> J[CDN Delivery]
+    J --> K[Player ABR Control]
+    K --> L[QoE Receipts]
+    L --> R[Streaming Replay Card]

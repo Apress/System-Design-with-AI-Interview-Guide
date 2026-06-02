@@ -1,0 +1,6 @@
+flowchart LR
+    A[Sense: Lag / DLQ / Replay Gap / Duplicate Effects] --> B[Decide: Policy + Owner]
+    B --> C[Act: Retry / DLQ / Quarantine / Freeze]
+    C --> D[Prove: Receipt + Replay Card]
+    D --> E[Learn: Schema/Policy/Consumer Fix]
+    E --> A

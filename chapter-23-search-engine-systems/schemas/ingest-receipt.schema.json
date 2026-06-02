@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IngestReceipt",
+  "type": "object",
+  "required": [
+    "ingestReceiptId",
+    "sourceId",
+    "sourceVersion",
+    "ingestStatus",
+    "ingestedAt"
+  ],
+  "properties": {
+    "ingestReceiptId": {
+      "type": "string"
+    },
+    "sourceId": {
+      "type": "string"
+    },
+    "sourceVersion": {
+      "type": "string"
+    },
+    "contentHash": {
+      "type": "string"
+    },
+    "ingestStatus": {
+      "type": "string",
+      "enum": [
+        "accepted",
+        "rejected",
+        "quarantined"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "ingestedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

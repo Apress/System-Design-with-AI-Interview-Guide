@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SideEffectReceipt",
+  "type": "object",
+  "required": [
+    "effectId",
+    "businessTxnId",
+    "eventId",
+    "status",
+    "createdAt"
+  ],
+  "properties": {
+    "effectId": {
+      "type": "string"
+    },
+    "businessTxnId": {
+      "type": "string"
+    },
+    "eventId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "IN_PROGRESS",
+        "COMMITTED",
+        "FAILED",
+        "NO_OP",
+        "UNKNOWN"
+      ]
+    },
+    "externalCallId": {
+      "type": "string"
+    },
+    "outcomeCode": {
+      "type": "string"
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "committedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "replayCardId": {
+      "type": "string"
+    }
+  }
+}

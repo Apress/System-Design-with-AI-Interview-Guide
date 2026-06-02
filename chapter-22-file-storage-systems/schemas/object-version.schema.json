@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ObjectVersion",
+  "type": "object",
+  "required": [
+    "versionId",
+    "objectId",
+    "contentHash",
+    "sizeBytes",
+    "encryptionKeyId",
+    "createdAt"
+  ],
+  "properties": {
+    "versionId": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "contentHash": {
+      "type": "string"
+    },
+    "checksumAlgorithm": {
+      "type": "string"
+    },
+    "sizeBytes": {
+      "type": "integer"
+    },
+    "mimeType": {
+      "type": "string"
+    },
+    "encryptionKeyId": {
+      "type": "string"
+    },
+    "keyLineageId": {
+      "type": "string"
+    },
+    "storageTier": {
+      "type": "string"
+    },
+    "writeReceiptId": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

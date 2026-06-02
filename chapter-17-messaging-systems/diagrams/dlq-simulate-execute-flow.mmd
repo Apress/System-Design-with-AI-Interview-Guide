@@ -1,0 +1,12 @@
+flowchart TB
+    A[DLQ Message] --> B[Simulate Replay]
+    B --> C[Schema Check]
+    C --> D[Policy Check]
+    D --> E[Idempotency Check]
+    E --> F[Preview Receipt]
+    F --> G{Execute Requested?}
+    G -- No --> H[Stop: Simulation Complete]
+    G -- Yes --> I{Approval?}
+    I -- No --> H
+    I -- Yes --> J[Execute Replay]
+    J --> K[Replay Receipt + Card]

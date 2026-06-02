@@ -1,0 +1,16 @@
+policyVersion: search-cache-invalidation-v1
+principle: "Cached answers are visibility claims and must obey source freshness."
+invalidateWhen:
+  - source_version_changes
+  - policy_version_changes
+  - index_version_changes
+  - ranking_policy_changes
+  - citation_source_superseded
+  - acl_or_suppression_changes
+governedContent:
+  allowCachedAnswers: false
+  requireFreshRetrieval: true
+onInvalidationFailure:
+  - bypass_cache
+  - suppress_ai_answers
+  - emit_cache_invalidation_incident_receipt

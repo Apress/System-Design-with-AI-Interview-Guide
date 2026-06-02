@@ -1,0 +1,29 @@
+policyVersion: fraud-pressure-v1
+signals:
+  shillBidding:
+    - seller_bidder_graph_proximity
+    - repeated_price_lifting_without_completion
+  collusion:
+    - recurring_bidder_cluster
+    - coordinated_timing_pattern
+  bidShielding:
+    - high_late_bid_then_retraction
+    - competition_suppression_pattern
+  lastSecondSpoofing:
+    - low_confidence_late_bid_burst
+    - suspicious_device_velocity
+  accountTakeover:
+    - new_device_high_value_bid
+    - impossible_travel
+thresholds:
+  throttle: 0.55
+  stepUpVerification: 0.70
+  quarantineBidder: 0.82
+  freezeCloseOrSettlement: 0.90
+actions:
+  - throttle_bidding
+  - require_step_up
+  - quarantine_bidder
+  - freeze_close
+  - pause_settlement
+  - route_to_review

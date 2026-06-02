@@ -1,0 +1,36 @@
+policyVersion: hvi-policy-v1
+formula: "HVI = Severity x Velocity x (1 + Uncertainty)"
+inputs:
+  severity:
+    scale: 1-5
+    description: "Policy or harm severity class"
+  velocity:
+    description: "Shares per minute per 1000 impressions"
+  uncertainty:
+    description: "Replay gaps, conflicting evidence, low confidence, weak provenance"
+thresholds:
+  throttle:
+    hvi: 8
+    durationMinutes: 5
+  freezeAmplification:
+    hvi: 12
+    durationMinutes: 2
+  hardStop:
+    hvi: 16
+  replayCoverageHardStop:
+    amplificationReplayCoveragePercent: 100
+actions:
+  throttle:
+    - reduce_distribution
+    - clamp_reshare_velocity
+  freezeAmplification:
+    - stop_promotion
+    - route_to_review
+  hardStop:
+    - revoke_amplification_tokens
+    - disable_cross_surface_distribution
+    - require_owner_review
+reEnable:
+  requireEvidenceStabilized: true
+  requireReplayCoverageRestored: true
+  requireOwnerApproval: true

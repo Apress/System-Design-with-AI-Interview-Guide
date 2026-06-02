@@ -1,0 +1,10 @@
+flowchart LR
+    A[Minor Pressure] --> B[Latency Stretch]
+    B --> C[Retries Increase]
+    C --> D[Stale / Partial Evidence]
+    D --> E[Ambiguous Commitment]
+    E --> F[Customer Harm]
+    F --> G[Incident / Dispute]
+
+    B --> H[System Still Up]
+    H --> E

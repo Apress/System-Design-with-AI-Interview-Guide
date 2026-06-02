@@ -1,0 +1,14 @@
+policyVersion: auction-replay-coverage-hard-stop-v1
+requirements:
+  closeReplayCoveragePercent: 100
+  settlementReplayCoveragePercent: 100
+  compensationReplayCoveragePercent: 100
+actions:
+  onCloseReplayCoverageDrop:
+    - freeze_close_commits
+    - pause_settlement
+    - restore_receipt_path
+  onSettlementReplayCoverageDrop:
+    - pause_settlement_effects
+    - require_reconciliation
+    - route_to_owner

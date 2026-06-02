@@ -1,0 +1,15 @@
+flowchart TB
+    A[Modern AI Architecture] --> R[Reliability]
+    A --> O[Observability]
+    A --> C[Cost]
+    A --> S[Sustainability]
+
+    R --> R1[Promises hold under uncertainty]
+    O --> O1[Decisions are replayable]
+    C --> C1[Behavior is budgeted at scale]
+    S --> S1[System remains governable through change]
+
+    R --> O
+    O --> C
+    C --> S
+    S --> R

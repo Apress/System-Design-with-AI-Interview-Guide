@@ -1,0 +1,8 @@
+flowchart LR
+    A[auctionId] --> B[bidId]
+    B --> C[Admissible Bid Set]
+    C --> D[closeCommitId]
+    D --> E[allocationId]
+    D --> F[settlementIntentId]
+    F --> G[settlementEffectId]
+    G --> H[fulfillmentId / compensationId]

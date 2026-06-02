@@ -1,0 +1,48 @@
+flowchart TB
+    U[Customers] --> WEB[Web App]
+    U --> MOB[Mobile App]
+    SELLER[Sellers] --> SP[Seller Portal]
+    SUPPORT[Support Agents] --> SC[Support Console]
+
+    WEB --> EDGE[API Gateway / Edge Layer]
+    MOB --> EDGE
+    SP --> EDGE
+    SC --> EDGE
+
+    EDGE --> AUTH[Identity and Access Service]
+    EDGE --> CATALOG[Catalog Service]
+    EDGE --> SEARCH[Search Service]
+    EDGE --> CART[Cart Service]
+    EDGE --> CHECKOUT[Checkout Service]
+    EDGE --> SUPPORTSVC[Customer Support Service]
+
+    CHECKOUT --> PAYMENT[Payment Service]
+    CHECKOUT --> INVENTORY[Inventory Service]
+    CHECKOUT --> FRAUD[Fraud Risk Service]
+    CHECKOUT --> ORDER[Order Service]
+
+    ORDER --> EVENTBUS[Event Bus / Stream]
+    PAYMENT --> EVENTBUS
+    INVENTORY --> EVENTBUS
+    FRAUD --> EVENTBUS
+
+    EVENTBUS --> FULFILL[Fulfillment Service]
+    EVENTBUS --> NOTIFY[Notification Service]
+    EVENTBUS --> ANALYTICS[Analytics Platform]
+    EVENTBUS --> AI[AI / ML Platform]
+
+    AI --> REC[Recommendation Service]
+    AI --> ASSIST[AI Shopping Assistant]
+    AI --> SUMMARY[Support Summarization]
+
+    CATALOG --> CATALOGDB[(Catalog DB)]
+    CART --> CARTDB[(Cart Store)]
+    ORDER --> ORDERDB[(Order DB)]
+    PAYMENT --> PAYDB[(Payment Ledger)]
+    INVENTORY --> INVDB[(Inventory DB)]
+    SUPPORTSVC --> SUPPORTDB[(Support Case DB)]
+
+    OBS[Observability and Replay] -. traces/logs/events .-> EDGE
+    OBS -. traces/logs/events .-> CHECKOUT
+    OBS -. traces/logs/events .-> EVENTBUS
+    OBS -. prompts/evidence/model outputs .-> AI

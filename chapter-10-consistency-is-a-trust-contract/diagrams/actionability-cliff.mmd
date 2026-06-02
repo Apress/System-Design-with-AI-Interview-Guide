@@ -1,0 +1,9 @@
+flowchart LR
+    A[Informational] --> B[Advisory]
+    B --> C[Actionable]
+    C --> D[Irreversible]
+
+    A --> A1[Stale tolerated]
+    B --> B1[Approximation allowed]
+    C --> C1[Fresh/admissible evidence required]
+    D --> D1[Committed proof required]

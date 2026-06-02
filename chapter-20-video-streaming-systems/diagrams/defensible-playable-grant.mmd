@@ -1,0 +1,9 @@
+flowchart TB
+    A[Press Play] --> B[Entitlement Check]
+    B --> C[Region/Concurrency/Device]
+    C --> D[Manifest Proof]
+    D --> E[DRM Proof]
+    E --> F[Ad Proof if Needed]
+    F --> G{Replay Ready?}
+    G -- Yes --> H[Playable Granted]
+    G -- No --> I[Precise Refusal / Remediation]

@@ -1,0 +1,7 @@
+flowchart TB
+    A[Signal at Decision Boundary] --> B{Inside Soft TTL?}
+    B -- Yes --> C[Proceed and Preserve Timestamp]
+    B -- No --> D{Inside Hard TTL?}
+    D -- Yes --> E[Refresh or Move to Pending for High-Risk Commit]
+    D -- No --> F[Do Not Commit]
+    F --> G[Refresh / Defer / Review / Refuse]

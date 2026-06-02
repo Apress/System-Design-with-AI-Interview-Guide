@@ -1,0 +1,17 @@
+flowchart LR
+    A[Candidate Retrieval] --> B[Embedding Lookup]
+    B --> C[Ranking]
+    C --> D[Safety Classification]
+    D --> E[Fairness Adjustment]
+    E --> F[Visibility Grant]
+    F --> G[Amplification Gate]
+    G --> H[Fanout]
+    H --> I[Feedback Ingestion]
+    I --> J[Requalification]
+
+    C --> C1[Rerank Cap]
+    D --> D1[Safety Recheck Budget]
+    E --> E1[Fairness Pass Cap]
+    G --> G1[Promotion Stage Cap]
+    H --> H1[Fanout Cap]
+    J --> J1[Loop Counter]

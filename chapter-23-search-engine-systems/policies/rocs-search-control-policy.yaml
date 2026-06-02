@@ -1,0 +1,33 @@
+policyVersion: rocs-search-control-v1
+reliability:
+  signals:
+    - stale_result_rate
+    - citation_failure_rate
+    - policy_wrong_retrieval_rate
+    - ranking_drift
+observability:
+  signals:
+    - replay_coverage
+    - missing_receipt_rate
+    - result_set_hash_coverage
+    - query_trace_coverage
+cost:
+  signals:
+    - embedding_rebuild_cost
+    - reranking_cost
+    - fanout_cost
+    - cache_bypass_cost
+    - index_rebuild_cost
+sustainability:
+  signals:
+    - wrong_answer_support_rate
+    - trust_complaint_rate
+    - stale_policy_incidents
+    - reenable_success_rate
+actions:
+  - suppress_ai_answers
+  - show_sources_only
+  - bypass_cache
+  - revert_ranker
+  - narrow_retrieval
+  - rebuild_index

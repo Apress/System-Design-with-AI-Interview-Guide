@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AbrDecisionReceipt",
+  "type": "object",
+  "required": [
+    "abrDecisionReceiptId",
+    "playbackSessionId",
+    "decisionType",
+    "fromRendition",
+    "toRendition",
+    "reasonCode",
+    "policyVersion",
+    "decidedAt"
+  ],
+  "properties": {
+    "abrDecisionReceiptId": {
+      "type": "string"
+    },
+    "playbackSessionId": {
+      "type": "string"
+    },
+    "decisionType": {
+      "type": "string",
+      "enum": [
+        "NORMAL_ABR",
+        "CONSERVATIVE_ABR",
+        "BUFFER_WIDEN",
+        "RENDITION_CLAMP",
+        "RESTORE",
+        "REFUSAL"
+      ]
+    },
+    "fromRendition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "toRendition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bufferDepthSec": {
+      "type": "number"
+    },
+    "throughputKbps": {
+      "type": "number"
+    },
+    "segmentTimeoutRate": {
+      "type": "number"
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "cooldownActive": {
+      "type": "boolean"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "decidedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

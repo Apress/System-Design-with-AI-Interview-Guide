@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SegmentReceipt",
+  "type": "object",
+  "required": [
+    "segmentReceiptId",
+    "playbackSessionId",
+    "segmentId",
+    "cdnName",
+    "fetchStatus",
+    "observedAt"
+  ],
+  "properties": {
+    "segmentReceiptId": {
+      "type": "string"
+    },
+    "playbackSessionId": {
+      "type": "string"
+    },
+    "segmentId": {
+      "type": "string"
+    },
+    "chunkId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "manifestVersionId": {
+      "type": "string"
+    },
+    "cdnName": {
+      "type": "string"
+    },
+    "isp": {
+      "type": "string"
+    },
+    "metro": {
+      "type": "string"
+    },
+    "deviceClass": {
+      "type": "string"
+    },
+    "fetchStatus": {
+      "type": "string",
+      "enum": [
+        "success",
+        "timeout",
+        "http_error",
+        "decode_error",
+        "cancelled"
+      ]
+    },
+    "httpStatus": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "latencyMs": {
+      "type": "number"
+    },
+    "bytes": {
+      "type": "integer"
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

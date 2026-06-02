@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIDerivative",
+  "type": "object",
+  "required": [
+    "derivativeId",
+    "derivativeType",
+    "sourceObjectId",
+    "sourceVersionId",
+    "sourceContentHash",
+    "producerVersion",
+    "policyVersion",
+    "derivativeStatus",
+    "createdAt"
+  ],
+  "properties": {
+    "derivativeId": {
+      "type": "string"
+    },
+    "derivativeType": {
+      "type": "string",
+      "enum": [
+        "OCR_TEXT",
+        "EMBEDDING",
+        "SUMMARY",
+        "THUMBNAIL",
+        "PREVIEW",
+        "SEARCH_INDEX_ENTRY",
+        "TRANSCRIPT"
+      ]
+    },
+    "sourceObjectId": {
+      "type": "string"
+    },
+    "sourceVersionId": {
+      "type": "string"
+    },
+    "sourceContentHash": {
+      "type": "string"
+    },
+    "producerVersion": {
+      "type": "string"
+    },
+    "modelVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "promptVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "derivativeStatus": {
+      "type": "string",
+      "enum": [
+        "current",
+        "stale",
+        "invalidated",
+        "rebuilding",
+        "failed"
+      ]
+    },
+    "invalidationReason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rebuildReceiptId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "invalidatedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}

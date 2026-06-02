@@ -1,0 +1,17 @@
+flowchart LR
+    A[Decision Request] --> B[Authority Check]
+    B --> C[Policy and Guardrail Check]
+    C --> D[Evidence Retrieval]
+    D --> E[Tool Calls]
+    E --> F[Decision Mode]
+    F --> G[Commit or Refuse]
+    G --> H[Customer-Visible Outcome]
+    H --> I[Decision Replay Card]
+
+    I --> I1[Correlation ID]
+    I --> I2[Acting Principal]
+    I --> I3[Policy Version]
+    I --> I4[Evidence]
+    I --> I5[Tool Calls]
+    I --> I6[Commit Token]
+    I --> I7[Reversal Link]

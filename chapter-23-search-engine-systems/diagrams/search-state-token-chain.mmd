@@ -1,0 +1,9 @@
+flowchart LR
+    A[crawlReceiptId] --> B[ingestReceiptId]
+    B --> C[parseReceiptId]
+    C --> D[indexReceiptId]
+    D --> E[rankPolicyId / rankReceiptId]
+    E --> F[filterReceiptId]
+    F --> G[citationReceiptId]
+    G --> H[answerReceiptId]
+    H --> I[queryId + resultSetHash]

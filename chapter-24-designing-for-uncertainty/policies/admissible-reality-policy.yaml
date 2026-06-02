@@ -1,0 +1,10 @@
+policyVersion: admissible-reality-v1
+principle: "A decision is only as valid as the evidence admissible at decision time."
+evidenceStates:
+  fresh: {allowed: true}
+  stale: {allowed: false, action: [mark_stale, refresh_or_defer]}
+  missing: {allowed: false, action: [defer, route_to_review]}
+  conflicting: {allowed: false, action: [reconcile_source_of_truth, escalate_if_high_risk]}
+lateTruth:
+  rule: "Do not silently rewrite history."
+  actions: [preserve_original_decision, attach_late_evidence, reconcile, compensate_if_needed]

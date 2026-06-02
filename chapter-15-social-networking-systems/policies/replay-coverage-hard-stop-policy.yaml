@@ -1,0 +1,15 @@
+policyVersion: replay-coverage-hard-stop-v1
+requirements:
+  amplificationReplayCoveragePercent: 100
+  promotionReplayCoveragePercent: 100
+  sensitiveNotificationReplayCoveragePercent: 100
+actions:
+  onReplayCoverageBelowRequired:
+    - block_new_amplification_tokens
+    - freeze_existing_high_risk_promotions
+    - route_to_oncall_governance_owner
+    - emit_replay_gap_incident_receipt
+reEnable:
+  requireReplayPathRestored: true
+  requireBackfillPlan: true
+  requireOwnerApproval: true

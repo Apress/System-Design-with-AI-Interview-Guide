@@ -1,0 +1,17 @@
+flowchart TD
+    A[Start with Actor] --> B[Identify Actor Goal]
+    B --> C[Map Journey Steps]
+    C --> D[Find Trust Moment]
+    D --> E[Identify Core Entities]
+    E --> F[Group Into Business Capabilities]
+    F --> G[Assign Source-of-Truth Ownership]
+    G --> H[Select Quality Attributes]
+    H --> I[Define AI Opportunity and Boundary]
+    I --> J[Ready for Architecture]
+
+    D --> D1[What must be correct?]
+    D --> D2[What promise must not be false?]
+
+    I --> I1[AI may suggest]
+    I --> I2[AI may decide only within policy]
+    I --> I3[AI may act only with authority and evidence]

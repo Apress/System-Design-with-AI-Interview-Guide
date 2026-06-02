@@ -1,0 +1,15 @@
+policyVersion: fraud-replay-coverage-hard-stop-v1
+requirements:
+  liabilityActionReplayCoveragePercent: 100
+  automatedEnforcementReplayCoveragePercent: 100
+  appealReviewReplayLinkPercent: 100
+actions:
+  onCoverageDrop:
+    - freeze_liability_tokens
+    - route_to_step_up_or_review
+    - restore_receipt_path
+    - alert_replay_owner
+reEnable:
+  requireReceiptPathRestored: true
+  requireAffectedActionsBackfilledOrAnnotated: true
+  requireOwnerApproval: true

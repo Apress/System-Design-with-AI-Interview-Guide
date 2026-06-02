@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PayoutHold",
+  "type": "object",
+  "required": [
+    "payoutHoldId",
+    "enforcementId",
+    "sellerId",
+    "holdAmount",
+    "currency",
+    "holdStatus",
+    "createdAt",
+    "expiresAt",
+    "policyBundleVersion"
+  ],
+  "properties": {
+    "payoutHoldId": {
+      "type": "string"
+    },
+    "enforcementId": {
+      "type": "string"
+    },
+    "sellerId": {
+      "type": "string"
+    },
+    "holdAmount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "holdStatus": {
+      "type": "string",
+      "enum": [
+        "active",
+        "released",
+        "extended",
+        "converted_to_review",
+        "reversed"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "timeBoxed": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+policyVersion: proxy-bidding-v1
+proxyMaxExposure:
+  bidderSelf: visible
+  support: masked_unless_authorized
+  seller: hidden
+  public: hidden
+pricingRule: "Winner pays the minimum legal price needed to beat the next admissible bid, subject to increment and reserve rules."
+tieBreaker:
+  default: earliest_admissible_bid
+replay:
+  preserveProxyMaxEncrypted: true
+  preserveVisiblePriceProgression: true
+  preserveExplanationReasonCodes: true

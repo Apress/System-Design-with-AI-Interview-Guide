@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ParseReceipt",
+  "type": "object",
+  "required": [
+    "parseReceiptId",
+    "sourceId",
+    "sourceVersion",
+    "parserVersion",
+    "parseStatus",
+    "parsedAt"
+  ],
+  "properties": {
+    "parseReceiptId": {
+      "type": "string"
+    },
+    "sourceId": {
+      "type": "string"
+    },
+    "sourceVersion": {
+      "type": "string"
+    },
+    "parserVersion": {
+      "type": "string"
+    },
+    "chunkingPolicyVersion": {
+      "type": "string"
+    },
+    "extractionSummary": {
+      "type": "object"
+    },
+    "parseStatus": {
+      "type": "string",
+      "enum": [
+        "parsed",
+        "partial",
+        "failed",
+        "quarantined"
+      ]
+    },
+    "parsedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

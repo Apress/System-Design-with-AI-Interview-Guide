@@ -1,0 +1,10 @@
+policyVersion: messaging-replay-coverage-hard-stop-v1
+requirements:
+  highRiskSideEffectReplayCoveragePercent: 100
+  dlqExecuteReplayReceiptPercent: 100
+actions:
+  onCoverageDrop:
+    - freeze_high_risk_side_effects
+    - route_to_owner
+    - emit_replay_gap_receipt
+    - require_simulate_only_replay

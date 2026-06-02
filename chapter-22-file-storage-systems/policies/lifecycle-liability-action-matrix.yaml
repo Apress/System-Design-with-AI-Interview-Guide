@@ -1,0 +1,41 @@
+policyVersion: lifecycle-liability-action-matrix-v1
+actions:
+  tierMove:
+    liability: medium
+    requires:
+      - versionId
+      - lifecyclePolicyVersion
+      - integrityProof
+      - lifecycleReceipt
+  archive:
+    liability: medium_high
+    requires:
+      - versionId
+      - archivePolicyVersion
+      - restorePath
+      - archiveReceipt
+  softDelete:
+    liability: high
+    requires:
+      - deleteReceiptId
+      - legalHoldCheck
+      - retentionCheck
+      - recoveryWindow
+  hardDelete:
+    liability: highest
+    requires:
+      - deleteReceiptId
+      - policyPin
+      - legalHoldClear
+      - retentionClear
+      - approval
+      - destructionProof
+      - replayCoverage100
+  keyDestruction:
+    liability: highest
+    requires:
+      - keyLineageProof
+      - legalHoldClear
+      - retentionClear
+      - approval
+      - destructionProof

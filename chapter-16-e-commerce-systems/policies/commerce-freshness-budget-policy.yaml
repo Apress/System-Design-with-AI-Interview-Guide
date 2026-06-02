@@ -1,0 +1,22 @@
+policyVersion: commerce-freshness-budget-v1
+signals:
+  inventorySnapshot:
+    softTtlSeconds: 30
+    hardTtlSeconds: 120
+    hardRule: "Hard-stale inventory cannot justify confirmed order or allocation."
+  fulfillmentState:
+    softTtlSeconds: 5
+    hardTtlSeconds: 20
+    hardRule: "Hard-stale fulfillment state cannot justify modification, cancellation, or release."
+  paymentAuthorization:
+    softTtlSeconds: 10
+    hardTtlSeconds: 60
+    hardRule: "Hard-stale payment state cannot justify confirmation, capture, or refund."
+  policyBundle:
+    softTtlSeconds: 300
+    hardTtlSeconds: 1800
+    hardRule: "Policy may be cached, but exact version must be pinned at decision time."
+actions:
+  insideSoftTtl: "Proceed and preserve evidence timestamp."
+  betweenSoftAndHardTtl: "Refresh before high-risk commitment or move to pending."
+  beyondHardTtl: "Refresh, defer, review, or refuse commitment."

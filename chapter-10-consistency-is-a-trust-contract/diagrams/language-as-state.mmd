@@ -1,0 +1,10 @@
+stateDiagram-v2
+    [*] --> Searching
+    Searching --> Held: temporary hold created
+    Held --> Reserved: internal reservation exists
+    Reserved --> PendingPartnerAck: waiting for partner evidence
+    PendingPartnerAck --> Confirmed: partner/payment/inventory proof received
+    Confirmed --> Ticketed: final authority commits
+    Held --> Expired
+    PendingPartnerAck --> Escalated
+    Reserved --> Canceled

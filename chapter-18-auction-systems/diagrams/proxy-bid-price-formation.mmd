@@ -1,0 +1,10 @@
+flowchart TB
+    A[Admissible Proxy Bids] --> B[Sort by Max Bid]
+    B --> C[Apply Tie Breaker]
+    C --> D[Find Winner Max]
+    C --> E[Find Second Max]
+    D --> F[Apply Increment Table]
+    E --> F
+    F --> G[Check Reserve]
+    G --> H[Clearing Price + Winner]
+    H --> R[Replay Receipt]

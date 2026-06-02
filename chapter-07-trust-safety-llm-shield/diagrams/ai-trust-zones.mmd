@@ -1,0 +1,15 @@
+flowchart TB
+    U[User Input] --> O[Orchestrator]
+    D[Retrieved Documents] --> R[Retriever]
+    M[Memory] --> O
+    R --> C[Context Packet]
+    C --> L[LLM]
+    L --> S[Safety Layer]
+    S --> T[Tools]
+    T --> SYS[Systems of Record]
+    S --> OBS[Observability and Replay]
+
+    U -. untrusted .-> O
+    D -. untrusted until verified .-> R
+    M -. scoped .-> O
+    T -. side effects .-> SYS

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShipmentAcceptance",
+  "type": "object",
+  "required": [
+    "shipmentId",
+    "orderId",
+    "carrierId",
+    "carrierAcceptanceId",
+    "acceptedAt",
+    "shipmentStatus"
+  ],
+  "properties": {
+    "shipmentId": {
+      "type": "string"
+    },
+    "orderId": {
+      "type": "string"
+    },
+    "carrierId": {
+      "type": "string"
+    },
+    "carrierAcceptanceId": {
+      "type": "string"
+    },
+    "acceptedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "shipmentStatus": {
+      "type": "string",
+      "enum": [
+        "label_created",
+        "carrier_accepted",
+        "in_transit",
+        "delivered",
+        "lost",
+        "returned"
+      ]
+    },
+    "trackingNumber": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    }
+  }
+}

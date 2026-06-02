@@ -1,0 +1,22 @@
+policyVersion: fairness-guardrails-v1
+metrics:
+  riderWaitP95Disparity:
+    dimension: geography
+    thresholdRatio: 1.35
+    action: dispatchWeightAdjustment
+  postCommitCancellationDisparity:
+    dimension: riderCohort
+    thresholdRatio: 1.25
+    action: conservativeMatchingReview
+  driverEarningsVariance:
+    dimension: driverSegment
+    thresholdRatio: 1.20
+    action: incentiveAdjustment
+  coverageSlo:
+    dimension: region
+    minCoveragePercent: 95
+    action: supplyNudgingOrSurgeDampening
+proof:
+  requireBeforeAfterMetrics: true
+  requirePolicyVersionInReplay: true
+owner: marketplace-governance-owner

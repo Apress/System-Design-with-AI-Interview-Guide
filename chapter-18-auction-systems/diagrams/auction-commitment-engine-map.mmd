@@ -1,0 +1,11 @@
+flowchart TB
+    A[Auction Created] --> B[Bid Ledger]
+    B --> C[Admissibility Engine]
+    C --> D[Close Engine]
+    D --> E[closeCommitId]
+    E --> F[Allocation]
+    E --> G[Settlement Intent]
+    G --> H[Settlement Effect]
+    H --> I[Fulfillment / Transfer]
+    D --> R[Close Replay Receipt]
+    H --> SR[Settlement Receipt]

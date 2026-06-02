@@ -1,0 +1,56 @@
+policyVersion: fraud-stop-authority-v1
+principle: "Do not stop fraud; freeze the risky enforcement capability."
+
+triggers:
+  appealOverturnSpike:
+    action:
+      - freeze_refund_denial
+      - route_to_step_up_and_case_review
+
+  payoutHoldReversalSpike:
+    action:
+      - shift_payout_risk_to_step_up_only
+      - keep_holds_reversible_and_time_bounded
+
+  replayCoverageDrop:
+    condition: "replay_coverage_below_100_percent_for_liability_actions"
+    action:
+      - freeze_liability_tokens
+      - restore_receipt_path
+
+  policySchemaMismatch:
+    action:
+      - quarantine_policy_or_schema_version
+      - rollback_to_last_known_good
+
+  uncertaintyAndEvidenceConflict:
+    action:
+      - shift_to_step_up_only
+      - do_not_increase_denials
+
+  identityProviderDegraded:
+    action:
+      - cap_step_up_rate
+      - use_fallback_proof_path
+      - avoid_hard_enforcement_for_missing_identity
+
+  manualReviewBacklogExceeded:
+    action:
+      - narrow_autonomy
+      - freeze_high_risk_enforcement_paths
+
+owners:
+  fraudPolicy: fraud-policy-owner
+  enforcement: enforcement-capability-owner
+  appeals: appeals-owner
+  compliance: compliance-risk-owner
+  replay: replay-governance-owner
+
+reEnable:
+  requireReplayCoverageRestored: true
+  requireOverturnRatesWithinBounds: true
+  requireReversalRatesWithinBounds: true
+  requireIdentityDependenciesHealthy: true
+  requirePolicySchemaReconciled: true
+  requireOwnerApproval: true
+  requirePolicyBundleVersionRecorded: true

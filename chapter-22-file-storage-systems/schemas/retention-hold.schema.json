@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RetentionHold",
+  "type": "object",
+  "required": [
+    "retentionHoldId",
+    "objectId",
+    "retentionStatus",
+    "retainUntil",
+    "policyVersion",
+    "appliedAt"
+  ],
+  "properties": {
+    "retentionHoldId": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "versionId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "retentionStatus": {
+      "type": "string",
+      "enum": [
+        "active",
+        "expired",
+        "released",
+        "superseded"
+      ]
+    },
+    "retainUntil": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "appliedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

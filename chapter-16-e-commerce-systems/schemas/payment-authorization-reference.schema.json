@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PaymentAuthorizationReference",
+  "type": "object",
+  "required": [
+    "paymentAuthId",
+    "checkoutIntentId",
+    "paymentProvider",
+    "amount",
+    "currency",
+    "authStatus",
+    "authorizedAt",
+    "policyVersion"
+  ],
+  "properties": {
+    "paymentAuthId": {
+      "type": "string"
+    },
+    "checkoutIntentId": {
+      "type": "string"
+    },
+    "paymentProvider": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "authStatus": {
+      "type": "string",
+      "enum": [
+        "authorized",
+        "pending",
+        "declined",
+        "ambiguous",
+        "reversed",
+        "expired"
+      ]
+    },
+    "authorizedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "providerTraceId": {
+      "type": "string"
+    },
+    "idempotencyKey": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    }
+  }
+}

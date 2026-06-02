@@ -1,0 +1,35 @@
+policyVersion: retrieval-mode-routing-v1
+principle: "Choose retrieval mode by the truth burden."
+modes:
+  LEXICAL:
+    strongestFor:
+      - exact_terms
+      - product_codes
+      - legal_clauses
+      - error_strings
+      - brand_names
+    risks:
+      - brittle_when_wording_differs
+  VECTORLESS:
+    strongestFor:
+      - system_of_record_apis
+      - sql
+      - graph_traversal
+      - metadata_filters
+      - governed_policy_repositories
+    risks:
+      - rigid_if_structure_is_weak
+  VECTOR:
+    strongestFor:
+      - semantic_paraphrase
+      - exploratory_discovery
+      - fuzzy_language
+    risks:
+      - semantically_close_but_operationally_wrong
+  HYBRID:
+    strongestFor:
+      - mixed_queries_with_constraints_and_semantics
+    requires:
+      - structured_filters_first
+      - lexical_or_semantic_recall
+      - policy_bounded_ranking

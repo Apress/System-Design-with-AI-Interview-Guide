@@ -1,0 +1,10 @@
+flowchart LR
+    A[User Action] --> B[Correlation ID]
+    B --> C[Idempotency Key]
+    C --> D[Queue Depth + Latency Signals]
+    D --> E[Evidence Sources]
+    E --> F[Policy Version]
+    F --> G[Tool Calls]
+    G --> H[User-Visible State Timeline]
+    H --> I[Final Outcome]
+    I --> J[Replay Card]

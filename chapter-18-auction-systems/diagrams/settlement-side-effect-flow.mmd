@@ -1,0 +1,10 @@
+flowchart TB
+    A[closeCommitId] --> B[allocationId]
+    A --> C[settlementIntentId]
+    C --> D[Compute settlementEffectId]
+    D --> E[Idempotency Check]
+    E --> F{Already Committed?}
+    F -- Yes --> G[NO_OP Receipt]
+    F -- No --> H[Execute Payment/Escrow]
+    H --> I[Committed / Failed / Unknown]
+    I --> R[Settlement Replay Receipt]

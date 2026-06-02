@@ -1,0 +1,6 @@
+flowchart LR
+    A[Sense: Lag / Fraud / Replay Gap / Mismatch] --> B[Decide with Pinned Policy]
+    B --> C[Act: Extend / Freeze / Pause / Review]
+    C --> D[Prove: Replay Receipt]
+    D --> E[Stabilize: Trust / Cost / Settlement]
+    E --> A

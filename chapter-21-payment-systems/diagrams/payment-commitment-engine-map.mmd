@@ -1,0 +1,12 @@
+flowchart TB
+A[Order Created]-->B[paymentIntentId]
+B-->C[authId]
+C-->D[effectId]
+D-->E[IN_PROGRESS]
+E-->F[Provider Side Effect]
+F-->G{Known Outcome?}
+G--Yes-->H[Liability Token + Ledger]
+G--No-->I[PENDING_RECONCILE]
+I-->J[Provider/Webhook/Settlement]
+J-->H
+H-->K[Replay Card]

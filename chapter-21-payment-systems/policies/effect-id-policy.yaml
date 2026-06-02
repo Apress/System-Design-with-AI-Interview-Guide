@@ -1,0 +1,8 @@
+policyVersion: effect-id-policy-v1
+principle: effectId names the side effect, not the message.
+rules:
+  - same_business_action_must_generate_same_effect_id
+  - replayed_message_must_not_generate_new_effect_id
+  - effect_id_must_be_checked_before_external_side_effect
+  - in_progress_must_be_written_before_execution
+  - committed_must_store_provider_reference_ledger_state_and_replay_card

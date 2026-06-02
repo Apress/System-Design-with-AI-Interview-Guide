@@ -1,0 +1,34 @@
+policyVersion: low-latency-mode-v1
+principle: "Low latency is a clock contract, not a tuning aspiration."
+
+requiredEvidence:
+  - event_time_available
+  - ingest_time_available
+  - segment_time_stable
+  - playback_time_measured
+  - policy_time_pinned
+  - partial_segment_stability
+  - publish_cadence_within_budget
+  - cdn_compatibility
+  - player_support
+  - buffer_depth_within_policy
+  - replay_receipt_ready
+
+budgets:
+  maxGlassToGlassLatencySeconds: 5
+  maxManifestStalenessSeconds: 2
+  maxPartialSegmentFailureRatePercent: 1
+  maxModeSwitchesPerSession: 2
+
+fallbackToStandardLatencyWhen:
+  - partial_segments_unstable
+  - cdn_path_not_admissible
+  - player_buffer_underrun_rate_high
+  - manifest_staleness_exceeds_budget
+  - encoder_cadence_drift
+  - replay_coverage_missing
+
+antiOscillation:
+  cooldownSeconds: 300
+  requireStableWindowSeconds: 600
+  useHysteresis: true

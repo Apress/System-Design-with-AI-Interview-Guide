@@ -1,0 +1,6 @@
+policyVersion: freshness-clock-v1
+principle: "Different clocks govern different claims."
+clocks: [eventTime, ingestTime, decisionTime, labelTime, restoreTime, answerTime]
+onClockDisagreement:
+  lowRisk: [mark_uncertain, conservative_mode]
+  highRisk: [defer, freeze_liability_action, human_review]

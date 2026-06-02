@@ -1,0 +1,7 @@
+flowchart TB
+    A[Source Receipt] --> B[Track + Timestamp Validation]
+    B --> C[Encode Renditions]
+    C --> D[Package Segments]
+    D --> E[Manifest Version]
+    E --> F[CDN Cache Rules]
+    F --> G[Player Time Map]

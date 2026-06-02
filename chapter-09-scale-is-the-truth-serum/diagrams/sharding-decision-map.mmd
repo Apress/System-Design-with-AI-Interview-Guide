@@ -1,0 +1,20 @@
+flowchart TB
+    A[Choose Shard Key] --> B{Primary Access Pattern?}
+
+    B --> C[User / Session]
+    B --> D[Order]
+    B --> E[Product / SKU]
+    B --> F[Region / Warehouse]
+    B --> G[Tenant]
+    B --> H[Time Range]
+
+    C --> I[Keep user cart local]
+    D --> J[Trace order lifecycle]
+    E --> K[Handle catalog/inventory access]
+    F --> L[Improve locality/data residency]
+    G --> M[Enterprise isolation]
+    H --> N[Time-series/range scans]
+
+    A --> O[Check Hot Key Risk]
+    A --> P[Check Cross-Shard Workflows]
+    A --> Q[Check Rebalancing Plan]

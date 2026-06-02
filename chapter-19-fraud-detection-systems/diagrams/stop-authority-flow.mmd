@@ -1,0 +1,12 @@
+flowchart TB
+    A[Monitor Signals] --> B{Trigger?}
+    B -- Appeal Spike --> C[Freeze Refund Denial]
+    B -- Replay Gap --> D[Freeze Liability Tokens]
+    B -- Provider Degraded --> E[Fallback Proof + Avoid Hard Enforcement]
+    B -- Policy Mismatch --> F[Quarantine / Rollback]
+    B -- Review Backlog --> G[Narrow Autonomy]
+    C --> H[Receipt + Owner Review]
+    D --> H
+    E --> H
+    F --> H
+    G --> H

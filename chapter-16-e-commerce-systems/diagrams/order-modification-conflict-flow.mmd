@@ -1,0 +1,12 @@
+flowchart TB
+    A[Address Change Request] --> B[Check Fulfillment State]
+    B --> C{Fresh?}
+    C -- No --> D[Refresh]
+    C -- Yes --> E{Conflict? CRM vs Warehouse}
+    E -- No --> F{Cutoff Crossed?}
+    E -- Yes --> G[Do Not Commit: Escalate/Refuse]
+    F -- No --> H[Commit Modification with Ack]
+    F -- Yes --> I[Hard Stop / Communicate]
+    H --> R[Replay Card]
+    G --> R
+    I --> R

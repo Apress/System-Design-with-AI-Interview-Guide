@@ -1,0 +1,9 @@
+stateDiagram-v2
+[*]-->LedgerCommitted
+LedgerCommitted-->Confirmed
+LedgerCommitted-->Mismatch
+Mismatch-->Corrected
+Mismatch-->Compensated
+Mismatch-->ManualReview
+Confirmed-->Disputed
+Disputed-->ResponseSubmitted

@@ -1,0 +1,8 @@
+policyVersion: commitment-boundary-v1
+principle: "Do not cross a commitment boundary without evidence, authority, policy, budget, and receipt."
+rules:
+  - name_attempt_state_before_committed_state
+  - require_policy_version_for_commitment
+  - require_evidence_snapshot_for_commitment
+  - require_receipt_at_commitment_time
+  - define_reversibility_and_compensation_path

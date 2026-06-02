@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ROCSControlLoop",
+  "type": "object",
+  "required": [
+    "loopId",
+    "domain",
+    "signals",
+    "actions",
+    "feedback"
+  ],
+  "properties": {
+    "loopId": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "signals": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "feedback": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    }
+  }
+}

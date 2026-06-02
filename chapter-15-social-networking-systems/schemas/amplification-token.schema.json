@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AmplificationToken",
+  "type": "object",
+  "required": [
+    "amplificationToken",
+    "contentId",
+    "surface",
+    "policyVersion",
+    "evidenceGateResult",
+    "budgetState",
+    "createdAt",
+    "tokenStatus"
+  ],
+  "properties": {
+    "amplificationToken": {
+      "type": "string"
+    },
+    "contentId": {
+      "type": "string"
+    },
+    "surface": {
+      "type": "string",
+      "enum": [
+        "for_you",
+        "home",
+        "trending",
+        "search",
+        "topic"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "recommendationMode": {
+      "type": "string",
+      "enum": [
+        "profiling",
+        "non_profiling"
+      ]
+    },
+    "evidenceGateResult": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "defer",
+        "freeze",
+        "review",
+        "fail"
+      ]
+    },
+    "budgetState": {
+      "type": "object",
+      "properties": {
+        "promotionStage": {
+          "type": "integer"
+        },
+        "rerankAttempts": {
+          "type": "integer"
+        },
+        "notificationFanoutRemaining": {
+          "type": "integer"
+        },
+        "computeBudgetRemainingMs": {
+          "type": "integer"
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tokenStatus": {
+      "type": "string",
+      "enum": [
+        "active",
+        "throttled",
+        "frozen",
+        "revoked",
+        "expired"
+      ]
+    }
+  }
+}

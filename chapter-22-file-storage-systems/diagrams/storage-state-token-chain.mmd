@@ -1,0 +1,9 @@
+flowchart LR
+    A[objectId] --> B[pathId]
+    A --> C[versionId]
+    C --> D[writeReceiptId]
+    D --> E[indexReceiptId]
+    D --> F[legalHoldId / retentionHoldId]
+    F --> G[deleteReceiptId]
+    C --> H[restoreReceiptId]
+    C --> I[aiDerivativeReceipt]

@@ -1,0 +1,7 @@
+flowchart TB
+A[Monitor Signals]-->B{Trigger?}
+B--Replay Gap-->C[Freeze Action]
+B--Duplicate Spike-->D[Audit effectId]
+B--Timeout Straddle-->E[Park + Reduce Concurrency]
+B--Recon Mismatch-->F[Freeze Path]
+C-->G[Owner Review + Receipt]

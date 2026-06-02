@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Allocation",
+  "type": "object",
+  "required": [
+    "allocationId",
+    "auctionId",
+    "closeCommitId",
+    "winnerBidderId",
+    "allocationStatus",
+    "allocatedAt"
+  ],
+  "properties": {
+    "allocationId": {
+      "type": "string"
+    },
+    "auctionId": {
+      "type": "string"
+    },
+    "closeCommitId": {
+      "type": "string"
+    },
+    "winnerBidderId": {
+      "type": "string"
+    },
+    "assetId": {
+      "type": "string"
+    },
+    "allocationStatus": {
+      "type": "string",
+      "enum": [
+        "reserved",
+        "failed",
+        "released",
+        "transferred",
+        "cancelled"
+      ]
+    },
+    "allocatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "failureReasonCode": {
+      "type": "string"
+    }
+  }
+}

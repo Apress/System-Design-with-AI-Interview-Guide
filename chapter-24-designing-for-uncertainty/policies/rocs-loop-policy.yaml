@@ -1,0 +1,6 @@
+policyVersion: rocs-loop-v1
+principle: "ROCS is a control loop, not a dashboard."
+reliability: {asks: "Is behavior still correct enough?", actions: [defer, pending_state, idempotency, reconcile, freeze]}
+observability: {asks: "Can we prove it?", actions: [emit_receipt, capture_evidence_snapshot, pin_policy_version, create_replay_card]}
+cost: {asks: "Is work bounded?", actions: [clamp_retries, cap_fanout, tier_down]}
+sustainability: {asks: "Can trust survive?", actions: [honest_degradation, route_to_review, compensate, update_policy_version]}

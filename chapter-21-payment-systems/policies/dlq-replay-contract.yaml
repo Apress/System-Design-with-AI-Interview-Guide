@@ -1,0 +1,6 @@
+policyVersion: dlq-replay-contract-v1
+principle: DLQ is a quarantine lane, not a hidden retry system.
+modes:
+  simulate: {externalSideEffectsAllowed: false, required: true}
+  execute: {externalSideEffectsAllowed: true, requiresApproval: true}
+outcomes: [NO_OP_ALREADY_COMMITTED, PARKED_PENDING_RECONCILE, EXECUTED_COMMITTED, REJECTED_POLICY_MISMATCH, COMPENSATED, HUMAN_REVIEW_REQUIRED]

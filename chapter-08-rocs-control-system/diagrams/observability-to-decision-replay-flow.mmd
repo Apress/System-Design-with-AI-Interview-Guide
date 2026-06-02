@@ -1,0 +1,11 @@
+flowchart LR
+    A[Prompt Trace] --> R[Decision Replay Card]
+    B[Vector Query Telemetry] --> R
+    C[GPU Queue Telemetry] --> R
+    D[Tool Call Trace] --> R
+    E[Agent Span Correlation] --> R
+    F[Policy Version] --> R
+    G[Evidence Snapshot] --> R
+    H[Human Approval] --> R
+
+    R --> I[Why did the system allow this?]

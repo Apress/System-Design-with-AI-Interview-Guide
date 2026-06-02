@@ -1,0 +1,25 @@
+policyVersion: entitlement-policy-v1
+requiredForPlayable:
+  - account_entitlement
+  - region_rights
+  - subscription_tier
+  - license_window
+  - device_policy
+  - parental_control_check
+  - concurrency_check
+  - manifest_eligibility
+  - drm_license_if_protected
+refusalReasonCodes:
+  - ENTITLEMENT_MISSING
+  - REGION_NOT_ALLOWED
+  - CONCURRENCY_LIMIT_EXCEEDED
+  - DEVICE_NOT_SUPPORTED
+  - PARENTAL_CONTROL_RESTRICTED
+  - LICENSE_WINDOW_CLOSED
+  - DRM_LICENSE_UNAVAILABLE
+remediation:
+  - entitlement_refresh
+  - re_authentication
+  - device_verification
+  - rights_safe_fallback
+  - precise_refusal

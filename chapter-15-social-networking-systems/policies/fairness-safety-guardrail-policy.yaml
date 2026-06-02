@@ -1,0 +1,27 @@
+policyVersion: fairness-safety-guardrails-v1
+metrics:
+  exposureDisparity:
+    dimensions:
+      - creator_cohort
+      - region
+      - language
+    action: review_or_reweight
+  enforcementDisparity:
+    dimensions:
+      - creator_cohort
+      - region
+    action: moderation_policy_review
+  appealReversalRate:
+    threshold: elevated
+    action: tighten_evidence_gate
+  harmLatency:
+    thresholdMinutes: 5
+    action: freeze_or_throttle
+  serviceQualityDisparity:
+    dimensions:
+      - region
+      - device_class
+    action: degrade_gracefully
+proof:
+  requireBeforeAfterMetrics: true
+  requireReplayLinks: true

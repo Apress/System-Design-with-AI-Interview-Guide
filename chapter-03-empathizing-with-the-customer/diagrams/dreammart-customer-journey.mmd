@@ -1,0 +1,15 @@
+flowchart LR
+    A[Search Product] --> B[Compare Options]
+    B --> C[Check Availability]
+    C --> D[Add to Cart]
+    D --> E[Apply Coupon]
+    E --> F[Confirm Delivery Promise]
+    F --> G[Authorize Payment]
+    G --> H[Reserve Inventory]
+    H --> I[Confirm Order]
+    I --> J[Track Delivery]
+
+    C -. trust risk .-> C1[Inventory Accuracy]
+    F -. trust risk .-> F1[Delivery Promise]
+    G -. trust risk .-> G1[Payment Authorization]
+    I -. trust risk .-> I1[Order Commitment]

@@ -1,0 +1,27 @@
+policyVersion: profiling-mode-v1
+mode: profiling
+allowedSignalClasses:
+  - explicit_follows
+  - explicit_topics
+  - mutes_blocks
+  - recency
+  - language
+  - approved_behavioral_engagement
+  - approved_similarity_features
+  - approved_interaction_graph_features
+requiredControls:
+  - consent_check
+  - retention_limit_check
+  - feature_admissibility_check
+  - replay_signal_classes
+  - regional_policy_check
+replayFields:
+  - recommendationMode
+  - policyVersion
+  - featureBundleVersion
+  - allowedSignalClassesUsed
+  - modelVersion
+  - surface
+failureBehavior:
+  onConsentMissing: non_profiling_fallback
+  onReplayMissing: block_amplification

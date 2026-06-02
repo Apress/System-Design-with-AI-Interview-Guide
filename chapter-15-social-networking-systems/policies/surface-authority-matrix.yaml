@@ -1,0 +1,40 @@
+policyVersion: surface-authority-v1
+surfaces:
+  following:
+    allowedToken: exposure_token
+    replayRequired: false
+    replayRequiredWhen:
+      - eligibility_filter_applied
+      - suppression_applied
+    defaultStopPosture: local_filter_or_user_downgrade
+  forYouHome:
+    allowedToken: amplification_token
+    replayRequired: true
+    evidenceRequired:
+      - tier1_authority
+      - tier2_model_replay
+      - mode_boundary
+      - policy_version
+    defaultStopPosture: throttle_freeze_review
+  trendingTop:
+    allowedToken: promotion_token
+    replayRequired: true
+    evidenceRequired:
+      - tier1_authority
+      - provenance_confidence
+      - coordination_check
+      - hvi_check
+      - replay_coverage
+    defaultStopPosture: freeze_first_ask_later
+  searchTopic:
+    allowedToken: answer_or_intent_token
+    replayRequiredWhen:
+      - visibility_order_changed
+      - suppression_applied
+    defaultStopPosture: corrective_order_or_discovery_off
+  notifications:
+    allowedToken: notify_token
+    replayRequiredWhen:
+      - sensitive_trigger
+      - broad_fanout
+    defaultStopPosture: hard_caps_or_quiet_mode

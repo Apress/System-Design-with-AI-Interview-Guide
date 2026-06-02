@@ -1,0 +1,8 @@
+flowchart TB
+A[DLQ Message]-->B[Simulate Mode]
+B-->C{Outcome}
+C--Already Committed-->D[NO_OP]
+C--Ambiguous-->E[PARK]
+C--Safe-->F{Approval?}
+F--Yes-->G[Execute]
+G-->R[Replay Audit]

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DrmLicense",
+  "type": "object",
+  "required": [
+    "drmLicenseId",
+    "playbackSessionId",
+    "viewerId",
+    "assetId",
+    "drmProvider",
+    "licenseStatus",
+    "issuedAt"
+  ],
+  "properties": {
+    "drmLicenseId": {
+      "type": "string"
+    },
+    "playbackSessionId": {
+      "type": "string"
+    },
+    "viewerId": {
+      "type": "string"
+    },
+    "assetId": {
+      "type": "string"
+    },
+    "drmProvider": {
+      "type": "string"
+    },
+    "licenseStatus": {
+      "type": "string",
+      "enum": [
+        "issued",
+        "refused",
+        "failed",
+        "expired",
+        "revoked"
+      ]
+    },
+    "reasonCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "providerTraceId": {
+      "type": "string"
+    },
+    "issuedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+policyVersion: index-freshness-budget-v1
+normalCatchupSeconds: 30
+maxAllowedLagSeconds: 180
+onLagExceeded:
+  - label_stored_not_discoverable
+  - enter_truth_first_mode
+  - prioritize_index_rebuild
+  - prevent_lifecycle_decisions_from_stale_index
+  - alert_index_owner
+truthFirstMode:
+  sourceMetadataIsAuthority: true
+  searchCannotAuthorizeDelete: true
+  derivedViewsMarkedStale: true

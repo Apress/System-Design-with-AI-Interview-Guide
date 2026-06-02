@@ -1,0 +1,17 @@
+policyVersion: step-up-provider-degradation-v1
+providerHealthSignals:
+  - success_rate
+  - timeout_rate
+  - challenge_latency
+  - false_fail_rate
+  - provider_error_rate
+actions:
+  onDegraded:
+    - cap_step_up_rate
+    - use_fallback_proof_path
+    - avoid_hard_enforcement_for_missing_identity
+    - route_high_value_cases_to_review
+  onUnavailable:
+    - freeze_hard_enforcement_for_identity_missing_cases
+    - allow_monitor_or_soft_hold_by_risk
+    - notify_owner

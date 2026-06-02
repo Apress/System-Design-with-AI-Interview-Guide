@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ResultSetHash",
+  "type": "object",
+  "required": [
+    "resultSetHash",
+    "queryId",
+    "orderedResultIds",
+    "hashAlgorithm",
+    "createdAt"
+  ],
+  "properties": {
+    "resultSetHash": {
+      "type": "string"
+    },
+    "queryId": {
+      "type": "string"
+    },
+    "orderedResultIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rankReceiptId": {
+      "type": "string"
+    },
+    "filterReceiptId": {
+      "type": "string"
+    },
+    "hashAlgorithm": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+flowchart LR
+    A[Sense: HVI / Replay Gaps / Fairness Drift] --> B[Decide: Pinned Policy]
+    B --> C[Act: Throttle / Freeze / Review / Limit]
+    C --> D[Prove: Receipts + Replay]
+    D --> E[Stabilize: Reach / Harm / Fairness / Cost]
+    E --> A

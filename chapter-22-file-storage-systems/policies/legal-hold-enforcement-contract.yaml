@@ -1,0 +1,23 @@
+policyVersion: legal-hold-enforcement-v1
+principle: "Legal hold outranks lifecycle and deletion pressure."
+requiredChecks:
+  - objectId
+  - versionScope
+  - legalHoldStatus
+  - retentionStatus
+  - policyVersion
+  - checkedAt
+actions:
+  holdActive:
+    - refuse_delete
+    - emit_refusal_receipt
+  holdUnknown:
+    - defer_delete
+    - escalate_to_legal_owner
+  holdReleased:
+    - allow_lifecycle_only_if_retention_clear_and_policy_pinned
+propagation:
+  maxHoldPropagationSeconds: 60
+  onPropagationLag:
+    - freeze_hard_delete
+    - freeze_key_destruction

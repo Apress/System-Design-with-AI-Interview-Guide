@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RiskDecision",
+  "type": "object",
+  "required": [
+    "riskDecisionId",
+    "chainId",
+    "capability",
+    "subjectId",
+    "decisionTime",
+    "policyBundleVersion",
+    "modelVersion",
+    "riskScore",
+    "uncertainty",
+    "outcome",
+    "reasonCodes"
+  ],
+  "properties": {
+    "riskDecisionId": {
+      "type": "string"
+    },
+    "chainId": {
+      "type": "string"
+    },
+    "capability": {
+      "type": "string",
+      "enum": [
+        "fraud.refund.evaluate",
+        "fraud.payout.evaluate",
+        "fraud.account.evaluate",
+        "fraud.transaction.evaluate"
+      ]
+    },
+    "subjectId": {
+      "type": "string"
+    },
+    "decisionTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "modelVersion": {
+      "type": "string"
+    },
+    "riskScore": {
+      "type": "number"
+    },
+    "uncertainty": {
+      "type": "number"
+    },
+    "evidenceSnapshotId": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "ALLOW_MONITOR",
+        "STEP_UP",
+        "SOFT_HOLD",
+        "REVIEW",
+        "ENFORCEMENT_CANDIDATE"
+      ]
+    },
+    "reasonCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "advisoryOnly": {
+      "type": "boolean",
+      "const": true
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AmplificationReplayCard",
+  "type": "object",
+  "required": [
+    "correlationId",
+    "contentId",
+    "decisionType",
+    "surface",
+    "policyVersion",
+    "decisionTime",
+    "evidence",
+    "outcome"
+  ],
+  "properties": {
+    "correlationId": {
+      "type": "string"
+    },
+    "contentId": {
+      "type": "string"
+    },
+    "creatorId": {
+      "type": "string"
+    },
+    "decisionType": {
+      "type": "string",
+      "enum": [
+        "grant_visibility",
+        "mint_amplification",
+        "freeze_amplification",
+        "throttle",
+        "suppress",
+        "restore",
+        "notify",
+        "moderate",
+        "appeal_decision"
+      ]
+    },
+    "surface": {
+      "type": "string"
+    },
+    "recommendationMode": {
+      "type": "string",
+      "enum": [
+        "profiling",
+        "non_profiling",
+        "not_applicable"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "modelVersion": {
+      "type": "string"
+    },
+    "featureBundleVersion": {
+      "type": "string"
+    },
+    "decisionTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "gateResults": {
+      "type": "object"
+    },
+    "budgetState": {
+      "type": "object"
+    },
+    "hvi": {
+      "type": "object"
+    },
+    "reasonCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "reversalLink": {
+      "type": "string"
+    }
+  }
+}

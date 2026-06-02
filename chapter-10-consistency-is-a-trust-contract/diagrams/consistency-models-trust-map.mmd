@@ -1,0 +1,12 @@
+flowchart TB
+    A[Journey Moment] --> B{User Can Act?}
+
+    B -- No --> C[Eventual Consistency Often OK]
+    B -- Yes --> D{Action Reversible?}
+
+    D -- Yes --> E[Read-Your-Writes / Causal / Strong as Needed]
+    D -- No --> F[Strong / Linearizable / Defensible Commit Protocol]
+
+    C --> G[Discovery, Feeds, Recommendations]
+    E --> H[Cart, Profile, Workflow Updates]
+    F --> I[Payment, Inventory Reservation, Booking, Clinical Action]

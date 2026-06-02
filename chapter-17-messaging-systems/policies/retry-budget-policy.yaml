@@ -1,0 +1,21 @@
+policyVersion: retry-budget-v1
+defaults:
+  maxAttempts: 3
+  maxElapsedSeconds: 300
+  retryBackoff: exponential_with_jitter
+conditions:
+  automaticRetryAllowedWhen:
+    - failure_is_transient
+    - side_effect_is_idempotent
+    - retry_budget_remaining
+    - evidence_still_admissible
+    - schema_policy_versions_compatible
+    - external_state_not_ambiguous
+  routeToDlqWhen:
+    - retry_count_exhausted
+    - retry_time_budget_exhausted
+    - schema_mismatch
+    - poison_message_detected
+    - non_idempotent_side_effect
+    - external_state_ambiguous
+    - policy_or_evidence_no_longer_valid

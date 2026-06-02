@@ -1,0 +1,5 @@
+policyVersion: rocs-payment-control-v1
+reliability: [duplicate_attempt_rate, pending_reconcile_age, idempotency_store_health, processor_timeout_rate]
+observability: [replay_coverage, missing_provider_reference_rate, missing_ledger_state_rate]
+cost: [duplicate_charge_cost, chargeback_cost, support_ticket_rate, dlq_backlog]
+sustainability: [customer_trust_complaints, merchant_payout_hold_reversal_rate, refund_denial_appeal_rate]

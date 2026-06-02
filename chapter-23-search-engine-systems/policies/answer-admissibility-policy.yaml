@@ -1,0 +1,26 @@
+policyVersion: answer-admissibility-v1
+principle: "Answer generation is higher liability than retrieval."
+required:
+  - queryTrace
+  - retrievalTrace
+  - filterReceiptId
+  - citationReceiptId
+  - citationCoverageAboveThreshold
+  - currentSourceVersionForGovernedDomains
+  - modelVersion
+  - promptVersion
+  - policyVersion
+  - answerReceiptId
+thresholds:
+  minCitationCoveragePercent: 90
+  maxFreshnessAgeSecondsGovernedPolicy: 60
+degradeWhen:
+  - insufficient_citation_coverage
+  - stale_source
+  - policy_mismatch
+  - retrieval_uncertain
+  - answer_confidence_low
+degradedModes:
+  - sources_only
+  - human_review
+  - refusal

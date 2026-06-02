@@ -1,0 +1,13 @@
+flowchart TB
+    A[Refund Request] --> B[Pin Policy]
+    B --> C[Check Delivery/Return Evidence]
+    C --> D[Check Payment State]
+    D --> E[Check Fraud/Risk]
+    E --> F{High Risk or High Value?}
+    F -- Yes --> G[Requires Review]
+    F -- No --> H{Evidence Complete?}
+    H -- Yes --> I[Approve + refundDecisionId]
+    H -- No --> J[Defer or Refuse]
+    G --> R[Replay Card]
+    I --> R
+    J --> R

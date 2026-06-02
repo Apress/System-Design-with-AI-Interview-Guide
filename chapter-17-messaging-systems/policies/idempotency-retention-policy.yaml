@@ -1,0 +1,25 @@
+policyVersion: idempotency-retention-v1
+retention:
+  moneyMovement:
+    minDays: 365
+    reason: "Dispute, audit, and reconciliation window."
+  entitlements:
+    minDays: 180
+    reason: "Customer-visible access and support proof."
+  complianceNotifications:
+    minDays: 2555
+    reason: "Long-term regulatory proof."
+  reversibleNotifications:
+    minDays: 30
+    reason: "Shorter operational dedupe window acceptable."
+  rebuildableProjections:
+    minDays: 7
+    reason: "Can be regenerated from source-of-truth stream."
+storage:
+  durableRequiredFor:
+    - moneyMovement
+    - entitlements
+    - complianceNotifications
+  cacheAllowedFor:
+    - rebuildableProjections
+    - lowRiskNotifications

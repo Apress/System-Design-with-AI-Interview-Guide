@@ -1,0 +1,8 @@
+flowchart LR
+A[Attempt]-->B{Evidence admissible?}
+B--No-->C[Defer / Review / Refuse]
+B--Yes-->D{Budget available?}
+D--No-->E[Degrade + Budget Receipt]
+D--Yes-->F[Commit]
+F-->G[Emit Receipt]
+G-->H[Replay Later]

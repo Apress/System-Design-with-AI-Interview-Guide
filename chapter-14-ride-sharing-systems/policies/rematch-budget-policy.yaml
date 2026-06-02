@@ -1,0 +1,19 @@
+policyVersion: rematch-budget-v1
+budgets:
+  maxHoldAttemptsPerRideRequest: 3
+  maxRedispatchAttemptsPostCommit: 1
+  maxCandidateRefetches: 2
+  maxEtaRecomputations: 3
+  maxPricingRecomputations: 2
+  maxComputeMsPerRequest: 1500
+stopAuthority:
+  owner: marketplace-operations-owner
+  triggers:
+    - rematchRateAboveThreshold
+    - replayCoverageBelowThreshold
+    - gpsHardStaleRateAboveThreshold
+    - postCommitCancellationSpike
+fallbacks:
+  - conservativeMode
+  - assistedHandling
+  - refuseCommit

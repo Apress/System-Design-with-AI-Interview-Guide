@@ -1,0 +1,8 @@
+flowchart TB
+    A[Candidate Set] --> B[Hard Constraints]
+    B --> C[Policy / Safety / ACL]
+    C --> D[Authority + Freshness]
+    D --> E[Soft Relevance Signals]
+    E --> F[Business / Personalization]
+    F --> G[Final Ranking]
+    G --> H[ResultSetHash]

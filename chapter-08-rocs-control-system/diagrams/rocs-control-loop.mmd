@@ -1,0 +1,12 @@
+flowchart LR
+    A[Sense] --> B[Interpret]
+    B --> C[Decide]
+    C --> D[Act]
+    D --> E[Prove]
+    E --> A
+
+    A --> A1[Signals: escalations, retries, cost, drift]
+    B --> B1[Which promise is breaking?]
+    C --> C1[Who has authority?]
+    D --> D1[Smallest safe intervention]
+    E --> E1[Replay, tests, telemetry, evidence]

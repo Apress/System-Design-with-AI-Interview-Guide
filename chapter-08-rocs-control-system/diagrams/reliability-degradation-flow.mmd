@@ -1,0 +1,13 @@
+flowchart TB
+    A[Commitment Request] --> B{Required Proof Available?}
+    B -- Yes --> C[Commit]
+    B -- No --> D{Can proof arrive soon?}
+    D -- Yes --> E[Pending State]
+    D -- No --> F{Risk Acceptable?}
+    F -- Yes --> G[Degraded Safe Default]
+    F -- No --> H[Refuse or Escalate]
+
+    C --> I[Replay Record]
+    E --> I
+    G --> I
+    H --> I

@@ -1,0 +1,12 @@
+flowchart TB
+    A[Capability Request] --> B[Measure Cost Path]
+    B --> C{Within Budget?}
+    C -- Yes --> D[Continue Normal Path]
+    C -- No --> E{Risk Level?}
+    E -- Low --> F[Tier Down / Cache / Compress]
+    E -- Medium --> G[Defer / Slow Lane / Escalate]
+    E -- High --> H[Stop / Pause Automation]
+    F --> I[Record Evidence]
+    G --> I
+    H --> I
+    D --> I

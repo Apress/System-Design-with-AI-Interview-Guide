@@ -1,0 +1,8 @@
+flowchart LR
+    A[Production Logs and Replay] --> B[Analyze Findings]
+    B --> C[Red-Team Tests]
+    C --> D[Blue-Team Mitigations]
+    D --> E[Update Policies and Guardrails]
+    E --> F[Add Regression Tests]
+    F --> G[Canary and Deploy]
+    G --> A

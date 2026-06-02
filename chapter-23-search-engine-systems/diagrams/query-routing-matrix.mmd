@@ -1,0 +1,12 @@
+flowchart TB
+    A[User Query] --> B[Intent Detection]
+    B --> C[Entity + Constraint Extraction]
+    C --> D{Truth Source}
+    D -- Order status --> E[Order API]
+    D -- Policy --> F[Policy Repository]
+    D -- Product discovery --> G[Catalog + Inventory + Shipping]
+    D -- Support docs --> H[Knowledge Index]
+    E --> I[Response Mode]
+    F --> I
+    G --> I
+    H --> I

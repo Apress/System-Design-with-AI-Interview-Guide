@@ -1,0 +1,27 @@
+policyVersion: ai-derivative-lineage-v1
+principle: "AI derivatives must never impersonate canonical truth."
+canonicalTruth:
+  - original_source_version
+  - source_of_record_metadata
+  - policy_controlled_source
+  - authoritative_structured_record
+derivatives:
+  extractedText:
+    requires: [sourceVersion, parserVersion, extractionPolicy]
+  chunk:
+    requires: [sourceVersion, chunkingPolicy, chunkBoundaries]
+  embedding:
+    requires: [sourceVersion, chunkId, embeddingModelVersion]
+  summary:
+    requires: [sourceVersion, modelVersion, promptVersion]
+  queryRewrite:
+    requires: [originalQuery, rewriteModelVersion, promptOrConfigVersion]
+  rerankedPassage:
+    requires: [candidateSetHash, rerankerVersion, rankPolicyId]
+  generatedAnswer:
+    requires: [citationReceiptIds, modelVersion, promptVersion, policyVersion]
+onSourceVersionChange:
+  - mark_derivatives_stale
+  - invalidate_cached_answers
+  - rebuild_under_pinned_versions
+  - emit_derivative_rebuild_receipt

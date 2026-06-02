@@ -1,0 +1,37 @@
+policyVersion: search-state-claims-v1
+principle: "Searchability, ranking, admissibility, citation, and answerability are commitments."
+claims:
+  SEARCHABLE:
+    requires:
+      - ingestReceiptId
+      - parseReceiptId
+      - indexReceiptId
+      - sourceVersion
+      - indexVersion
+      - freshnessWithinBudget
+  RANKABLE:
+    requires:
+      - rankPolicyId
+      - rankingModelVersion
+      - featureSchemaVersion
+      - candidateSetHash
+  ADMISSIBLE:
+    requires:
+      - filterReceiptId
+      - aclCheck
+      - safetyCheck
+      - suppressionCheck
+      - policyVersion
+  CITABLE:
+    requires:
+      - citationReceiptId
+      - sourceVersion
+      - sourceAuthorityStatus
+      - freshnessWithinBudget
+  ANSWERABLE:
+    requires:
+      - answerReceiptId
+      - citationCoverage
+      - modelVersion
+      - promptVersion
+      - policyVersion

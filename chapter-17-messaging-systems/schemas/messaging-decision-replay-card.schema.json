@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MessagingDecisionReplayCard",
+  "type": "object",
+  "required": [
+    "correlationId",
+    "eventId",
+    "businessTxnId",
+    "effectId",
+    "capability",
+    "versions",
+    "evidenceSnapshot",
+    "outcome"
+  ],
+  "properties": {
+    "correlationId": {
+      "type": "string"
+    },
+    "chainId": {
+      "type": "string"
+    },
+    "eventId": {
+      "type": "string"
+    },
+    "businessTxnId": {
+      "type": "string"
+    },
+    "effectId": {
+      "type": "string"
+    },
+    "capability": {
+      "type": "string"
+    },
+    "actingPrincipal": {
+      "type": "object"
+    },
+    "versions": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "string"
+        },
+        "policyVersion": {
+          "type": "string"
+        },
+        "consumerVersion": {
+          "type": "string"
+        },
+        "featureFlagVersion": {
+          "type": "string"
+        }
+      }
+    },
+    "evidenceSnapshot": {
+      "type": "object"
+    },
+    "externalCalls": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "idempotency": {
+      "type": "object"
+    },
+    "outcome": {
+      "type": "object"
+    },
+    "reversalOrCompensationPath": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

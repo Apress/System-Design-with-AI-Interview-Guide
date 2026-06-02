@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AdDecision",
+  "type": "object",
+  "required": [
+    "adDecisionId",
+    "playbackSessionId",
+    "policyBundleVersion",
+    "insertionMode",
+    "decisionStatus",
+    "createdAt"
+  ],
+  "properties": {
+    "adDecisionId": {
+      "type": "string"
+    },
+    "playbackSessionId": {
+      "type": "string"
+    },
+    "consentState": {
+      "type": "object"
+    },
+    "adEligibility": {
+      "type": "string",
+      "enum": [
+        "eligible",
+        "not_eligible",
+        "limited"
+      ]
+    },
+    "targetingClass": {
+      "type": "string"
+    },
+    "frequencyCapState": {
+      "type": "object"
+    },
+    "adPodPlan": {
+      "type": "object"
+    },
+    "insertionMode": {
+      "type": "string",
+      "enum": [
+        "SSAI",
+        "CSAI",
+        "HYBRID",
+        "SAFE_MODE_SLATE",
+        "NO_AD_SAFE_MODE"
+      ]
+    },
+    "measurementMode": {
+      "type": "string",
+      "enum": [
+        "full",
+        "limited",
+        "unavailable"
+      ]
+    },
+    "decisionStatus": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "served",
+        "safe_mode",
+        "skipped",
+        "failed"
+      ]
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "fallbackReasonCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+flowchart LR
+    A[Write Time] --> B[Index Time]
+    B --> C[Lifecycle Time]
+    C --> D[Legal Time]
+    D --> E[Delete Time]
+    E --> F[Restore Time]
+    A --> R[Replay Card]
+    F --> R

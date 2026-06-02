@@ -1,0 +1,11 @@
+flowchart TB
+    A[Delete Request] --> B[Pin Policy]
+    B --> C{Legal Hold Active?}
+    C -- Yes --> D[Refuse Delete]
+    C -- Unknown --> E[Defer / Escalate]
+    C -- No --> F{Retention Active?}
+    F -- Yes --> D
+    F -- Unknown --> E
+    F -- No --> G{Replay Coverage 100%?}
+    G -- No --> H[Freeze Hard Delete]
+    G -- Yes --> I[Delete + deleteReceiptId]

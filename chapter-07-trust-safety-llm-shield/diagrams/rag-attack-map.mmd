@@ -1,0 +1,13 @@
+flowchart LR
+    A[Input Zone] --> B[Query Zone]
+    B --> C[Vector DB Zone]
+    C --> D[Context Zone]
+    D --> E[LLM Zone]
+    E --> F[Agent / Tool Zone]
+
+    A --> A1[Prompt Injection / Jailbreak]
+    B --> B1[Query Rewriting / Retrieval Flooding]
+    C --> C1[Vector Poisoning / Metadata Tampering]
+    D --> D1[Context Stuffing / Citation Hijack]
+    E --> E1[Hallucination / Alignment Bypass]
+    F --> F1[Unauthorized Tool Call / Workflow Abuse]

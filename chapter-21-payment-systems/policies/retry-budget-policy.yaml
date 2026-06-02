@@ -1,0 +1,5 @@
+policyVersion: payment-retry-budget-v1
+principle: Retry is allowed before ambiguity; reconciliation is required after ambiguity.
+capture: {maxAttempts: 2, onTimeoutAfterRequestSent: PENDING_RECONCILE}
+refund: {maxAttempts: 2, onTimeoutAfterRequestSent: PENDING_RECONCILE}
+dlqReplay: {requireSimulateFirst: true, requireApprovalForExecute: true}

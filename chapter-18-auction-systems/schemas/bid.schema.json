@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bid",
+  "type": "object",
+  "required": [
+    "bidId",
+    "auctionId",
+    "bidderId",
+    "amount",
+    "currency",
+    "eventTime",
+    "ingestionTime",
+    "bidStatus",
+    "policyVersion"
+  ],
+  "properties": {
+    "bidId": {
+      "type": "string"
+    },
+    "auctionId": {
+      "type": "string"
+    },
+    "bidderId": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "proxyMaxAmount": {
+      "type": "number"
+    },
+    "eventTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ingestionTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "bidStatus": {
+      "type": "string",
+      "enum": [
+        "received",
+        "admissible",
+        "excluded",
+        "quarantined",
+        "retracted",
+        "superseded"
+      ]
+    },
+    "exclusionReasonCode": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "fraudPressureScore": {
+      "type": "number"
+    },
+    "deviceSessionId": {
+      "type": "string"
+    }
+  }
+}

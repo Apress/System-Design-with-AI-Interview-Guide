@@ -1,0 +1,16 @@
+flowchart LR
+    A[Uncertainty Detected] --> B[Capture Evidence Package]
+    B --> C[Correlation ID]
+    B --> D[Policy Version]
+    B --> E[State Snapshot]
+    B --> F[Tool Trace]
+    B --> G[Reason Code]
+
+    B --> H[Route to Owner]
+    H --> I{Decision}
+    I -- Approve --> J[Proceed with Evidence]
+    I -- Deny --> K[Refuse / Explain]
+    I -- Defer --> L[Pending / More Evidence]
+    J --> M[Replay Link]
+    K --> M
+    L --> M

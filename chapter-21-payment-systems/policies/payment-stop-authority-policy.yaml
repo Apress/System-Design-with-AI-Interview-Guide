@@ -1,0 +1,8 @@
+policyVersion: payment-stop-authority-v1
+principle: Do not stop all payments by default; freeze the unsafe liability action.
+triggers: [replayCoverageDrop, captureTimeoutStraddleIncrease, duplicateAttemptSpike, idempotencyStoreUnavailable, policySchemaMismatch, processorDegradation, reconciliationMismatchSpike, chargebackSupportSpike]
+reEnable:
+  requireReplayCoverageRestored: true
+  requireIdempotencyStateHealthy: true
+  requireProcessorStatusStable: true
+  requireOwnerApproval: true

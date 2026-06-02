@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LegalHold",
+  "type": "object",
+  "required": [
+    "legalHoldId",
+    "objectId",
+    "holdStatus",
+    "policyVersion",
+    "appliedAt"
+  ],
+  "properties": {
+    "legalHoldId": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "versionScope": {
+      "type": "string",
+      "enum": [
+        "object",
+        "version",
+        "path",
+        "tenant"
+      ]
+    },
+    "versionId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "holdStatus": {
+      "type": "string",
+      "enum": [
+        "active",
+        "released",
+        "superseded"
+      ]
+    },
+    "caseReference": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "appliedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "releasedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}

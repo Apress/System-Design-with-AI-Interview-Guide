@@ -1,0 +1,12 @@
+flowchart LR
+    A[Monitor] --> B[Attribute]
+    B --> C[Optimize]
+    C --> D[Budget]
+    D --> E[Enforce]
+    E --> A
+
+    A --> A1[Cost by capability]
+    B --> B1[Spend by behavior]
+    C --> C1[Remove multiplication]
+    D --> D1[Budget by value unit]
+    E --> E1[Tier down / cache / defer / stop]

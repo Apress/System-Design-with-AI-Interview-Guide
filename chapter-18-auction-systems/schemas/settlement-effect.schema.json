@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SettlementEffect",
+  "type": "object",
+  "required": [
+    "settlementEffectId",
+    "settlementIntentId",
+    "auctionId",
+    "operation",
+    "effectStatus",
+    "createdAt"
+  ],
+  "properties": {
+    "settlementEffectId": {
+      "type": "string"
+    },
+    "settlementIntentId": {
+      "type": "string"
+    },
+    "auctionId": {
+      "type": "string"
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "capture",
+        "authorize",
+        "escrow_hold",
+        "refund",
+        "release",
+        "cancel"
+      ]
+    },
+    "effectStatus": {
+      "type": "string",
+      "enum": [
+        "in_progress",
+        "committed",
+        "failed",
+        "no_op",
+        "unknown"
+      ]
+    },
+    "providerTraceId": {
+      "type": "string"
+    },
+    "idempotencyKey": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "committedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "replayReceiptId": {
+      "type": "string"
+    }
+  }
+}

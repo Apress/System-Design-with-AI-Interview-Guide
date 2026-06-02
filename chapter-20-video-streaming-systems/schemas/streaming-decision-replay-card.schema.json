@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StreamingDecisionReplayCard",
+  "type": "object",
+  "required": [
+    "replayCardId",
+    "playbackSessionId",
+    "assetOrLiveEventId",
+    "policyBundleVersion",
+    "decisionType",
+    "decisionTime",
+    "evidence",
+    "outcome",
+    "replayable"
+  ],
+  "properties": {
+    "replayCardId": {
+      "type": "string"
+    },
+    "playbackSessionId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "assetOrLiveEventId": {
+      "type": "string"
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "decisionType": {
+      "type": "string",
+      "enum": [
+        "SESSION_GRANT",
+        "SESSION_REFUSAL",
+        "CDN_SWITCH",
+        "ABR_CHANGE",
+        "RENDITION_CLAMP",
+        "LOW_LATENCY_MODE_CHANGE",
+        "DRM_GRANT",
+        "AD_DECISION",
+        "AD_SAFE_MODE",
+        "RE_ENABLE"
+      ]
+    },
+    "decisionTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "outcome": {
+      "type": "object"
+    },
+    "privacyPosture": {
+      "type": "string"
+    },
+    "replayable": {
+      "type": "boolean"
+    }
+  }
+}

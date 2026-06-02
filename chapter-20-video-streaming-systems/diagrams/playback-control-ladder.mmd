@@ -1,0 +1,7 @@
+flowchart TB
+    A[Normal ABR] --> B[Conservative ABR]
+    B --> C[Buffer Widen]
+    C --> D[CDN Switch]
+    D --> E[Rendition Clamp]
+    E --> F[Low-Latency Disable]
+    F --> G[Honest Refusal / Failure]

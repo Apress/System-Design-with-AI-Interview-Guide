@@ -1,0 +1,16 @@
+flowchart TB
+    A[Slow Response] --> B[User Doubt]
+    B --> C[Retry / Refresh / Resubmit]
+    C --> D[Duplicate Work]
+    D --> E[More Load]
+    E --> F[Worse Tail Latency]
+    F --> A
+
+    C --> G[Support Escalation]
+    D --> H[Duplicate Tool Calls]
+
+    I[Controls] --> J[Idempotency]
+    I --> K[Bounded Retries]
+    I --> L[Rate Limits]
+    I --> M[Backpressure]
+    I --> N[Clear State]

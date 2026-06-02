@@ -1,0 +1,17 @@
+policyVersion: fulfillment-cutoff-policy-v1
+states:
+  created:
+    modificationAllowed: true
+  released:
+    modificationAllowed: conditional
+  picking_started:
+    modificationAllowed: false
+    action: hard_stop_or_escalate
+  packed:
+    modificationAllowed: false
+    action: hard_stop
+  carrier_accepted:
+    modificationAllowed: false
+    action: hard_stop_and_customer_communication
+requiresFreshState: true
+freshnessPolicyRef: commerce-freshness-budget-v1

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MetadataAuthority",
+  "type": "object",
+  "required": [
+    "metadataVersion",
+    "objectId",
+    "authorityStatus",
+    "updatedAt"
+  ],
+  "properties": {
+    "metadataVersion": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "string"
+    },
+    "aclVersion": {
+      "type": "string"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "retentionPolicyVersion": {
+      "type": "string"
+    },
+    "legalHoldId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lineagePointer": {
+      "type": "string"
+    },
+    "authorityStatus": {
+      "type": "string",
+      "enum": [
+        "authoritative",
+        "superseded",
+        "quarantined"
+      ]
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

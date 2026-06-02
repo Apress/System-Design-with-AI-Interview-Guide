@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant Rider
+    participant Request as Ride Request Service
+    participant Candidate as Candidate Service
+    participant Ranker
+    participant Dispatch
+    participant Driver
+    participant Commit as Commit Gate
+    participant Replay
+
+    Rider->>Request: Request ride
+    Request->>Candidate: Fetch eligible drivers
+    Candidate->>Ranker: Fresh candidates
+    Ranker->>Dispatch: Ranked shortlist
+    Dispatch->>Driver: Offer with matchHoldId
+    Driver-->>Dispatch: Accept
+    Dispatch->>Commit: Check freshness, conflict, pricing, fairness, safety
+    Commit-->>Dispatch: Pass
+    Dispatch-->>Rider: Confirm matchId
+    Dispatch->>Replay: Write decision replay card

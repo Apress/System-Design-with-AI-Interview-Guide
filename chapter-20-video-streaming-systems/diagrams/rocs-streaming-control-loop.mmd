@@ -1,0 +1,6 @@
+flowchart LR
+    A[Sense QoE + Cost + Trust Signals] --> B[Decide with Policy]
+    B --> C[Act: ABR / CDN / DRM / Ads / Low Latency]
+    C --> D[Emit Receipts]
+    D --> E[Re-enable or Keep Degraded]
+    E --> A

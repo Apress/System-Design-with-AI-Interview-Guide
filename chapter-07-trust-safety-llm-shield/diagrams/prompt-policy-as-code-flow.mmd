@@ -1,0 +1,12 @@
+flowchart LR
+    A[Prompt / Policy / Guardrail Change] --> B[Version Control]
+    B --> C[Review and Approval]
+    C --> D[Regression Tests]
+    D --> E[Golden Conversations]
+    E --> F[Jailbreak and Injection Tests]
+    F --> G[Canary Release]
+    G --> H{Production Signals Healthy?}
+    H -- Yes --> I[Promote]
+    H -- No --> J[Rollback]
+    I --> K[Record Version and Evidence]
+    J --> K

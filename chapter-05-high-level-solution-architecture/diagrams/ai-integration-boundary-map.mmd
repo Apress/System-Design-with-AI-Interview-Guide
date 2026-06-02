@@ -1,0 +1,21 @@
+flowchart TB
+    A[AI Feature] --> B{Customer Visible?}
+    B -- Yes --> C[Require Evidence and Safe Language]
+    B -- No --> D[Internal Decision Support]
+
+    C --> E{Can AI Commit Outcome?}
+    D --> E
+
+    E -- No --> F[Advisory Mode]
+    E -- Bounded Action --> G[Assistive Mode]
+    E -- Yes --> H[Automated Mode]
+
+    F --> I[Human or Deterministic System Decides]
+    G --> J[Policy, Thresholds, Audit, Fallback]
+    H --> K[Low Risk Only, Rollback or Escalation Required]
+
+    I --> L[Replay Record]
+    J --> L
+    K --> L
+
+    L --> M[Prompt, Model Version, Evidence, Tool Calls, Output, Final Decision]

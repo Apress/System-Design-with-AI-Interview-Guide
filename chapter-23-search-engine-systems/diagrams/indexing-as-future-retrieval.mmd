@@ -1,0 +1,8 @@
+flowchart TB
+    A[Source Document] --> B[Parser Version]
+    B --> C[Chunking Policy]
+    C --> D[Tokenization / Normalization]
+    D --> E[Metadata Extraction]
+    E --> F[Redaction / Field Selection]
+    F --> G[Index Version]
+    G --> H[Future Retrieval Boundary]

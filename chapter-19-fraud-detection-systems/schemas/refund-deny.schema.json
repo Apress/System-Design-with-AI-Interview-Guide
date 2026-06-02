@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RefundDeny",
+  "type": "object",
+  "required": [
+    "refundDenyId",
+    "enforcementId",
+    "refundRequestId",
+    "subjectId",
+    "deniedAt",
+    "policyBundleVersion",
+    "reasonCodes"
+  ],
+  "properties": {
+    "refundDenyId": {
+      "type": "string"
+    },
+    "enforcementId": {
+      "type": "string"
+    },
+    "refundRequestId": {
+      "type": "string"
+    },
+    "subjectId": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "deniedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "reasonCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "appealAvailable": {
+      "type": "boolean"
+    },
+    "replayCardId": {
+      "type": "string"
+    }
+  }
+}

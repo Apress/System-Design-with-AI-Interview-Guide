@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SideEffectCommand",
+  "type": "object",
+  "required": [
+    "effectId",
+    "businessTxnId",
+    "eventId",
+    "capability",
+    "operation",
+    "idempotencyMode",
+    "policyVersion"
+  ],
+  "properties": {
+    "effectId": {
+      "type": "string"
+    },
+    "businessTxnId": {
+      "type": "string"
+    },
+    "eventId": {
+      "type": "string"
+    },
+    "capability": {
+      "type": "string"
+    },
+    "operation": {
+      "type": "string"
+    },
+    "idempotencyMode": {
+      "type": "string",
+      "enum": [
+        "required",
+        "best_effort",
+        "not_required"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "evidenceSnapshotId": {
+      "type": "string"
+    },
+    "externalSystem": {
+      "type": "string"
+    },
+    "commandPayload": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+policyVersion: rocs-fraud-control-v1
+reliability:
+  signals:
+    - duplicate_holds
+    - repeated_denials
+    - enforcement_error_rate
+    - dependency_health
+    - evidence_conflict_rate
+observability:
+  signals:
+    - replay_coverage
+    - missing_evidence_rate
+    - missing_policy_version_rate
+    - support_reconstruction_time
+cost:
+  signals:
+    - cost_per_step_up
+    - manual_review_backlog
+    - appeal_rate
+    - support_contact_rate
+    - false_positive_cost
+    - chargeback_cost
+sustainability:
+  signals:
+    - appeal_overturn_rate
+    - payout_reversal_rate
+    - complaint_spike
+    - cohort_disparity
+    - policy_exception_rate
+actions:
+  - allow_monitor
+  - step_up_only
+  - soft_hold
+  - human_review_only
+  - freeze_enforcement
+  - hard_enforcement

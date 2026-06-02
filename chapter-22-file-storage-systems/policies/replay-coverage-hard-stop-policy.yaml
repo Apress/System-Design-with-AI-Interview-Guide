@@ -1,0 +1,18 @@
+policyVersion: storage-replay-coverage-hard-stop-v1
+requirements:
+  writeReceiptCoveragePercent: 100
+  deleteReceiptCoveragePercent: 100
+  restoreReceiptCoveragePercent: 100
+  legalHoldReceiptCoveragePercent: 100
+actions:
+  onDeleteReceiptCoverageDrop:
+    - freeze_hard_delete
+    - freeze_key_destruction
+  onRestoreReceiptCoverageDrop:
+    - stop_claiming_recoverable_for_affected_scope
+  onLegalHoldReceiptCoverageDrop:
+    - freeze_destructive_actions
+reEnable:
+  requireReceiptPathRestored: true
+  requireAffectedScopeAudited: true
+  requireOwnerApproval: true

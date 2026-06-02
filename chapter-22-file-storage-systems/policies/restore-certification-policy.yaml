@@ -1,0 +1,22 @@
+policyVersion: restore-certification-v1
+principle: "Backups are not recoverability. Restore proof is recoverability."
+requiredEvidence:
+  - source_versionId
+  - archive_or_backup_location
+  - content_hash_verified
+  - decryption_verified
+  - key_lineage_verified
+  - metadata_rebuild_verified
+  - serve_or_export_readiness_verified
+  - restoreReceiptId
+restoreDrill:
+  cadenceDays: 30
+  sampleBy:
+    - tenant
+    - storageTier
+    - keyLineage
+    - objectSize
+onRestoreFailure:
+  - stop_claiming_recoverable
+  - quarantine_scope
+  - repair_or_rebuild_restore_path

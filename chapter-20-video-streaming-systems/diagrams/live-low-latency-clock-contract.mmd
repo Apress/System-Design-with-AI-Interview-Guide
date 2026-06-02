@@ -1,0 +1,8 @@
+flowchart LR
+    A[Event Time] --> B[Ingest Time]
+    B --> C[Segment Time]
+    C --> D[Playback Time]
+    D --> E[Measured Latency]
+    E --> F{Inside Policy Budget?}
+    F -- Yes --> G[Low-Latency Mode]
+    F -- No --> H[Standard Latency Fallback]

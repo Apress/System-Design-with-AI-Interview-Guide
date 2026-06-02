@@ -1,0 +1,12 @@
+flowchart LR
+    A[Classic Dependency Failure] --> B[Timeout / Error]
+    B --> C[Retry Budget / Circuit Breaker]
+    C --> D[Escalation]
+
+    E[AI Evidence Failure] --> F[Fluent Answer]
+    F --> G[Tool / Action]
+    G --> H[Customer Impact]
+    H --> I[Dispute / Audit Later]
+
+    E --> J[Admissible Evidence Gate Needed]
+    J --> K[Defer / Escalate / Hard Stop]

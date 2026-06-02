@@ -1,0 +1,6 @@
+flowchart LR
+A[Sense]-->B[Decide with Policy]
+B-->C[Act: Park/No-op/Freeze/Reconcile]
+C-->D[Prove: Replay Card]
+D-->E[Re-enable or Stay Degraded]
+E-->A

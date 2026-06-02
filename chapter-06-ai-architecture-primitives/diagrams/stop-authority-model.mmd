@@ -1,0 +1,28 @@
+flowchart TB
+    A[Monitored Signals] --> B{Threshold Breached?}
+
+    A --> A1[Disputes]
+    A --> A2[Escalations]
+    A --> A3[Tool Failures]
+    A --> A4[Policy Violations]
+    A --> A5[Replay Coverage]
+    A --> A6[Cost / Latency]
+
+    B -- No --> C[Continue Normal Operation]
+    B -- Yes --> D[Capability Owner Acts]
+
+    D --> E{Response Mode}
+    E --> F[Pause]
+    E --> G[Degrade]
+    E --> H[Defer]
+    E --> I[Throttle]
+    E --> J[Hard Stop]
+
+    F --> K[Scoped Blast Radius]
+    G --> K
+    H --> K
+    I --> K
+    J --> K
+
+    K --> L[Tenant / Region / Cohort / Tool Path]
+    L --> M[Re-enable Criteria]

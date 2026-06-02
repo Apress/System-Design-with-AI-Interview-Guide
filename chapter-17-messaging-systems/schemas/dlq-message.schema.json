@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DLQMessage",
+  "type": "object",
+  "required": [
+    "dlqMessageId",
+    "eventId",
+    "businessTxnId",
+    "intendedEffectId",
+    "failureClass",
+    "retryCount",
+    "firstFailedAt",
+    "lastAttemptAt",
+    "owner"
+  ],
+  "properties": {
+    "dlqMessageId": {
+      "type": "string"
+    },
+    "eventId": {
+      "type": "string"
+    },
+    "businessTxnId": {
+      "type": "string"
+    },
+    "intendedEffectId": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "consumerVersion": {
+      "type": "string"
+    },
+    "failureClass": {
+      "type": "string",
+      "enum": [
+        "TRANSIENT",
+        "POISON",
+        "SCHEMA_MISMATCH",
+        "POLICY_BLOCK",
+        "AMBIGUOUS_EXTERNAL_STATE",
+        "IDEMPOTENCY_UNAVAILABLE",
+        "UNKNOWN"
+      ]
+    },
+    "retryCount": {
+      "type": "integer"
+    },
+    "firstFailedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastAttemptAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidenceSnapshotId": {
+      "type": "string"
+    },
+    "replayEligibility": {
+      "type": "string",
+      "enum": [
+        "simulate_only",
+        "execute_allowed_with_approval",
+        "not_replayable"
+      ]
+    },
+    "owner": {
+      "type": "string"
+    }
+  }
+}

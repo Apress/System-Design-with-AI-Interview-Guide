@@ -1,0 +1,11 @@
+flowchart TB
+    A[Uncertain Inventory] --> B{Contain Locally?}
+
+    B -- Yes --> C[Pending Verification]
+    C --> D[Verify / Reserve / Cancel with Explanation]
+    D --> E[Small Blast Radius]
+
+    B -- No --> F[Confirm from Projection]
+    F --> G[Retry Storm / Duplicate Commits]
+    G --> H[Mass Reversals / Credits / Support Load]
+    H --> I[Large Blast Radius]

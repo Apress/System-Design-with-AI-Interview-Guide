@@ -1,0 +1,17 @@
+policyVersion: cdn-switch-hysteresis-v1
+canary:
+  initialPercent: 1
+  maxExpansionPercentPerInterval: 10
+  evaluationWindowSeconds: 300
+hysteresis:
+  requireImprovementWindows: 2
+  requireDegradationWindowsBeforeRollback: 2
+cooldown:
+  perSessionSeconds: 600
+  perCohortSeconds: 900
+maxSwitches:
+  perSession: 2
+  perCohortPerHour: 4
+rollback:
+  requireReceipt: true
+  preserveQoEBeforeAfter: true

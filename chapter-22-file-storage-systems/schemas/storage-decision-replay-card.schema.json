@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StorageDecisionReplayCard",
+  "type": "object",
+  "required": [
+    "replayCardId",
+    "correlationId",
+    "objectLineageId",
+    "objectId",
+    "versionId",
+    "stateClaim",
+    "policyVersion",
+    "decisionTime",
+    "evidence",
+    "outcome",
+    "replayable"
+  ],
+  "properties": {
+    "replayCardId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "objectLineageId": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "pathId": {
+      "type": "string"
+    },
+    "versionId": {
+      "type": "string"
+    },
+    "stateClaim": {
+      "type": "string",
+      "enum": [
+        "STORED",
+        "DISCOVERABLE",
+        "RETAINED",
+        "LEGAL_HOLD_APPLIED",
+        "SOFT_DELETED",
+        "HARD_DELETED",
+        "RECOVERABLE",
+        "DERIVATIVE_REBUILT"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "decisionTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "receipts": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "actor": {
+      "type": "object"
+    },
+    "outcome": {
+      "type": "object"
+    },
+    "stopAuthorityState": {
+      "type": "string"
+    },
+    "replayable": {
+      "type": "boolean"
+    }
+  }
+}

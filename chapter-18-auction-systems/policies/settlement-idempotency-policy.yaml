@@ -1,0 +1,21 @@
+policyVersion: settlement-idempotency-v1
+principle: "Settlement side effects must be idempotent at settlementEffectId."
+requiredFor:
+  - payment_capture
+  - escrow_hold
+  - refund
+  - title_transfer
+  - fulfillment_release
+states:
+  - in_progress
+  - committed
+  - failed
+  - no_op
+  - unknown
+onDuplicateCommitted:
+  action: no_op_receipt
+onUnknownProviderState:
+  action: pause_and_reconcile
+retries:
+  maxAttempts: 2
+  maxElapsedSeconds: 300

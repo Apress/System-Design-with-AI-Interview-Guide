@@ -1,0 +1,4 @@
+policyVersion: payment-replay-coverage-hard-stop-v1
+requirements:
+  liabilityActionReplayCoveragePercent: 100
+actions: [freeze_affected_liability_action, route_to_manual_review_or_pending_reconcile, restore_receipt_path]

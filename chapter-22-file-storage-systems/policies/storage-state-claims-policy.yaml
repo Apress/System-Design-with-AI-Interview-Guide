@@ -1,0 +1,34 @@
+policyVersion: storage-state-claims-v1
+principle: "If you cannot mint the receipt, you do not get to claim the state."
+stateClaims:
+  STORED:
+    requires:
+      - versionId
+      - contentHash
+      - encryptionKeyId
+      - writeReceiptId
+      - policyVersion
+  DISCOVERABLE:
+    requires:
+      - writeReceiptId
+      - metadataVersion
+      - indexReceiptId
+      - indexFreshnessInsideBudget
+  RETAINED:
+    requires:
+      - legalHoldId_or_retentionHoldId
+      - policyVersion
+      - enforcementReceipt
+  DELETED:
+    requires:
+      - deleteReceiptId
+      - deleteMode
+      - legalHoldCheck
+      - retentionCheck
+      - policyVersion
+  RECOVERABLE:
+    requires:
+      - restoreReceiptId
+      - decryptVerified
+      - contentHashVerified
+      - metadataRebuildVerified

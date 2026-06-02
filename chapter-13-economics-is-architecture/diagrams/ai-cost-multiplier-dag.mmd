@@ -1,0 +1,16 @@
+flowchart LR
+    A[Request] --> B[Retrieval]
+    B --> C[Reranking]
+    C --> D[Prompt / Context]
+    D --> E[Model Tier]
+    E --> F[Tool Calls]
+    F --> G[Evaluation Loops]
+    G --> H[Human Rework]
+    H --> I[Effective AI Cost]
+
+    B --> B1[Top-K Budget]
+    D --> D1[Token Budget]
+    E --> E1[Model Tier Rule]
+    F --> F1[Tool Budget]
+    G --> G1[Loop Cap]
+    H --> H1[Escalation Budget]

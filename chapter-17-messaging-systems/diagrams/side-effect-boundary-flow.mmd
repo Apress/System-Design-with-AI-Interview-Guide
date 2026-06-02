@@ -1,0 +1,11 @@
+flowchart TB
+    A[Event Delivered] --> B[Compute eventId / businessTxnId / effectId]
+    B --> C[Check Schema + Policy]
+    C --> D[Check Idempotency Store]
+    D --> E{Effect Already Committed?}
+    E -- Yes --> F[Emit NO_OP Receipt]
+    E -- No --> G[Create IN_PROGRESS]
+    G --> H[Execute Side Effect]
+    H --> I{External Outcome}
+    I -- Success --> J[Mark COMMITTED + Replay Card]
+    I -- Failure --> K[Mark FAILED or UNKNOWN + Reconcile]

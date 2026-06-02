@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NotificationToken",
+  "type": "object",
+  "required": [
+    "notifyToken",
+    "contentId",
+    "triggerType",
+    "policyVersion",
+    "createdAt",
+    "frequencyCapState"
+  ],
+  "properties": {
+    "notifyToken": {
+      "type": "string"
+    },
+    "contentId": {
+      "type": "string"
+    },
+    "triggerType": {
+      "type": "string",
+      "enum": [
+        "followed_creator_post",
+        "reply",
+        "mention",
+        "sensitive_broad_fanout",
+        "trend_alert"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "frequencyCapState": {
+      "type": "object"
+    },
+    "sensitiveTrigger": {
+      "type": "boolean"
+    },
+    "replayRequired": {
+      "type": "boolean"
+    }
+  }
+}

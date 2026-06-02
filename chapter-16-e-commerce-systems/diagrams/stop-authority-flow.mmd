@@ -1,0 +1,8 @@
+flowchart TB
+    A[Sense Risk Signal] --> B{Trigger Crossed?}
+    B -- No --> C[Continue]
+    B -- Yes --> D[Scope Affected Path]
+    D --> E[Degrade / Defer / Hard Stop]
+    E --> F[Emit Stop Receipt]
+    F --> G[Re-enable Criteria]
+    G --> H[Owner Approval]

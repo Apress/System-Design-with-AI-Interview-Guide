@@ -1,0 +1,13 @@
+flowchart TB
+    A[AI Candidate Evidence] --> B{Authoritative?}
+    B -- No --> X[Do Not Use for Action]
+    B -- Yes --> C{Fresh / Timestamped?}
+    C -- No --> Y[Defer or Escalate]
+    C -- Yes --> D{Version Pinned?}
+    D -- No --> Y
+    D -- Yes --> E{Authorized?}
+    E -- No --> Z[Redact or Refuse]
+    E -- Yes --> F{Conflicts?}
+    F -- Yes --> W[Conflict Route / Human Review]
+    F -- No --> G[Admissible Evidence]
+    G --> H[Answer or Act]

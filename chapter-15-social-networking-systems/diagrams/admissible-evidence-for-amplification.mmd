@@ -1,0 +1,9 @@
+flowchart TB
+    A[Amplification Request] --> B{Tier 1 Authority Evidence Present?}
+    B -- No --> X[Block Amplification]
+    B -- Yes --> C{Tier 2 Model Evidence Replayable and Confident?}
+    C -- No/Conflict --> Y[Throttle / Freeze / Review]
+    C -- Yes --> D[Tier 3 Engagement Can Rank]
+    D --> E{Budgets and Surface Authority Pass?}
+    E -- Yes --> F[Mint Amplification Token]
+    E -- No --> Z[Grant-only / Defer]

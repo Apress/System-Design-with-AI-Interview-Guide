@@ -1,0 +1,10 @@
+flowchart LR
+    A[Fast Read View] --> B[Browse / Discover / Estimate]
+    B --> C{User Takes Action?}
+    C -- No --> A
+    C -- Yes --> D[Authoritative Validation]
+    D --> E{Proof Exists?}
+    E -- Yes --> F[Commit]
+    E -- No --> G[Pending / Review / Block]
+    F --> H[Replay Evidence]
+    G --> H

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StepUpChallenge",
+  "type": "object",
+  "required": [
+    "stepUpChallengeId",
+    "riskDecisionId",
+    "chainId",
+    "subjectId",
+    "challengeType",
+    "challengeStatus",
+    "createdAt",
+    "expiresAt",
+    "policyBundleVersion"
+  ],
+  "properties": {
+    "stepUpChallengeId": {
+      "type": "string"
+    },
+    "riskDecisionId": {
+      "type": "string"
+    },
+    "chainId": {
+      "type": "string"
+    },
+    "subjectId": {
+      "type": "string"
+    },
+    "challengeType": {
+      "type": "string",
+      "enum": [
+        "MFA",
+        "KYC_REFRESH",
+        "DOCUMENT_PROOF",
+        "THREE_DS",
+        "DEVICE_VERIFICATION",
+        "MANUAL_PROOF"
+      ]
+    },
+    "challengeStatus": {
+      "type": "string",
+      "enum": [
+        "issued",
+        "passed",
+        "failed",
+        "expired",
+        "cancelled"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "reversibleFriction": {
+      "type": "boolean",
+      "const": true
+    }
+  }
+}

@@ -1,0 +1,9 @@
+flowchart LR
+    A[Pre-commit] --> B[Probabilistic Exploration]
+    B --> B1[Refresh / Re-rank / Redispatch within budget]
+
+    C[Commit Boundary] --> D[Strict Admissibility]
+    D --> D1[Resolve conflict or refuse/defer commit]
+
+    E[Post-commit] --> F[Obligation Management]
+    F --> F1[Repair first / controlled reassignment / compensate]

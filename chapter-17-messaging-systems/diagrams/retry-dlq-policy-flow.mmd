@@ -1,0 +1,10 @@
+flowchart TB
+    A[Consumer Failure] --> B{Transient?}
+    B -- No --> DLQ[Route to DLQ]
+    B -- Yes --> C{Retry Count Remaining?}
+    C -- No --> DLQ
+    C -- Yes --> D{Retry Time Budget Valid?}
+    D -- No --> DLQ
+    D -- Yes --> E{Evidence Still Admissible?}
+    E -- No --> DLQ
+    E -- Yes --> F[Retry with Backoff]

@@ -1,0 +1,14 @@
+flowchart TB
+    A[Storage Signals] --> B{Trigger?}
+    B -- Index Drift --> C[Truth-First Mode]
+    B -- Replay Gap --> D[Freeze Destructive Actions]
+    B -- Integrity Failure --> E[Quarantine Scope]
+    B -- Restore Failure --> F[Stop Recoverable Claim]
+    B -- Delete Velocity --> G[Freeze Delete/Lifecycle]
+    B -- Policy Mismatch --> H[Quarantine Bundle]
+    C --> I[Owner Review + Receipt]
+    D --> I
+    E --> I
+    F --> I
+    G --> I
+    H --> I

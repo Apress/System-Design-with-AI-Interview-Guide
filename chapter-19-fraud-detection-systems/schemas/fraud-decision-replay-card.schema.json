@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FraudDecisionReplayCard",
+  "type": "object",
+  "required": [
+    "chainId",
+    "riskDecisionId",
+    "capability",
+    "policyBundleVersion",
+    "decisionTime",
+    "evidenceSnapshot",
+    "decision",
+    "actingMode",
+    "replayable"
+  ],
+  "properties": {
+    "chainId": {
+      "type": "string"
+    },
+    "riskDecisionId": {
+      "type": "string"
+    },
+    "stepUpChallengeId": {
+      "type": "string"
+    },
+    "enforcementId": {
+      "type": "string"
+    },
+    "liabilityTokens": {
+      "type": "object"
+    },
+    "capability": {
+      "type": "string"
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "decisionTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidenceSnapshot": {
+      "type": "object"
+    },
+    "decision": {
+      "type": "object"
+    },
+    "actingMode": {
+      "type": "string",
+      "enum": [
+        "AUTOMATED_ADVISORY",
+        "AUTOMATED_STEP_UP",
+        "AUTOMATED_ENFORCEMENT",
+        "HUMAN_REVIEW",
+        "ASSISTED_REVIEW"
+      ]
+    },
+    "policyOwner": {
+      "type": "string"
+    },
+    "stopPosture": {
+      "type": "string"
+    },
+    "appealPath": {
+      "type": "string"
+    },
+    "reversalPath": {
+      "type": "string"
+    },
+    "replayable": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+policyVersion: multi-cdn-routing-v1
+principle: "Multi-CDN is a scoped control plane, not generic redundancy."
+scopeDimensions:
+  - isp
+  - metro
+  - region
+  - device_class
+  - player_version
+  - asset_or_live_event
+  - manifest_version
+  - segment_error_profile
+switchRequirements:
+  - scoped_evidence
+  - canary_first
+  - hysteresis
+  - cooldown
+  - origin_shield_protection
+  - replay_receipt
+originProtection:
+  - request_collapsing
+  - shield_cache
+  - retry_budget
+  - max_origin_rps
+freezeWhen:
+  - replay_coverage_missing
+  - origin_pressure_exceeds_budget
+  - oscillation_detected

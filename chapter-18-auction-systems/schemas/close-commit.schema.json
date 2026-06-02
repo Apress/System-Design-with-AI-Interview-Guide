@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuctionCloseCommit",
+  "type": "object",
+  "required": [
+    "closeCommitId",
+    "auctionId",
+    "winnerBidderId",
+    "winningBidId",
+    "clearingPrice",
+    "currency",
+    "closePolicyVersion",
+    "committedAt",
+    "admissibleBidCount",
+    "closeStatus"
+  ],
+  "properties": {
+    "closeCommitId": {
+      "type": "string"
+    },
+    "auctionId": {
+      "type": "string"
+    },
+    "winnerBidderId": {
+      "type": "string"
+    },
+    "winningBidId": {
+      "type": "string"
+    },
+    "clearingPrice": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "closePolicyVersion": {
+      "type": "string"
+    },
+    "priceFormationPolicyVersion": {
+      "type": "string"
+    },
+    "fraudPressureScore": {
+      "type": "number"
+    },
+    "reserveMet": {
+      "type": "boolean"
+    },
+    "tieBreakerApplied": {
+      "type": "boolean"
+    },
+    "committedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "admissibleBidCount": {
+      "type": "integer"
+    },
+    "closeStatus": {
+      "type": "string",
+      "enum": [
+        "committed",
+        "frozen",
+        "requires_review",
+        "cancelled",
+        "no_sale"
+      ]
+    },
+    "replayReceiptId": {
+      "type": "string"
+    }
+  }
+}

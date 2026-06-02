@@ -1,0 +1,32 @@
+policyVersion: ad-safe-mode-v1
+principle: "Ads are replayable side effects and must not deadlock entitled content when policy allows degraded monetization."
+failureShapes:
+  waterfallTimeout:
+    actions:
+      - shorten_pod
+      - house_ad
+      - skip_under_policy
+  ssaiStall:
+    actions:
+      - switch_insertion_mode
+      - serve_slate
+  csaiSdkDeadlock:
+    actions:
+      - disable_client_ad_path_for_device_cohort
+  frequencyCapDrift:
+    actions:
+      - clamp_ad_load
+      - emit_receipt
+  measurementUnavailable:
+    actions:
+      - limited_measurement_if_allowed
+      - proceed_with_disclosure_receipt
+evidenceRequired:
+  - consent_state
+  - ad_eligibility
+  - targeting_class
+  - frequency_cap_state
+  - ad_pod_plan
+  - insertion_mode
+  - measurement_mode
+  - fallback_reason

@@ -1,0 +1,12 @@
+flowchart LR
+    A[Start with User Journey] --> B[Identify Commitment Points]
+    B --> C[Name Dominant Guarantees]
+    C --> D[Describe Tail-Latency Behavior]
+    D --> E[Define Controls]
+    E --> F[Define Safe State]
+    F --> G[Close with Replay Evidence]
+
+    E --> E1[Idempotency]
+    E --> E2[Backpressure]
+    E --> E3[Retry Budgets]
+    E --> E4[Priority Queues]

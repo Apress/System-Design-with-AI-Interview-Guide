@@ -1,0 +1,28 @@
+policyVersion: conflict-policy-by-phase-v1
+phases:
+  preCommit:
+    posture: probabilistic_exploration
+    allowed:
+      - refresh
+      - rerank
+      - redispatchWithinBudget
+    forbidden:
+      - issueMatchIdWithoutAdmissibleEvidence
+  commitBoundary:
+    posture: strict_admissibility
+    allowed:
+      - resolveConflictQuickly
+      - deferCommit
+      - refuseCommit
+    forbidden:
+      - bluffCommit
+      - ignoreHardStaleSignals
+  postCommit:
+    posture: obligation_management
+    allowed:
+      - repairFirst
+      - controlledReassignment
+      - compensateIfThresholdCrossed
+    forbidden:
+      - unboundedRematch
+      - silentReassignment

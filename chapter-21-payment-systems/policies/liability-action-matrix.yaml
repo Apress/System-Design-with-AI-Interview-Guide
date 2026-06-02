@@ -1,0 +1,7 @@
+policyVersion: liability-action-matrix-v1
+actions:
+  authorize: {liabilityLevel: low_reversible, tokens: [paymentIntentId, authId], retryBudget: '3 attempts'}
+  capture: {liabilityLevel: high_money_movement, tokens: [paymentIntentId, authId, captureId], retryBudget: '2 attempts then park'}
+  refund: {liabilityLevel: high_money_movement, tokens: [captureId, refundId], retryBudget: '2 attempts then case'}
+  refundDenial: {liabilityLevel: high_customer_trust, tokens: [refundRequestId, refundDenyId], retryBudget: 'no looping'}
+  payoutHold: {liabilityLevel: high_seller_livelihood, tokens: [payoutId, payoutHoldId], retryBudget: 'immediate then case'}

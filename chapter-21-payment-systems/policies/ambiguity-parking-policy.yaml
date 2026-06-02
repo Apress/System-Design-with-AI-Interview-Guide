@@ -1,0 +1,4 @@
+policyVersion: ambiguity-parking-v1
+ambiguityClasses:
+  PROVIDER_TIMEOUT_AFTER_REQUEST_SENT:
+    action: [mark_pending_reconcile, suppress_blind_retry, query_provider, wait_for_webhook, compare_settlement]

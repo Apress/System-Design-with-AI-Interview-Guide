@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IntegrityProof",
+  "type": "object",
+  "required": [
+    "integrityProofId",
+    "objectId",
+    "versionId",
+    "contentHash",
+    "encryptionKeyId",
+    "proofStatus",
+    "verifiedAt"
+  ],
+  "properties": {
+    "integrityProofId": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "versionId": {
+      "type": "string"
+    },
+    "contentHash": {
+      "type": "string"
+    },
+    "checksumAlgorithm": {
+      "type": "string"
+    },
+    "encryptionKeyId": {
+      "type": "string"
+    },
+    "keyLineageId": {
+      "type": "string"
+    },
+    "proofType": {
+      "type": "string",
+      "enum": [
+        "write",
+        "scrub",
+        "serve_path",
+        "replication",
+        "restore",
+        "key_rotation"
+      ]
+    },
+    "proofStatus": {
+      "type": "string",
+      "enum": [
+        "passed",
+        "failed",
+        "quarantined"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "verifiedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

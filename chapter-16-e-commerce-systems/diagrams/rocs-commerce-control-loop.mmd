@@ -1,0 +1,7 @@
+flowchart LR
+    A[Sense Drift] --> B[Decide Posture with Policy Pin]
+    B --> C[Act: Bound / Degrade / Stop]
+    C --> D[Produce Stable Outcome]
+    D --> E[Replay Evidence]
+    E --> F[Policy Learning]
+    F --> A

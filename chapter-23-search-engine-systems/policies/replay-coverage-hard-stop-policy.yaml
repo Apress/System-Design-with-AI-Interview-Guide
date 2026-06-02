@@ -1,0 +1,18 @@
+policyVersion: search-replay-coverage-hard-stop-v1
+requirements:
+  indexReceiptCoveragePercent: 100
+  filterReceiptCoveragePercent: 100
+  citationReceiptCoveragePercent: 100
+  answerReceiptCoveragePercent: 100
+actions:
+  onAnswerReceiptCoverageDrop:
+    - suppress_ai_answers
+    - show_sources_only
+  onFilterReceiptCoverageDrop:
+    - fail_closed_or_narrow_visible_set
+  onIndexReceiptCoverageDrop:
+    - stop_searchability_claim_for_affected_scope
+reEnable:
+  requireReceiptPathRestored: true
+  requireReplayTestsPass: true
+  requireOwnerApproval: true

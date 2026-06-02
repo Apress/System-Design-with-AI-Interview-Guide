@@ -1,0 +1,26 @@
+policyVersion: safety-fraud-hard-stop-v1
+hardStopSignals:
+  - identityAnomaly
+  - accountTakeoverSignal
+  - impossibleTravelPattern
+  - suspectedCoercion
+  - emergencyEscalation
+  - paymentRiskSpike
+  - authorizationFailure
+  - vehicleMismatch
+actions:
+  onHardStop:
+    - freezeOrNarrowAutomation
+    - routeToSpecialistReview
+    - preserveEvidencePacket
+    - refuseHighRiskCommitment
+evidenceRequired:
+  - correlationId
+  - riderReference
+  - driverReference
+  - deviceSession
+  - riskSignal
+  - policyVersion
+  - threshold
+  - owner
+owner: safety-fraud-owner

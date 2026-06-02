@@ -1,0 +1,8 @@
+flowchart LR
+    A[Source Version] --> B[OCR]
+    A --> C[Embedding]
+    A --> D[Summary]
+    A --> E[Thumbnail]
+    A --> F[Search Index]
+    G[New Source Version or Policy Change] --> H[Invalidate Derivatives]
+    H --> I[Rebuild with Pinned Source Version]

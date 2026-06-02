@@ -1,0 +1,18 @@
+policyVersion: refund-approval-policy-v1
+evidenceRequired:
+  - orderId
+  - deliveryEvidence
+  - returnEligibility
+  - paymentState
+  - policyVersion
+  - fraudRiskScore
+thresholds:
+  highValueRefundAmount: 500
+  newAccountAgeDays: 30
+actions:
+  lowRiskEvidencePass: approve
+  highValueRefund: requires_review
+  newAccountHighValue: requires_review
+  paymentAmbiguous: defer
+  policyConflict: requires_review
+  fraudRiskHigh: refuse_or_review

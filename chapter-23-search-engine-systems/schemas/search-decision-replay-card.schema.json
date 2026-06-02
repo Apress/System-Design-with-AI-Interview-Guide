@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SearchDecisionReplayCard",
+  "type": "object",
+  "required": [
+    "replayCardId",
+    "queryId",
+    "queryText",
+    "intent",
+    "retrievalMode",
+    "policyVersion",
+    "decisionTime",
+    "resultSetHash",
+    "evidence",
+    "outcome",
+    "replayable"
+  ],
+  "properties": {
+    "replayCardId": {
+      "type": "string"
+    },
+    "queryId": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string"
+    },
+    "queryText": {
+      "type": "string"
+    },
+    "normalizedQuery": {
+      "type": "string"
+    },
+    "intent": {
+      "type": "string",
+      "enum": [
+        "PRODUCT_DISCOVERY",
+        "POLICY_LOOKUP",
+        "ORDER_STATUS",
+        "SUPPORT_INVESTIGATION",
+        "OPERATIONAL_SEARCH",
+        "AI_ANSWER"
+      ]
+    },
+    "retrievalMode": {
+      "type": "string",
+      "enum": [
+        "LEXICAL",
+        "VECTORLESS",
+        "VECTOR",
+        "HYBRID"
+      ]
+    },
+    "routingDecision": {
+      "type": "object"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "decisionTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "receipts": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "resultSetHash": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "object"
+    },
+    "stopAuthorityState": {
+      "type": "string"
+    },
+    "replayable": {
+      "type": "boolean"
+    }
+  }
+}

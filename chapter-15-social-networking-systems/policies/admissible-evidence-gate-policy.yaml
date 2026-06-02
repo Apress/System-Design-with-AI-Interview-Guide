@@ -1,0 +1,38 @@
+policyVersion: admissible-evidence-gate-v1
+tiers:
+  tier1Authority:
+    requiredForAmplification: true
+    examples:
+      - policy_version
+      - consent_mode_state
+      - creator_account_eligibility
+      - enforcement_history
+      - regional_restrictions
+      - graph_integrity_signals
+      - surface_authority
+      - replay_coverage
+    onMissing: block_amplification
+  tier2ModelEvidence:
+    requiredReplay: true
+    examples:
+      - safety_label
+      - topic_classification
+      - provenance_confidence
+      - coordination_likelihood
+      - manipulation_risk
+      - spam_abuse_likelihood
+    onLowConfidence: throttle_or_review
+    onConflict: freeze_or_review
+  tier3Engagement:
+    canRankWithinAdmissibleLane: true
+    canCreateAdmissibility: false
+    examples:
+      - likes
+      - comments
+      - shares
+      - dwell_time
+      - reactions
+actions:
+  onTier1Missing: block
+  onTier2Conflict: freeze_defer_review
+  onEngagementOnlyAmplification: reject_token

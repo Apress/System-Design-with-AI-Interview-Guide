@@ -1,0 +1,27 @@
+policyVersion: admissible-time-v1
+timeAuthority:
+  closeClock: server_controlled
+  clientEventTimeAuthority: intent_only
+concepts:
+  eventTime:
+    meaning: "When bidder acted or submitted the bid."
+    rule: "Useful for intent, not sufficient alone."
+  ingestionTime:
+    meaning: "When platform received the bid."
+    rule: "Primary admissibility signal for close."
+  closeTime:
+    meaning: "When close engine commits outcome."
+    rule: "Must be tied to closeCommitId."
+lateWindow:
+  enabled: true
+  durationSeconds: 3
+  rule: "Accept only if bid is ingested within late window and policy allows."
+hardCutoff:
+  durationSecondsAfterClose: 5
+  rule: "Reject bids ingested after hard cutoff."
+clockSkewBudget:
+  maxMilliseconds: 250
+  onExceeded:
+    - delay_close
+    - tighten_posture
+    - route_high_value_auction_to_review

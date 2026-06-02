@@ -1,0 +1,14 @@
+flowchart LR
+    A[Cached Value] --> B{Trust Label}
+
+    B --> C[Advisory]
+    B --> D[Provisional]
+    B --> E[Committed]
+
+    C --> F[Cache Friendly]
+    D --> G[Cache Carefully + Freshness Controls]
+    E --> H[No Casual Caching + Revalidate]
+
+    F --> I[Search / Recommendations / Product Hints]
+    G --> J[Price / Inventory Display / Cart Totals]
+    H --> K[Order Confirmation / Refund Eligibility]

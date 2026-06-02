@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HardBlock",
+  "type": "object",
+  "required": [
+    "hardBlockId",
+    "enforcementId",
+    "accountId",
+    "blockScope",
+    "blockedAt",
+    "policyBundleVersion",
+    "appealAvailable"
+  ],
+  "properties": {
+    "hardBlockId": {
+      "type": "string"
+    },
+    "enforcementId": {
+      "type": "string"
+    },
+    "accountId": {
+      "type": "string"
+    },
+    "blockScope": {
+      "type": "string",
+      "enum": [
+        "account",
+        "payment",
+        "payout",
+        "refund",
+        "login",
+        "seller_capability"
+      ]
+    },
+    "blockedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "appealAvailable": {
+      "type": "boolean"
+    },
+    "reversalPath": {
+      "type": "string"
+    }
+  }
+}

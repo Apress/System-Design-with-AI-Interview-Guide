@@ -1,0 +1,27 @@
+policyVersion: citation-required-v1
+principle: "A citation is not proof unless the cited source is current, authoritative, admissible, and version-pinned."
+
+requiredForAIAnswer:
+  - queryId
+  - retrievedSourceIds
+  - citedSourceVersions
+  - citationReceiptId
+  - sourceAuthorityStatus
+  - freshnessWithinBudget
+  - policyVersion
+  - answerReceiptId
+
+blockAnswerWhen:
+  - citation_missing
+  - cited_source_stale
+  - cited_source_superseded
+  - cited_source_not_authoritative
+  - citation_jurisdiction_mismatch
+  - policy_version_uncertain
+  - source_access_not_allowed
+
+degradedModes:
+  - show_sources_only
+  - mark_stale
+  - route_to_human_review
+  - refuse_answer

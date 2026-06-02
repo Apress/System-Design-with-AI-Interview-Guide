@@ -1,0 +1,10 @@
+flowchart LR
+    A[Start with Side-Effect Commitment Engine] --> B[Name Identities]
+    B --> C[Draw Side-Effect Boundary]
+    C --> D[Enforce Durable Idempotency]
+    D --> E[Choose Stream/Queue Roles]
+    E --> F[Scope Ordering]
+    F --> G[Bound Retries]
+    G --> H[DLQ Simulate First]
+    H --> I[Stop Risky Effects]
+    I --> J[Close with Replay Evidence]

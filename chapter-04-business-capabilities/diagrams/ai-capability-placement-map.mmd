@@ -1,0 +1,16 @@
+flowchart TB
+    A[AI Feature] --> B{Does AI commit a business outcome?}
+
+    B -- No, informational --> C[Allow as Assistant or Recommendation]
+    B -- Yes --> D{Is deterministic validation available?}
+
+    D -- Yes --> E[AI Suggests, System Commits]
+    D -- No --> F[Human Review or Keep Outside Critical Path]
+
+    C --> G[Record Prompt, Evidence, Model Version]
+    E --> H[Record Evidence, Decision, Policy Version]
+    F --> I[Escalate or Defer]
+
+    G --> J[Replayable AI Capability]
+    H --> J
+    I --> J

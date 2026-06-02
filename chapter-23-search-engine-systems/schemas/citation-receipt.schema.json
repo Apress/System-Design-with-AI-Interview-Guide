@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CitationReceipt",
+  "type": "object",
+  "required": [
+    "citationReceiptId",
+    "queryId",
+    "sourceId",
+    "sourceVersion",
+    "chunkId",
+    "authorityStatus",
+    "freshnessStatus",
+    "createdAt"
+  ],
+  "properties": {
+    "citationReceiptId": {
+      "type": "string"
+    },
+    "queryId": {
+      "type": "string"
+    },
+    "sourceId": {
+      "type": "string"
+    },
+    "sourceVersion": {
+      "type": "string"
+    },
+    "chunkId": {
+      "type": "string"
+    },
+    "authorityStatus": {
+      "type": "string",
+      "enum": [
+        "authoritative",
+        "derived",
+        "stale",
+        "superseded",
+        "unauthorized"
+      ]
+    },
+    "freshnessStatus": {
+      "type": "string",
+      "enum": [
+        "current",
+        "stale",
+        "unknown"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

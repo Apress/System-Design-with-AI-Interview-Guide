@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CrawlReceipt",
+  "type": "object",
+  "required": [
+    "crawlReceiptId",
+    "sourceId",
+    "sourceUri",
+    "observedAt",
+    "crawlStatus"
+  ],
+  "properties": {
+    "crawlReceiptId": {
+      "type": "string"
+    },
+    "sourceId": {
+      "type": "string"
+    },
+    "sourceUri": {
+      "type": "string"
+    },
+    "sourceVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "crawlerVersion": {
+      "type": "string"
+    },
+    "crawlStatus": {
+      "type": "string",
+      "enum": [
+        "observed",
+        "failed",
+        "blocked",
+        "skipped"
+      ]
+    },
+    "observedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

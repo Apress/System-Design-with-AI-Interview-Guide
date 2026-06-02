@@ -1,0 +1,52 @@
+policyVersion: ai-derivative-invalidation-v1
+principle: "Preserve source truth, regenerate derivatives, and never let the fast layer impersonate the real layer."
+
+nonRegeneratableTruth:
+  - original_object_version
+  - immutable_version_history
+  - legal_hold_receipt
+  - retention_receipt
+  - key_lineage
+  - write_receipt
+  - delete_receipt
+  - restore_receipt
+  - audit_chain
+  - policy_decision_evidence
+
+regeneratableDerivatives:
+  - ocr_text
+  - embedding_vector
+  - summary
+  - thumbnail
+  - preview
+  - extracted_tags
+  - search_index
+  - semantic_index
+  - generated_transcript
+
+requiredDerivativePins:
+  - source_object_id
+  - source_version_id
+  - source_content_hash
+  - extractor_or_model_version
+  - prompt_or_config_version
+  - policy_version
+  - generated_timestamp
+  - invalidation_reason
+  - rebuild_receipt_id
+
+invalidationEvents:
+  - new_source_version
+  - metadata_policy_change
+  - acl_or_classification_change
+  - legal_hold_change
+  - retention_change
+  - model_version_deprecated
+  - source_deleted_or_restricted
+
+onInvalidation:
+  - mark_derivative_stale
+  - prevent_authoritative_use
+  - enqueue_rebuild_if_allowed
+  - preserve_old_derivative_lineage
+  - emit_invalidation_receipt

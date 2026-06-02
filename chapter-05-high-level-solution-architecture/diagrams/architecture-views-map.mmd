@@ -1,0 +1,16 @@
+flowchart LR
+    A[System Design Problem] --> B[Context View]
+    A --> C[Service / Container View]
+    A --> D[Data Flow View]
+    A --> E[Runtime Sequence View]
+    A --> F[Failure / Degradation View]
+    A --> G[Security Boundary View]
+    A --> H[AI Trust and Evidence View]
+
+    B --> B1[Actors and External Systems]
+    C --> C1[Services and Ownership]
+    D --> D1[Systems of Record and Data Movement]
+    E --> E1[Critical Journey Execution]
+    F --> F1[Timeouts, Retries, Fallbacks]
+    G --> G1[Auth, PCI, PII, Tool Access]
+    H --> H1[Evidence, Authority, Replay]

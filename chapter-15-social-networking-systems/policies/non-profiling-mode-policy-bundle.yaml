@@ -1,0 +1,27 @@
+policyVersion: non-profiling-mode-v1
+mode: non_profiling
+allowedSignalClasses:
+  - explicit_follows
+  - explicit_topics
+  - mutes_blocks
+  - language
+  - recency
+  - freshness
+  - content_level_eligibility
+  - surface_policy
+  - source_precedence
+disallowedSignalClasses:
+  - prior_engagement
+  - watch_history
+  - dwell_time_derived_preferences
+  - behavioral_embeddings
+  - lookalike_profiles
+  - hidden_personalization
+requiredControls:
+  - separate_feature_path
+  - separate_model_or_deterministic_ranker
+  - mode_boundary_check
+  - replay_signal_classes
+failureBehavior:
+  onModeLeak: hard_stop_affected_path
+  fallback: safe_non_profiling_ranker

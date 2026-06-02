@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PaymentEffect",
+  "type": "object",
+  "required": [
+    "effectId",
+    "effectType",
+    "businessEntityId",
+    "amount",
+    "currency",
+    "idempotencyState",
+    "policyVersion",
+    "createdAt"
+  ],
+  "properties": {
+    "effectId": {
+      "type": "string"
+    },
+    "effectType": {
+      "type": "string",
+      "enum": [
+        "AUTHORIZE",
+        "CAPTURE",
+        "VOID",
+        "REFUND",
+        "REFUND_DENIAL",
+        "PAYOUT_HOLD",
+        "CHARGEBACK_RESPONSE"
+      ]
+    },
+    "businessEntityId": {
+      "type": "string"
+    },
+    "paymentIntentId": {
+      "type": "string"
+    },
+    "authId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "liabilityTokenId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "idempotencyState": {
+      "type": "string",
+      "enum": [
+        "NEW",
+        "IN_PROGRESS",
+        "COMMITTED",
+        "FAILED",
+        "PENDING_RECONCILE",
+        "NO_OP_ALREADY_COMMITTED",
+        "COMPENSATED"
+      ]
+    },
+    "providerRequestId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "providerResponseId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ledgerEntryId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "committedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}

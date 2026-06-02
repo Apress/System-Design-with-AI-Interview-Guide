@@ -1,0 +1,27 @@
+policyVersion: search-freshness-budget-v1
+principle: "Freshness is a time policy, not one generic SLA."
+corpora:
+  governedPolicy:
+    maxSourceToIndexLagSeconds: 60
+    maxCacheAgeSeconds: 0
+    aiAnswerRequiresCurrentCitation: true
+    onBudgetExceeded:
+      - mark_results_stale
+      - bypass_cache
+      - suppress_ai_answers
+      - force_fresh_retrieval
+  productCatalog:
+    maxSourceToIndexLagSeconds: 300
+    maxCacheAgeSeconds: 120
+    aiAnswerRequiresCurrentCitation: false
+  supportKnowledge:
+    maxSourceToIndexLagSeconds: 180
+    maxCacheAgeSeconds: 60
+    aiAnswerRequiresCurrentCitation: true
+clocks:
+  - source_update_time
+  - ingest_time
+  - index_time
+  - cache_time
+  - ranking_model_time
+  - answer_time

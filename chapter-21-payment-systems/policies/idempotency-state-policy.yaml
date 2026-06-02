@@ -1,0 +1,3 @@
+policyVersion: idempotency-state-policy-v1
+states: [IN_PROGRESS, COMMITTED, FAILED, PENDING_RECONCILE, NO_OP_ALREADY_COMMITTED, COMPENSATED]
+requiredCommitFields: [provider_reference, liability_token_id, ledger_entry_id, replay_card_id]

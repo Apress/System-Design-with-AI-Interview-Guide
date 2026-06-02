@@ -1,0 +1,12 @@
+flowchart TB
+    A[Browse / Explore] --> B[Cart / Intent]
+    B --> C[Checkout Commit Gate]
+    C --> D[Order Commit]
+    D --> E[Fulfillment Release]
+    E --> F[Carrier Acceptance]
+    F --> G[Delivery / Support / Refund]
+
+    C --> T1[Inventory Hold + Reservation]
+    C --> T2[Payment Auth]
+    C --> T3[Policy Pin]
+    C --> R[Decision Replay Card]

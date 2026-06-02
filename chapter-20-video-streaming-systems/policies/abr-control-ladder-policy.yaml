@@ -1,0 +1,26 @@
+policyVersion: abr-control-ladder-v1
+modes:
+  normalAbr:
+    trigger: "Stable throughput and low stall risk."
+  conservativeAbr:
+    trigger: "Throughput volatility or segment timeouts rise."
+  bufferWiden:
+    trigger: "Rebuffer risk rising."
+  cdnSwitch:
+    trigger: "Path-specific segment errors."
+  renditionClamp:
+    trigger: "Device or network cohort unstable."
+  honestFailure:
+    trigger: "DRM, manifest, entitlement, or unrecoverable playback failure."
+recovery:
+  cooldownSeconds: 180
+  stableWindowSeconds: 300
+  useHysteresis: true
+  maxAbrModeChangesPerSession: 5
+receiptsRequired:
+  - ABR_MODE_CHANGE
+  - BUFFER_WIDEN
+  - CDN_SWITCH
+  - RENDITION_CLAMP
+  - REFUSAL
+  - RE_ENABLE

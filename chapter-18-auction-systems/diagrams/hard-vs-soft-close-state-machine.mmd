@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> Open
+    Open --> ClosingWindow
+    ClosingWindow --> Extended: soft close bid in window
+    Extended --> ClosingWindow: extension active
+    ClosingWindow --> HardCutoff
+    HardCutoff --> CloseComputation
+    CloseComputation --> Committed: closeCommitId
+    CloseComputation --> Frozen: fraud/replay/lag issue
+    Frozen --> Review
+    Review --> Committed
+    Committed --> Settlement

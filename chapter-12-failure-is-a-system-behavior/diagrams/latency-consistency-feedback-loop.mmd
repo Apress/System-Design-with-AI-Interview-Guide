@@ -1,0 +1,14 @@
+flowchart TB
+    A[Slow Dependency] --> B[Uncertainty]
+    B --> C[Retries]
+    C --> D[Duplicate Work]
+    D --> E[Deeper Queues]
+    E --> F[Tail Latency]
+    F --> G[Stale Reads / Delayed Writes]
+    G --> H[False Success]
+    H --> C
+
+    I[Controls] --> J[Idempotency]
+    I --> K[Retry Budgets]
+    I --> L[Pending State]
+    I --> M[Clear Commit Messages]

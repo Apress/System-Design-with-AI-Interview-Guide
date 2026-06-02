@@ -1,0 +1,58 @@
+policyVersion: streaming-stop-authority-v1
+principle: "Do not stop the whole platform; freeze the risky streaming capability for the affected cohort."
+
+triggers:
+  rebufferP95SpikeByCohort:
+    action:
+      - clamp_abr_ladder
+      - widen_buffer
+      - freeze_aggressive_upswitch
+
+  cdnTimeoutSpikeByMetroIspDevice:
+    action:
+      - canary_cdn_switch
+      - expand_only_if_stable
+      - apply_hysteresis
+
+  manifestStalenessSpike:
+    action:
+      - disable_low_latency
+      - pin_fallback_manifest
+
+  drmFailureSpike:
+    action:
+      - freeze_license_issuance_for_affected_policy_device_cohort
+      - route_to_remediation
+
+  adDecisionDeadlock:
+    action:
+      - activate_ad_safe_mode
+      - reduce_ad_load
+      - switch_insertion_path
+
+  replayCoverageDrop:
+    condition: "replay_coverage_below_100_percent_for_session_grants"
+    action:
+      - freeze_new_grants_for_affected_path
+      - restore_receipt_path
+
+  deviceFirmwareRegression:
+    action:
+      - disable_risky_renditions_or_features_for_device_class
+
+owners:
+  sessionGrant: playback-platform-owner
+  entitlement: rights-policy-owner
+  drm: drm-owner
+  cdn: distribution-owner
+  player: player-owner
+  ads: ads-owner
+  replay: replay-governance-owner
+
+reEnable:
+  requireCohortQoeInsideBounds: true
+  requireReplayCoverageRestored: true
+  requireCdnOrDrmErrorRatesBaseline: true
+  requireStopActionsRecorded: true
+  requirePolicyOrControlVersionRecorded: true
+  requireOwnerApproval: true

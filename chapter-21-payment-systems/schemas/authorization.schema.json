@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Authorization",
+  "type": "object",
+  "required": [
+    "id",
+    "createdAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "effectId": {
+      "type": "string"
+    },
+    "paymentIntentId": {
+      "type": "string"
+    },
+    "authId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "liabilityTokenId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "providerReference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ledgerEntryId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "replayCardId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

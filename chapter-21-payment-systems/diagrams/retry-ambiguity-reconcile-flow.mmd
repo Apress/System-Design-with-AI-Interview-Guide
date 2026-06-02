@@ -1,0 +1,8 @@
+flowchart TB
+A[Provider Call Sent]-->B{Response?}
+B--Success-->C[COMMITTED]
+B--Failure-->D[FAILED]
+B--Timeout-->E[PENDING_RECONCILE]
+E-->F[Suppress Blind Retry]
+F-->G[Query Provider/Webhook/Settlement]
+G-->C

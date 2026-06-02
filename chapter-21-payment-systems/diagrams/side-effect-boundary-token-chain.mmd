@@ -1,0 +1,10 @@
+flowchart LR
+A[paymentIntentId]-->B[authId]
+B-->C[effectId]
+C-->D[captureId]
+C-->E[refundId]
+C-->F[refundDenyId]
+C-->G[payoutHoldId]
+D-->H[ledgerEntryId]
+H-->I[settlementReference]
+I-->J[disputeId/responseId]

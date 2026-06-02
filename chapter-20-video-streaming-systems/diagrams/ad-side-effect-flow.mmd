@@ -1,0 +1,10 @@
+flowchart TB
+    A[Ad Request] --> B[Consent + Eligibility]
+    B --> C[Frequency Cap + Targeting]
+    C --> D[Ad Pod Decision]
+    D --> E{Failure?}
+    E -- No --> F[Serve Ads + Measure]
+    E -- Yes --> G[Safe Mode]
+    G --> H[Shorten Pod / House Ad / Slate / Skip]
+    H --> R[Ad Decision Replay Receipt]
+    F --> R

@@ -1,0 +1,21 @@
+policyVersion: drm-grant-policy-v1
+principle: "DRM license issuance is an access-liability boundary."
+requires:
+  - valid_playbackSessionId
+  - valid_entitlementTokenId
+  - protected_content_policy
+  - device_drm_support
+  - license_window_open
+  - region_allowed
+  - replay_receipt_ready
+onProviderFailure:
+  - retry_with_budget
+  - remediation
+  - rights_safe_fallback_if_allowed
+  - precise_refusal
+reasonCodes:
+  - DRM_LICENSE_GRANTED
+  - DRM_PROVIDER_TIMEOUT
+  - DRM_LICENSE_UNAVAILABLE
+  - DEVICE_DRM_UNSUPPORTED
+  - REGION_RIGHTS_BLOCKED

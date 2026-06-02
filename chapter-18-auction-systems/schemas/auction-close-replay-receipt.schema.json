@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuctionCloseReplayReceipt",
+  "type": "object",
+  "required": [
+    "replayReceiptId",
+    "auctionId",
+    "closeCommitId",
+    "closePolicyVersion",
+    "serverCloseTime",
+    "admissibleBids",
+    "excludedBids",
+    "priceFormation",
+    "outcome"
+  ],
+  "properties": {
+    "replayReceiptId": {
+      "type": "string"
+    },
+    "auctionId": {
+      "type": "string"
+    },
+    "closeCommitId": {
+      "type": "string"
+    },
+    "closePolicyVersion": {
+      "type": "string"
+    },
+    "serverCloseTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lateWindowPolicy": {
+      "type": "object"
+    },
+    "clockSkewBudget": {
+      "type": "object"
+    },
+    "admissibleBids": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "excludedBids": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "bidId": {
+            "type": "string"
+          },
+          "reasonCode": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "priceFormation": {
+      "type": "object",
+      "properties": {
+        "proxyBiddingApplied": {
+          "type": "boolean"
+        },
+        "incrementPolicyVersion": {
+          "type": "string"
+        },
+        "reserveMet": {
+          "type": "boolean"
+        },
+        "tieBreakerApplied": {
+          "type": "boolean"
+        },
+        "clearingPriceExplanation": {
+          "type": "string"
+        }
+      }
+    },
+    "fraud": {
+      "type": "object",
+      "properties": {
+        "fraudPressureScore": {
+          "type": "number"
+        },
+        "containmentAction": {
+          "type": "string"
+        }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "properties": {
+        "winnerBidderId": {
+          "type": "string"
+        },
+        "winningBidId": {
+          "type": "string"
+        },
+        "clearingPrice": {
+          "type": "number"
+        },
+        "currency": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

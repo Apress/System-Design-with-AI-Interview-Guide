@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FilterReceipt",
+  "type": "object",
+  "required": [
+    "filterReceiptId",
+    "queryId",
+    "policyVersion",
+    "filteredAt"
+  ],
+  "properties": {
+    "filterReceiptId": {
+      "type": "string"
+    },
+    "queryId": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "aclPolicyVersion": {
+      "type": "string"
+    },
+    "safetyPolicyVersion": {
+      "type": "string"
+    },
+    "suppressionPolicyVersion": {
+      "type": "string"
+    },
+    "includedCount": {
+      "type": "integer"
+    },
+    "suppressedCount": {
+      "type": "integer"
+    },
+    "suppressionReasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "filteredAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

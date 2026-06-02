@@ -1,0 +1,11 @@
+flowchart TB
+    R[Rider] --> P[Platform Commitment Engine]
+    D[Driver] --> P
+    M[Marketplace] --> P
+    G[Governance / Safety / Policy] --> P
+
+    P --> C1[Hold: Intent]
+    C1 --> C2[Commit: Liability]
+
+    C2 --> E[Replay Evidence]
+    E --> X[Why this rider got this driver at this price]

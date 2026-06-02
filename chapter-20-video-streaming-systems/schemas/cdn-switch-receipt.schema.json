@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CdnSwitchReceipt",
+  "type": "object",
+  "required": [
+    "cdnSwitchReceiptId",
+    "scope",
+    "fromCdn",
+    "toCdn",
+    "triggerSignal",
+    "policyVersion",
+    "switchedAt"
+  ],
+  "properties": {
+    "cdnSwitchReceiptId": {
+      "type": "string"
+    },
+    "playbackSessionId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cohortId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scope": {
+      "type": "object"
+    },
+    "fromCdn": {
+      "type": "string"
+    },
+    "toCdn": {
+      "type": "string"
+    },
+    "triggerSignal": {
+      "type": "string"
+    },
+    "evidenceWindowSeconds": {
+      "type": "integer"
+    },
+    "canarySizePercent": {
+      "type": "number"
+    },
+    "qoeBefore": {
+      "type": "object"
+    },
+    "qoeAfter": {
+      "type": "object"
+    },
+    "hysteresisState": {
+      "type": "object"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "switchedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

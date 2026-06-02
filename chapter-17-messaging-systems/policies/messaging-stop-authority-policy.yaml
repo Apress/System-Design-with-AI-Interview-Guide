@@ -1,0 +1,32 @@
+policyVersion: messaging-stop-authority-v1
+principle: "Do not stop Kafka; stop the risky side effect."
+triggers:
+  replayCoverageDrop:
+    condition: "less_than_100_percent_for_high_risk_capability"
+    action: freeze_side_effect_class
+  idempotencyStoreUnavailable:
+    condition: "unavailable_or_inconsistent"
+    action: hard_stop_irreversible_side_effects
+  dlqRateSpike:
+    condition: "above_baseline"
+    action: simulate_only_replay_and_triage
+  schemaMismatchSpike:
+    condition: "above_baseline"
+    action: quarantine_version
+  lagTimeoutStraddling:
+    condition: "consumer_lag_overlaps_external_timeouts"
+    action: reduce_concurrency_and_freeze_irreversible_effects
+owners:
+  - capability_owner
+  - side_effect_owner
+  - schema_owner
+  - dlq_owner
+  - replay_operator
+  - platform_on_call
+reEnable:
+  requireReplayCoverageRestored: true
+  requireIdempotencyStoreHealthy: true
+  requireDlqRateBaseline: true
+  requireSchemaCompatibilityRestored: true
+  requireAmbiguousEffectsReconciled: true
+  requireOwnerApproval: true

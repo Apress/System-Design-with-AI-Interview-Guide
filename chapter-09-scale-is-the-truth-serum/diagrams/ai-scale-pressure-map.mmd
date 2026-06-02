@@ -1,0 +1,16 @@
+flowchart TB
+    A[User Request] --> B[Planner Steps]
+    B --> C[Retrieval Fan-Out]
+    C --> D[Prompt Tokens]
+    D --> E[Model Latency]
+    E --> F[Tool Calls]
+    F --> G[Retries]
+    G --> H[Evaluation Loops]
+    H --> I[Total AI Load]
+
+    C --> C1[Retrieval Budget]
+    D --> D1[Token Budget]
+    F --> F1[Tool Budget]
+    G --> G1[Retry Budget]
+    H --> H1[Loop Cap]
+    E --> E1[Model Tiering / GPU Queue Telemetry]

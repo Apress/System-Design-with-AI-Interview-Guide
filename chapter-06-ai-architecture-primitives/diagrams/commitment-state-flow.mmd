@@ -1,0 +1,11 @@
+stateDiagram-v2
+    [*] --> Suggested
+    Suggested --> Submitted
+    Submitted --> PendingReview
+    Submitted --> PendingPartnerAck
+    PendingPartnerAck --> Committed: proof received
+    PendingReview --> Committed: human/system approval
+    PendingReview --> Refused: proof missing or risk too high
+    PendingPartnerAck --> Refused: partner rejection
+    Committed --> [*]
+    Refused --> [*]

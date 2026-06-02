@@ -1,0 +1,9 @@
+flowchart TB
+    A[Canonical Source Version] --> B[Extracted Text]
+    A --> C[Chunks]
+    C --> D[Embeddings]
+    C --> E[Summaries]
+    B --> F[Search Index]
+    G[Source / Policy Change] --> H[Invalidate Derivatives]
+    H --> I[Rebuild with Pinned Versions]
+    A -. authority .-> I

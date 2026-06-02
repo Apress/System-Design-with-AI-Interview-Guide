@@ -1,0 +1,13 @@
+flowchart TB
+    A[Fraud Event] --> B[Normalize + Enrich]
+    B --> C[Risk Score]
+    C --> D[riskDecisionId: Advisory]
+    D --> E[Evidence Tier Gate]
+    E --> F{Control Ladder}
+    F --> G[Allow + Monitor]
+    F --> H[Step-Up Challenge]
+    F --> I[Soft Hold / Review]
+    F --> J[Enforcement Boundary]
+    J --> K[Liability Token]
+    K --> L[Replay Card]
+    L --> M[Appeal / Label Feedback]

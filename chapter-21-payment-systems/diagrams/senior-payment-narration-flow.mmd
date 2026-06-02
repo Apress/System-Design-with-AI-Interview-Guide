@@ -1,0 +1,8 @@
+flowchart LR
+A[Liability Commitment Engine]-->B[Intent/Auth/Capture]
+B-->C[effectId]
+C-->D[Durable Idempotency]
+D-->E[Park Ambiguity]
+E-->F[Reconcile]
+F-->G[Ledger Courtroom Memory]
+G-->H[Stop Authority + Replay]

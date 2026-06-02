@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PaymentDecisionReplayCard",
+  "type": "object",
+  "required": [
+    "replayCardId",
+    "correlationId",
+    "paymentIntentId",
+    "effectId",
+    "policyVersion",
+    "schemaVersion",
+    "decisionTime",
+    "decisionType",
+    "evidence",
+    "outcome",
+    "replayable"
+  ],
+  "properties": {
+    "replayCardId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "chainId": {
+      "type": "string"
+    },
+    "orderId": {
+      "type": "string"
+    },
+    "paymentIntentId": {
+      "type": "string"
+    },
+    "authId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "effectId": {
+      "type": "string"
+    },
+    "liabilityToken": {
+      "type": "object"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "type": "string"
+    },
+    "decisionTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "decisionType": {
+      "type": "string",
+      "enum": [
+        "AUTHORIZE",
+        "CAPTURE",
+        "REFUND",
+        "REFUND_DENIAL",
+        "PAYOUT_HOLD",
+        "DISPUTE_RESPONSE",
+        "RECONCILIATION",
+        "COMPENSATION"
+      ]
+    },
+    "evidence": {
+      "type": "object"
+    },
+    "outcome": {
+      "type": "object"
+    },
+    "stopAuthorityState": {
+      "type": "string"
+    },
+    "replayable": {
+      "type": "boolean"
+    }
+  }
+}

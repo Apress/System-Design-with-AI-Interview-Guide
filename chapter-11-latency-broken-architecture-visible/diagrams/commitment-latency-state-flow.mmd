@@ -1,0 +1,12 @@
+stateDiagram-v2
+    [*] --> Submitted
+    Submitted --> Pending: proof delayed
+    Submitted --> Confirmed: proof exists
+    Submitted --> Failed: proof denied
+    Pending --> Confirmed: downstream evidence arrives
+    Pending --> ReviewRequired: risk/policy threshold
+    Pending --> Failed: timeout or rejection
+    ReviewRequired --> Confirmed: human approves
+    ReviewRequired --> Failed: human rejects
+    Confirmed --> [*]
+    Failed --> [*]

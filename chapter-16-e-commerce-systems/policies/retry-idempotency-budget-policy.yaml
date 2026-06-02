@@ -1,0 +1,19 @@
+policyVersion: retry-idempotency-budget-v1
+idempotency:
+  keyScope:
+    - customerId
+    - cartSnapshotId
+    - checkoutIntentId
+    - paymentAttemptId
+  behavior: "Repeated Place Order returns current state for same intent."
+budgets:
+  checkoutRetries: 2
+  paymentAuthRetries: 1
+  inventoryReservationRetries: 2
+  fulfillmentStateRefreshes: 2
+  refundToolRetries: 1
+onBudgetExhausted:
+  - move_to_pending
+  - route_to_review
+  - emit_replay_card
+  - stop_duplicate_work

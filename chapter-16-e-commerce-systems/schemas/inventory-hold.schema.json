@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "InventoryHold",
+  "type": "object",
+  "required": [
+    "inventoryHoldId",
+    "checkoutIntentId",
+    "sku",
+    "quantity",
+    "customerId",
+    "createdAt",
+    "expiresAt",
+    "holdStatus",
+    "policyVersion"
+  ],
+  "properties": {
+    "inventoryHoldId": {
+      "type": "string"
+    },
+    "checkoutIntentId": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "fulfillmentNodeId": {
+      "type": "string"
+    },
+    "inventorySnapshotId": {
+      "type": "string"
+    },
+    "inventoryAgeSeconds": {
+      "type": "number"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "holdStatus": {
+      "type": "string",
+      "enum": [
+        "created",
+        "reserved",
+        "expired",
+        "released",
+        "failed"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    }
+  }
+}

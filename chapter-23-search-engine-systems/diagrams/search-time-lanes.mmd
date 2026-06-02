@@ -1,0 +1,7 @@
+flowchart LR
+    A[Source Update Time] --> B[Ingest Time]
+    B --> C[Index Time]
+    C --> D[Cache Time]
+    D --> E[Ranking Model Time]
+    E --> F[Answer Time]
+    F --> R[Replay Card]

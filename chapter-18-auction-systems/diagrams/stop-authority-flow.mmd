@@ -1,0 +1,12 @@
+flowchart TB
+    A[Monitor Close + Settlement Signals] --> B{Trigger?}
+    B -- Close Mismatch --> C[Freeze Close + Pause Settlement]
+    B -- Replay Gap --> D[Freeze Affected Path]
+    B -- Lag/Skew --> E[Delay / Extend / Review]
+    B -- Fraud Pressure --> F[Quarantine + Freeze]
+    B -- Settlement Spike --> G[Pause Captures]
+    C --> H[Receipt + Owner Review]
+    D --> H
+    E --> H
+    F --> H
+    G --> H

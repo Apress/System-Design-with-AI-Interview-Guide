@@ -1,0 +1,12 @@
+policyVersion: hard-close-v1
+closeType: hard
+description: "Auction ends at scheduled server-controlled close time."
+scheduledCloseAuthority: server_controlled
+lateWindow:
+  enabled: true
+  durationSeconds: 3
+hardCutoff:
+  durationSecondsAfterClose: 5
+snipingPosture:
+  acceptedAsMarketplaceBehavior: true
+replayRequired: true

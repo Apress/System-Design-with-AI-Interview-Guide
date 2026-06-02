@@ -1,0 +1,26 @@
+policyVersion: ordering-scope-v1
+principles:
+  - "Do not promise global ordering unless the business requires it."
+  - "Ordering is scoped to business entity."
+entities:
+  conversationThread:
+    key: threadId
+    requiresSequenceCheck: true
+  order:
+    key: orderId
+    requiresSequenceCheck: true
+  accountBalance:
+    key: accountId
+    requiresSequenceCheck: true
+  notificationFanout:
+    key: userId
+    requiresGlobalOrder: false
+  analytics:
+    key: eventTimeWindow
+    requiresGlobalOrder: false
+lateEventBehavior:
+  - validate_current_state
+  - apply_if_safe
+  - buffer_with_watermark
+  - route_to_dlq_if_unsafe
+  - emit_replay_card

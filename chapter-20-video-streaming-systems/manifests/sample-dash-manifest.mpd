@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011"
+     type="static"
+     mediaPresentationDuration="PT18S"
+     minBufferTime="PT2S"
+     profiles="urn:mpeg:dash:profile:isoff-on-demand:2011">
+  <Period id="p0" start="PT0S">
+    <AdaptationSet id="video" contentType="video" segmentAlignment="true" mimeType="video/mp4" codecs="avc1.640028">
+      <Representation id="v720" bandwidth="2500000" width="1280" height="720">
+        <BaseURL>dash/720/</BaseURL>
+        <SegmentTemplate media="seg-$Number$.m4s" initialization="init.mp4" startNumber="1000" duration="6" timescale="1"/>
+      </Representation>
+      <Representation id="v1080" bandwidth="5500000" width="1920" height="1080">
+        <BaseURL>dash/1080/</BaseURL>
+        <SegmentTemplate media="seg-$Number$.m4s" initialization="init.mp4" startNumber="1000" duration="6" timescale="1"/>
+      </Representation>
+    </AdaptationSet>
+  </Period>
+</MPD>

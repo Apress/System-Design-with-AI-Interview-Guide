@@ -1,0 +1,16 @@
+flowchart TB
+    A[Source System] --> B[Crawl / Ingest]
+    B --> C[Parse / Normalize]
+    C --> D[Index]
+    D --> E[Retrieval]
+    E --> F[Ranking]
+    F --> G[Filtering]
+    G --> H[Citation Selection]
+    H --> I[AI Answer Generation]
+    I --> J[Customer Visible Response]
+    B --> R[Search Decision Replay Card]
+    D --> R
+    F --> R
+    G --> R
+    H --> R
+    I --> R

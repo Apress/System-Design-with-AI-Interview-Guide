@@ -1,0 +1,33 @@
+policyVersion: commerce-stop-authority-v1
+triggers:
+  replayCoverageDrop:
+    threshold: "less_than_100_percent_for_high_risk_commits"
+    action: hard_stop_affected_commit_path
+  paymentToolFailure:
+    threshold: "sustained_error_rate_above_baseline"
+    action: move_to_pending_payment_confirmation
+  inventoryConflictRate:
+    threshold: "above_baseline"
+    action: tighten_checkout_commit_gate
+  fulfillmentConflictRate:
+    threshold: "above_baseline"
+    action: stop_automated_modifications
+  refundReversalRate:
+    threshold: "above_baseline"
+    action: require_human_review_for_affected_refund_type
+  disputeRate:
+    threshold: "rolling_window_above_baseline"
+    action: freeze_risky_automation
+owners:
+  checkout: checkout-owner
+  payment: payment-owner
+  inventory: inventory-owner
+  fulfillment: fulfillment-owner
+  refund: refund-policy-owner
+  risk: fraud-risk-owner
+reEnable:
+  requireReplayCoverageRestored: true
+  requireToolFailuresStable: true
+  requireConflictRateNormal: true
+  requireDisputesBackToBaseline: true
+  requireOwnerApproval: true

@@ -1,0 +1,27 @@
+policyVersion: fraud-freshness-label-delay-v1
+clocks:
+  eventTime: "When the transaction/refund/payout/login occurred."
+  ingestionTime: "When telemetry or evidence reached the platform."
+  decisionTime: "When the platform scored, challenged, denied, held, or blocked."
+  labelTime: "When chargeback, appeal, reversal, investigation, or confirmation arrives."
+principle: "Fraud is judged at decision time but learned at label time."
+freshness:
+  identityVerification:
+    softTtlSeconds: 300
+    hardTtlSeconds: 1800
+  paymentInstrumentState:
+    softTtlSeconds: 120
+    hardTtlSeconds: 600
+  velocityCounters:
+    softTtlSeconds: 30
+    hardTtlSeconds: 180
+  policyBundle:
+    softTtlSeconds: 300
+    hardTtlSeconds: 1800
+labelDelay:
+  rule: "Labels improve future models and policies; they do not retroactively justify past enforcement."
+  requiredLinkBack:
+    - riskDecisionId
+    - enforcementId
+    - evidenceSnapshotId
+    - policyBundleVersion

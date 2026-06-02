@@ -1,0 +1,6 @@
+flowchart LR
+    A[Sense: Freshness / Ranking / Citation / Cache / Cost] --> B[Decide with Policy]
+    B --> C[Act: Suppress / Sources Only / Bypass / Revert / Rebuild]
+    C --> D[Emit Receipts + Replay]
+    D --> E[Re-enable or Keep Degraded]
+    E --> A

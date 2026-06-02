@@ -1,0 +1,19 @@
+flowchart TB
+    A[Low Scale] --> B[Human Patience]
+    A --> C[Manual Cleanup]
+    A --> D[Slow Dependencies Tolerated]
+    A --> E[Stale Cache Hidden]
+    A --> F[Unbounded Retries Hidden]
+
+    G[Real Scale] --> H[Overselling]
+    G --> I[Duplicate Checkout Attempts]
+    G --> J[Retry Storm]
+    G --> K[Trust Damage]
+    G --> L[Hot Partitions]
+    G --> M[Support Becomes Architecture]
+
+    B --> H
+    C --> M
+    D --> I
+    E --> K
+    F --> J

@@ -1,0 +1,25 @@
+policyVersion: integrity-proof-v1
+principle: "Integrity is a replayable chain, not checksum theater."
+requiredChain:
+  - content_hash
+  - versionId_binding
+  - encryption_key_id
+  - key_lineage
+  - write_receipt
+  - scrub_or_verify_receipt
+  - serve_path_verification
+  - restore_receipt
+failureRules:
+  wrongKey:
+    action:
+      - quarantine
+      - stop_claiming_recoverable
+      - require_key_lineage_review
+  hashMismatch:
+    action:
+      - quarantine_version
+      - block_serve_claim
+      - start_repair_or_restore
+  missingServeVerification:
+    action:
+      - do_not_claim_served_bytes_match_truth

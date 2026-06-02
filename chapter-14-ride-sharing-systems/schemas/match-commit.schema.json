@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MatchCommit",
+  "type": "object",
+  "required": [
+    "matchId",
+    "matchHoldId",
+    "rideRequestId",
+    "correlationId",
+    "riderId",
+    "driverId",
+    "committedAt",
+    "commitStatus",
+    "gateResults"
+  ],
+  "properties": {
+    "matchId": {
+      "type": "string"
+    },
+    "matchHoldId": {
+      "type": "string"
+    },
+    "rideRequestId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "riderId": {
+      "type": "string"
+    },
+    "driverId": {
+      "type": "string"
+    },
+    "committedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "commitStatus": {
+      "type": "string",
+      "enum": [
+        "committed",
+        "deferred",
+        "refused",
+        "escalated"
+      ]
+    },
+    "gateResults": {
+      "type": "object",
+      "properties": {
+        "gpsFreshness": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "soft_warn",
+            "fail"
+          ]
+        },
+        "etaFreshness": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "soft_warn",
+            "fail"
+          ]
+        },
+        "driverAcceptance": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "pricingPolicy": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "fairnessGuardrail": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "warn",
+            "fail"
+          ]
+        },
+        "safetyFraud": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "review",
+            "hard_stop"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StopAuthorityMode",
+  "type": "object",
+  "required": [
+    "modeId",
+    "mode",
+    "condition",
+    "allowedBehavior",
+    "owner"
+  ],
+  "properties": {
+    "modeId": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "conservative",
+        "defer",
+        "freezeLiabilityActions",
+        "humanReview",
+        "reenableWithNewVersion"
+      ]
+    },
+    "condition": {
+      "type": "string"
+    },
+    "allowedBehavior": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockedBehavior": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner": {
+      "type": "string"
+    },
+    "reEnableRequirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

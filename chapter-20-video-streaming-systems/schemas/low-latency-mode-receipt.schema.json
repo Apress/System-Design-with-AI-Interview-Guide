@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LowLatencyModeReceipt",
+  "type": "object",
+  "required": [
+    "receiptId",
+    "playbackSessionId",
+    "liveEventId",
+    "mode",
+    "reasonCode",
+    "policyVersion",
+    "decidedAt"
+  ],
+  "properties": {
+    "receiptId": {
+      "type": "string"
+    },
+    "playbackSessionId": {
+      "type": "string"
+    },
+    "liveEventId": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "LOW_LATENCY",
+        "STANDARD_LATENCY",
+        "FALLBACK",
+        "DISABLED"
+      ]
+    },
+    "eventTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ingestTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "segmentTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "playbackTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "glassToGlassLatencySec": {
+      "type": "number"
+    },
+    "bufferDepthSec": {
+      "type": "number"
+    },
+    "manifestStalenessSec": {
+      "type": "number"
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "decidedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

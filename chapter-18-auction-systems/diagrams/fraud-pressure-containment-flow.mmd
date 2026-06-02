@@ -1,0 +1,12 @@
+flowchart TB
+    A[Bid Signals] --> B[Graph Signals]
+    A --> C[Device Signals]
+    A --> D[Timing/Velocity]
+    B --> E[Fraud Pressure Score]
+    C --> E
+    D --> E
+    E --> F{Threshold}
+    F -- Throttle --> G[Throttle Bids]
+    F -- Step Up --> H[Require Verification]
+    F -- Quarantine --> I[Quarantine Bidder]
+    F -- Freeze --> J[Freeze Close / Pause Settlement]

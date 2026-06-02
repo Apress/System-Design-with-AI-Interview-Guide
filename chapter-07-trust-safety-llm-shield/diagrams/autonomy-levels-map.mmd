@@ -1,0 +1,18 @@
+flowchart TB
+    A[AI Capability] --> B[Level 0: Observe]
+    A --> C[Level 1: Suggest]
+    A --> D[Level 2: Act with Approval]
+    A --> E[Level 3: Bounded Autonomy]
+    A --> F[Restricted: Never Act]
+
+    B --> B1[Read / Classify / Summarize]
+    C --> C1[Recommend / Draft / Cite]
+    D --> D1[Queue Action for Human Review]
+    E --> E1[Low-Risk Reversible Actions]
+    F --> F1[Hard Stop or Deterministic Workflow]
+
+    E --> G[Tool Allowlist]
+    E --> H[Confidence Gates]
+    E --> I[Rate Limits]
+    E --> J[Kill Switch]
+    E --> K[Replay Card]

@@ -1,0 +1,34 @@
+policyVersion: rocs-streaming-control-v1
+reliability:
+  signals:
+    - startup_failure_rate
+    - rebuffer_ratio
+    - segment_timeout_rate
+    - drm_failure_rate
+    - manifest_error_rate
+observability:
+  signals:
+    - replay_coverage
+    - missing_manifest_version
+    - missing_cdn_switch_receipt
+    - missing_ad_decision_receipt
+cost:
+  signals:
+    - egress_retry_waste
+    - origin_pressure
+    - ad_make_good_cost
+    - support_contact_rate
+sustainability:
+  signals:
+    - qoe_by_cohort
+    - hd_claim_accuracy
+    - low_latency_mode_stability
+    - churn_risk_proxy
+actions:
+  - conservative_abr
+  - buffer_widen
+  - cdn_canary_switch
+  - rendition_clamp
+  - low_latency_fallback
+  - ad_safe_mode
+  - precise_refusal

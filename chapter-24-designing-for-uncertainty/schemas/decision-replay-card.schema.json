@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DecisionReplayCard",
+  "type": "object",
+  "required": [
+    "replayCardId",
+    "correlationId",
+    "domain",
+    "commitmentType",
+    "actor",
+    "authority",
+    "policyVersion",
+    "evidenceSnapshot",
+    "decisionTime",
+    "outcome",
+    "replayable"
+  ],
+  "properties": {
+    "replayCardId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "commitmentType": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "object"
+    },
+    "authority": {
+      "type": "object"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "evidenceSnapshot": {
+      "type": "object"
+    },
+    "decisionTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "clocks": {
+      "type": "object"
+    },
+    "churnBudget": {
+      "type": "object"
+    },
+    "technicalLineage": {
+      "type": "object"
+    },
+    "outcome": {
+      "type": "object"
+    },
+    "reversal": {
+      "type": "object"
+    },
+    "replayable": {
+      "type": "boolean"
+    }
+  }
+}

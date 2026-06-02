@@ -1,0 +1,26 @@
+policyVersion: search-liability-action-matrix-v1
+actions:
+  crawl:
+    liability: low_observation
+    receipt: crawlReceiptId
+  ingest:
+    liability: medium_admission
+    receipt: ingestReceiptId
+  parse:
+    liability: medium_future_recall
+    receipt: parseReceiptId
+  index:
+    liability: high_searchability
+    receipt: indexReceiptId
+  rank:
+    liability: high_visibility_ordering
+    receipt: rankReceiptId
+  filter:
+    liability: high_admissibility
+    receipt: filterReceiptId
+  cite:
+    liability: high_grounding
+    receipt: citationReceiptId
+  answer:
+    liability: highest_visible_claim
+    receipt: answerReceiptId

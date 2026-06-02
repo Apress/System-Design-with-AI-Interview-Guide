@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IndexReceipt",
+  "type": "object",
+  "required": [
+    "indexReceiptId",
+    "objectId",
+    "versionId",
+    "metadataVersion",
+    "indexName",
+    "indexedAt",
+    "freshnessAgeSeconds"
+  ],
+  "properties": {
+    "indexReceiptId": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "versionId": {
+      "type": "string"
+    },
+    "metadataVersion": {
+      "type": "string"
+    },
+    "indexName": {
+      "type": "string"
+    },
+    "indexPolicyVersion": {
+      "type": "string"
+    },
+    "freshnessAgeSeconds": {
+      "type": "number"
+    },
+    "indexStatus": {
+      "type": "string",
+      "enum": [
+        "current",
+        "lagging",
+        "stale",
+        "rebuilding",
+        "failed"
+      ]
+    },
+    "indexedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

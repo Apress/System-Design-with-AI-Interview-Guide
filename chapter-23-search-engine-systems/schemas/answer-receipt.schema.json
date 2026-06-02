@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AnswerReceipt",
+  "type": "object",
+  "required": [
+    "answerReceiptId",
+    "queryId",
+    "answerStatus",
+    "modelVersion",
+    "promptVersion",
+    "policyVersion",
+    "createdAt"
+  ],
+  "properties": {
+    "answerReceiptId": {
+      "type": "string"
+    },
+    "queryId": {
+      "type": "string"
+    },
+    "answerStatus": {
+      "type": "string",
+      "enum": [
+        "answered",
+        "sources_only",
+        "refused",
+        "human_review",
+        "stale_marked"
+      ]
+    },
+    "modelVersion": {
+      "type": "string"
+    },
+    "promptVersion": {
+      "type": "string"
+    },
+    "citationReceiptIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "citationCoveragePercent": {
+      "type": "number"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

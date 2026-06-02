@@ -1,0 +1,11 @@
+flowchart TB
+    A[Platform Surfaces] --> B[Following: Exposure Token]
+    A --> C[For You/Home: Amplification Token]
+    A --> D[Trending/Top: Promotion Token]
+    A --> E[Search/Topics: Intent Token]
+    A --> F[Notifications: Notify Token]
+
+    C --> R[Replay Always]
+    D --> R
+    E --> R2[Replay when visibility affected]
+    F --> R3[Replay for sensitive triggers]

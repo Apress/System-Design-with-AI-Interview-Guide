@@ -1,0 +1,8 @@
+flowchart TB
+    A[Content Hash] --> B[versionId Binding]
+    B --> C[Encryption Key ID]
+    C --> D[Key Lineage]
+    D --> E[Write Receipt]
+    E --> F[Scrub / Verify Receipt]
+    F --> G[Serve-Path Verification]
+    G --> H[Restore Receipt]

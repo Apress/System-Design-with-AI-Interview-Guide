@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FraudEnforcement",
+  "type": "object",
+  "required": [
+    "enforcementId",
+    "chainId",
+    "riskDecisionId",
+    "enforcementType",
+    "subjectId",
+    "policyBundleVersion",
+    "evidenceSnapshotId",
+    "enforcedAt",
+    "enforcementStatus"
+  ],
+  "properties": {
+    "enforcementId": {
+      "type": "string"
+    },
+    "chainId": {
+      "type": "string"
+    },
+    "riskDecisionId": {
+      "type": "string"
+    },
+    "stepUpChallengeId": {
+      "type": "string"
+    },
+    "subjectId": {
+      "type": "string"
+    },
+    "enforcementType": {
+      "type": "string",
+      "enum": [
+        "REFUND_DENIAL",
+        "PAYOUT_HOLD",
+        "HARD_BLOCK",
+        "ACCOUNT_RESTRICTION",
+        "CAPABILITY_FREEZE"
+      ]
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    },
+    "evidenceSnapshotId": {
+      "type": "string"
+    },
+    "enforcedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "enforcementStatus": {
+      "type": "string",
+      "enum": [
+        "active",
+        "reversed",
+        "expired",
+        "appealed",
+        "compensated"
+      ]
+    },
+    "appealPath": {
+      "type": "string"
+    },
+    "reversalPath": {
+      "type": "string"
+    },
+    "replayCardId": {
+      "type": "string"
+    }
+  }
+}

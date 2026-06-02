@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StorageObject",
+  "type": "object",
+  "required": [
+    "objectId",
+    "objectLineageId",
+    "pathId",
+    "ownerId",
+    "createdAt",
+    "objectState"
+  ],
+  "properties": {
+    "objectId": {
+      "type": "string"
+    },
+    "objectLineageId": {
+      "type": "string"
+    },
+    "pathId": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "string"
+    },
+    "currentVersionId": {
+      "type": "string"
+    },
+    "objectState": {
+      "type": "string",
+      "enum": [
+        "created",
+        "stored",
+        "stored_not_discoverable",
+        "discoverable",
+        "retained",
+        "soft_deleted",
+        "hard_deleted",
+        "recoverable",
+        "quarantined"
+      ]
+    },
+    "metadataVersion": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

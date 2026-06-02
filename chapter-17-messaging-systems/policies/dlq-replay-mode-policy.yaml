@@ -1,0 +1,18 @@
+policyVersion: dlq-replay-mode-v1
+modes:
+  simulate:
+    description: "Validate schema, policy, evidence, and idempotency without side effects."
+    sideEffectsAllowed: false
+    approvalRequired: false
+    receiptRequired: true
+  execute:
+    description: "Execute replay after simulation, approval, and idempotency proof."
+    sideEffectsAllowed: true
+    approvalRequired: true
+    receiptRequired: true
+executeRequirements:
+  - successful_simulation
+  - explicit_approval
+  - idempotency_check_passed
+  - policy_version_pinned
+  - replay_card_emitted

@@ -1,0 +1,10 @@
+flowchart TB
+    A[QoE Signals by ISP/Metro/Device] --> B{Scoped Degradation?}
+    B -- No --> C[Stay]
+    B -- Yes --> D[Canary CDN Switch]
+    D --> E{Improvement Stable?}
+    E -- Yes --> F[Expand with Hysteresis]
+    E -- No --> G[Rollback / Freeze]
+    F --> H[CDN Switch Receipt]
+    G --> H
+    H --> I[Origin Shield Protection]

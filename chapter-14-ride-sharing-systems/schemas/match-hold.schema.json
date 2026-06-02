@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MatchHold",
+  "type": "object",
+  "required": [
+    "matchHoldId",
+    "rideRequestId",
+    "correlationId",
+    "riderId",
+    "candidateDriverId",
+    "regionId",
+    "createdAt",
+    "expiresAt",
+    "ttlSeconds",
+    "holdStatus",
+    "evidence"
+  ],
+  "properties": {
+    "matchHoldId": {
+      "type": "string"
+    },
+    "rideRequestId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "riderId": {
+      "type": "string"
+    },
+    "candidateDriverId": {
+      "type": "string"
+    },
+    "regionId": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ttlSeconds": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "holdStatus": {
+      "type": "string",
+      "enum": [
+        "created",
+        "offered",
+        "accepted",
+        "expired",
+        "released",
+        "failed"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "driverGpsAgeSeconds": {
+          "type": "number"
+        },
+        "etaAgeSeconds": {
+          "type": "number"
+        },
+        "demandSupplyAgeSeconds": {
+          "type": "number"
+        },
+        "candidateRank": {
+          "type": "integer"
+        },
+        "pricingQuoteId": {
+          "type": "string"
+        },
+        "policyVersion": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+policyVersion: soft-close-v1
+closeType: soft
+description: "Auction extends when admissible bids arrive near close."
+extensionWindowSeconds: 120
+extensionDurationSeconds: 120
+maxExtensionCount: 10
+maxTotalExtensionSeconds: 1200
+quietWindowRequiredSeconds: 120
+extensionStormControls:
+  - cap_extensions
+  - throttle_low_confidence_bidders
+  - require_step_up_for_high_value_late_bids
+replayRequired: true

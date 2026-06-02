@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FraudEvidenceSnapshot",
+  "type": "object",
+  "required": [
+    "evidenceSnapshotId",
+    "chainId",
+    "capturedAt",
+    "tier1",
+    "tier2",
+    "tier3",
+    "freshnessSec",
+    "policyBundleVersion"
+  ],
+  "properties": {
+    "evidenceSnapshotId": {
+      "type": "string"
+    },
+    "chainId": {
+      "type": "string"
+    },
+    "capturedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "tier1": {
+      "type": "object"
+    },
+    "tier2": {
+      "type": "object"
+    },
+    "tier3": {
+      "type": "object"
+    },
+    "freshnessSec": {
+      "type": "object"
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "policyBundleVersion": {
+      "type": "string"
+    }
+  }
+}

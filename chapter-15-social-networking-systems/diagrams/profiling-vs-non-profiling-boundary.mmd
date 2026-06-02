@@ -1,0 +1,14 @@
+flowchart TB
+    A[Feed Request] --> B{Mode Gate}
+    B --> C[Profiling Mode]
+    B --> D[Non-Profiling Mode]
+
+    C --> C1[Approved Behavioral Features]
+    C1 --> C2[Profiling Ranker]
+    D --> D1[Explicit Follows / Topics / Recency]
+    D1 --> D2[Non-Profiling Ranker]
+
+    C2 --> E[Replay Mode + Signal Classes]
+    D2 --> E
+
+    X[No Shared Behavioral Path] -. blocks .-> D2

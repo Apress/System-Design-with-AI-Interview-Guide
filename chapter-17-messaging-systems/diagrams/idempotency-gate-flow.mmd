@@ -1,0 +1,9 @@
+flowchart TB
+    A[Incoming Command] --> B[Compute Deterministic effectId]
+    B --> C{processed_effects exists?}
+    C -- COMMITTED --> D[NO_OP Receipt]
+    C -- IN_PROGRESS --> E[Check Age / Reconcile]
+    C -- FAILED --> F{Retry Budget Valid?}
+    C -- No Record --> G[Insert IN_PROGRESS]
+    G --> H[Call External System]
+    H --> I[Mark COMMITTED or FAILED]

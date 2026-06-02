@@ -1,0 +1,9 @@
+policyVersion: reserve-price-v1
+reserveVisibility: hidden
+saleRule: "No sale unless highest admissible clearing price meets or exceeds reserve."
+onReserveNotMet:
+  outcome: no_sale
+  settlementAllowed: false
+replay:
+  includeReserveMetBoolean: true
+  exposeReserveAmountToPublic: false

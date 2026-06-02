@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReachReceipt",
+  "type": "object",
+  "required": [
+    "receiptId",
+    "contentId",
+    "surface",
+    "tokenType",
+    "policyVersion",
+    "createdAt",
+    "reasonCodes"
+  ],
+  "properties": {
+    "receiptId": {
+      "type": "string"
+    },
+    "contentId": {
+      "type": "string"
+    },
+    "surface": {
+      "type": "string"
+    },
+    "tokenType": {
+      "type": "string",
+      "enum": [
+        "visibility_grant",
+        "amplification_token",
+        "promotion_token",
+        "notify_token",
+        "answer_intent_token"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "recommendationMode": {
+      "type": "string"
+    },
+    "evidenceSnapshotId": {
+      "type": "string"
+    },
+    "modelVersion": {
+      "type": "string"
+    },
+    "featureBundleVersion": {
+      "type": "string"
+    },
+    "reasonCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

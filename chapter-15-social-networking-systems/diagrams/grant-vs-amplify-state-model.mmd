@@ -1,0 +1,14 @@
+stateDiagram-v2
+    [*] --> Created
+    Created --> Eligible
+    Eligible --> VisibilityGranted: visibilityGrantId
+    VisibilityGranted --> DiscoveryCandidate
+    DiscoveryCandidate --> AmplificationGate
+    AmplificationGate --> Amplified: amplificationToken
+    AmplificationGate --> Frozen: evidence conflict / HVI
+    AmplificationGate --> Review: uncertain evidence
+    Amplified --> Throttled
+    Amplified --> Frozen
+    Frozen --> Review
+    Review --> Suppressed
+    Review --> Restored

@@ -1,0 +1,15 @@
+policyVersion: commerce-replay-hard-stop-v1
+requirements:
+  highRiskCommitReplayCoveragePercent: 100
+  refundReplayCoveragePercent: 100
+  modificationReplayCoveragePercent: 100
+actions:
+  onReplayCoverageBelowRequired:
+    - block_new_high_risk_commit
+    - move_to_pending_or_review
+    - emit_replay_gap_receipt
+    - alert_owner
+reEnable:
+  requireReplayPathRestored: true
+  requireBackfillOrAnnotationPlan: true
+  requireOwnerApproval: true

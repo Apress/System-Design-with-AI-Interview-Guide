@@ -1,0 +1,55 @@
+flowchart LR
+    Shopper[Shopper]
+    Seller[Seller]
+    Support[Support Agent]
+    Ops[Warehouse / Fulfillment]
+    Fraud[Fraud Analyst]
+    Finance[Finance Team]
+
+    subgraph Customer_Facing[Customer-Facing Capabilities]
+        Discovery[Product Discovery]
+        Search[Search and Recommendations]
+        PDP[Product Detail]
+        Cart[Cart]
+        Checkout[Checkout]
+        Tracking[Order Tracking]
+        Returns[Returns and Refunds]
+    end
+
+    subgraph Operational[Operational Capabilities]
+        Catalog[Catalog Management]
+        Inventory[Inventory]
+        Fulfillment[Fulfillment]
+        Delivery[Delivery Coordination]
+        SupportCase[Support Case Management]
+    end
+
+    subgraph Financial_Risk[Financial and Risk Capabilities]
+        Payment[Payment Authorization and Capture]
+        Refund[Refund Processing]
+        FraudRisk[Fraud and Risk Scoring]
+        Audit[Audit and Replay]
+    end
+
+    subgraph Intelligence[Intelligence Capabilities]
+        Personalization[Personalization]
+        ETA[Delivery Prediction]
+        SupportAI[Support Assistant]
+        SellerCoach[Seller Coaching]
+    end
+
+    Shopper --> Discovery --> Search --> PDP --> Cart --> Checkout
+    Checkout --> Payment
+    Checkout --> Inventory
+    Checkout --> Audit
+    Checkout --> Tracking
+    Seller --> Catalog --> Inventory
+    Ops --> Fulfillment --> Delivery --> Tracking
+    Support --> SupportCase --> Refund
+    Fraud --> FraudRisk --> Payment
+    Finance --> Payment
+    Finance --> Refund
+    Personalization --> Search
+    ETA --> Tracking
+    SupportAI --> SupportCase
+    SellerCoach --> Seller

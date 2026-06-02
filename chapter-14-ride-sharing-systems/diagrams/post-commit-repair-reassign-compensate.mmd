@@ -1,0 +1,13 @@
+flowchart TB
+    A[Post-Commit Conflict] --> B[Repair First]
+    B --> C{Evidence Converges?}
+    C -- Yes --> D[Keep Match + Honest ETA Update]
+    C -- No --> E{Redispatch Budget Available?}
+    E -- Yes --> F[Controlled Reassignment]
+    E -- No --> G[Escalate / Assisted Handling]
+    F --> H{Disruption Threshold Crossed?}
+    H -- Yes --> I[Compensate Rider/Driver]
+    H -- No --> J[Continue]
+    I --> K[Replay Record]
+    J --> K
+    G --> K

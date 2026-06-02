@@ -1,0 +1,18 @@
+flowchart TB
+    A[AI Request] --> B[Retry Budget]
+    A --> C[Tool Call Budget]
+    A --> D[Retrieval Fan-out Budget]
+    A --> E[Token Budget]
+    A --> F[Latency at Commit Budget]
+    A --> G[Evidence Coverage Budget]
+
+    B --> H{Exceeded?}
+    C --> H
+    D --> H
+    E --> H
+    F --> H
+    G --> H
+
+    H -- No --> I[Continue]
+    H -- Yes --> J[Compress / Tier / Defer / Escalate / Stop]
+    J --> K[Owner + Replay Evidence]

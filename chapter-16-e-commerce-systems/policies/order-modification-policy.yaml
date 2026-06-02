@@ -1,0 +1,22 @@
+policyVersion: order-modification-policy-v1
+modificationTypes:
+  addressChange:
+    allowedBefore:
+      - picking_started
+      - carrier_accepted
+    requires:
+      - fresh_fulfillment_state
+      - payment_state_check
+      - fraud_risk_check
+      - policy_pin
+    hardStopWhen:
+      - picking_started
+      - carrier_accepted
+      - settlement_blocks_modification
+  cancelOrder:
+    allowedBefore:
+      - fulfillment_release
+    hardStopWhen:
+      - carrier_accepted
+conflictBehavior:
+  crmSaysModifiableWarehouseSaysPicking: "Do not commit automated modification; refresh or escalate."

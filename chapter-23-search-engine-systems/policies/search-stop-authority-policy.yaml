@@ -1,0 +1,71 @@
+policyVersion: search-stop-authority-v1
+principle: "Do not stop all search by default; freeze the unsafe visibility claim."
+
+triggers:
+  indexLagExceedsFreshnessBudget:
+    scopeToStop:
+      - freshness_claims_for_affected_corpus
+      - AI_answers_for_governed_queries
+    degradedMode:
+      - mark_stale
+      - narrow_to_last_certified_sources
+      - show_sources_only
+    reEnable:
+      - index_catches_up
+      - validation_diff_passes
+      - replay_tests_pass
+
+  citationProvenanceMissing:
+    scopeToStop:
+      - AI_answer_generation
+    degradedMode:
+      - show_retrieved_sources_only
+      - route_to_human_review
+    reEnable:
+      - citation_coverage_restored_above_threshold
+
+  rankingDriftDetected:
+    scopeToStop:
+      - new_ranking_model_rollout
+    degradedMode:
+      - revert_to_last_known_good_ranker
+    reEnable:
+      - drift_metrics_pass
+      - sampled_review_clears
+
+  policyBundleMismatch:
+    scopeToStop:
+      - governed_retrieval_path
+    degradedMode:
+      - fail_closed
+      - narrow_visible_set
+    reEnable:
+      - policy_version_reconciled
+      - replay_tests_pass
+
+  cacheServingStaleGovernedResults:
+    scopeToStop:
+      - cache_path_for_governed_queries
+    degradedMode:
+      - bypass_cache
+      - force_fresh_retrieval
+    reEnable:
+      - invalidation_receipts_confirm_affected_keys_cleared
+
+  vectorRetrievalReturnsPolicyWrongCandidates:
+    scopeToStop:
+      - semantic_recall_layer
+    degradedMode:
+      - constrain_vector_results_behind_structured_filters
+    reEnable:
+      - precision_and_admissibility_metrics_recover
+
+owners:
+  ingest: ingest-owner
+  parser: parser-owner
+  index: index-owner
+  ranking: ranking-owner
+  policy: policy-owner
+  cache: cache-owner
+  aiAnswer: ai-answer-owner
+  replay: governance-owner

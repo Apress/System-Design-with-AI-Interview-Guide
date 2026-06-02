@@ -1,0 +1,9 @@
+flowchart LR
+    A[Model Score] --> B[riskDecisionId]
+    B --> C{Evidence Admissible?}
+    C -- No --> D[Step-Up / Refresh / Review]
+    C -- Yes --> E{Reversibility?}
+    E -- Reversible --> F[stepUpChallengeId / Soft Hold]
+    E -- Liability --> G[enforcementId]
+    G --> H[refundDenyId / payoutHoldId / hardBlockId]
+    H --> I[Replay + Appeal Path]

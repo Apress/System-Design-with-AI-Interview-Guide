@@ -1,0 +1,12 @@
+flowchart LR
+    A[Creator Publishes] --> B{Distribution Strategy}
+    B --> C[Push / Fanout on Write]
+    B --> D[Pull / Requalify on Read]
+
+    C --> C1[Fast Reads]
+    C --> C2[Recall Lag]
+    D --> D1[Fresh Policy Checks]
+    D --> D2[Compute Pressure]
+
+    C2 --> E[Harder to Recall]
+    D1 --> F[Better Control Under Evidence Change]

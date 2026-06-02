@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Auction",
+  "type": "object",
+  "required": [
+    "auctionId",
+    "sellerId",
+    "listingId",
+    "auctionType",
+    "currency",
+    "startTime",
+    "scheduledCloseTime",
+    "policyVersion",
+    "status"
+  ],
+  "properties": {
+    "auctionId": {
+      "type": "string"
+    },
+    "sellerId": {
+      "type": "string"
+    },
+    "listingId": {
+      "type": "string"
+    },
+    "auctionType": {
+      "type": "string",
+      "enum": [
+        "hard_close",
+        "soft_close",
+        "reserve",
+        "proxy",
+        "sealed_bid"
+      ]
+    },
+    "currency": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scheduledCloseTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "currentCloseTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "created",
+        "open",
+        "closing",
+        "closed",
+        "frozen",
+        "settling",
+        "cancelled",
+        "disputed"
+      ]
+    },
+    "reservePrice": {
+      "type": "number"
+    },
+    "minOpeningBid": {
+      "type": "number"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ManifestVersion",
+  "type": "object",
+  "required": [
+    "manifestVersionId",
+    "assetId",
+    "format",
+    "manifestUri",
+    "validationStatus",
+    "createdAt"
+  ],
+  "properties": {
+    "manifestVersionId": {
+      "type": "string"
+    },
+    "assetId": {
+      "type": "string"
+    },
+    "liveEventId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "HLS",
+        "DASH",
+        "LL-HLS",
+        "LL-DASH"
+      ]
+    },
+    "manifestUri": {
+      "type": "string"
+    },
+    "abrLadderVersion": {
+      "type": "string"
+    },
+    "segmentTimelineVersion": {
+      "type": "string"
+    },
+    "drmPackaged": {
+      "type": "boolean"
+    },
+    "adMarkersPresent": {
+      "type": "boolean"
+    },
+    "captionTracksPresent": {
+      "type": "boolean"
+    },
+    "validationStatus": {
+      "type": "string",
+      "enum": [
+        "valid",
+        "invalid",
+        "quarantined",
+        "repairing",
+        "fallback_only"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

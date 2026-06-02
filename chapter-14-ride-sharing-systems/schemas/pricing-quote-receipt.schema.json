@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PricingQuoteReceipt",
+  "type": "object",
+  "required": [
+    "quoteId",
+    "correlationId",
+    "regionId",
+    "rideType",
+    "pricingPolicyVersion",
+    "finalQuotedPrice",
+    "currency",
+    "reasonCodes",
+    "createdAt",
+    "expiresAt"
+  ],
+  "properties": {
+    "quoteId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "regionId": {
+      "type": "string"
+    },
+    "rideType": {
+      "type": "string"
+    },
+    "baseFare": {
+      "type": "number"
+    },
+    "surgeMultiplier": {
+      "type": "number"
+    },
+    "finalQuotedPrice": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "pricingPolicyVersion": {
+      "type": "string"
+    },
+    "cityPolicyVersion": {
+      "type": "string"
+    },
+    "crisisPostureFlag": {
+      "type": "boolean"
+    },
+    "demandSnapshotId": {
+      "type": "string"
+    },
+    "supplySnapshotId": {
+      "type": "string"
+    },
+    "trafficSnapshotId": {
+      "type": "string"
+    },
+    "signalAgeSeconds": {
+      "type": "number"
+    },
+    "sampleSize": {
+      "type": "integer"
+    },
+    "uncertaintyBand": {
+      "type": "string"
+    },
+    "dampeningApplied": {
+      "type": "boolean"
+    },
+    "hysteresisState": {
+      "type": "string"
+    },
+    "capsApplied": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reasonCodes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "demand_spike",
+          "low_supply",
+          "traffic_pressure",
+          "driver_incentive",
+          "city_cap_applied",
+          "crisis_dampening",
+          "rate_change_cap"
+        ]
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

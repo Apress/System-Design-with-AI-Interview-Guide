@@ -1,0 +1,13 @@
+flowchart TB
+    A[User Action] --> B[Decision Context]
+    B --> C[Implied Promise]
+    C --> D[Semantic State]
+    D --> E[System of Record Snapshot]
+    E --> F[Policy Version]
+    F --> G[Evidence Sources]
+    G --> H{Human Approval Needed?}
+    H -- Yes --> I[Approval Role + Timestamp]
+    H -- No --> J[Decision Outcome]
+    I --> J
+    J --> K[Reversal / Compensation Link]
+    K --> L[Decision Replay Card]

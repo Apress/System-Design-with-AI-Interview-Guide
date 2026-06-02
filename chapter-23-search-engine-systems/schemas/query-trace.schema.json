@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QueryTrace",
+  "type": "object",
+  "required": [
+    "queryId",
+    "queryText",
+    "normalizedQuery",
+    "intent",
+    "retrievalMode",
+    "createdAt"
+  ],
+  "properties": {
+    "queryId": {
+      "type": "string"
+    },
+    "sessionId": {
+      "type": "string"
+    },
+    "queryText": {
+      "type": "string"
+    },
+    "normalizedQuery": {
+      "type": "string"
+    },
+    "intent": {
+      "type": "string"
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "retrievalMode": {
+      "type": "string",
+      "enum": [
+        "LEXICAL",
+        "VECTORLESS",
+        "VECTOR",
+        "HYBRID"
+      ]
+    },
+    "selectedSources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "routingReason": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

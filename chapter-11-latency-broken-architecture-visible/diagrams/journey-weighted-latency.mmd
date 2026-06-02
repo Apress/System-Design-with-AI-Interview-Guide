@@ -1,0 +1,11 @@
+flowchart LR
+    A[Browse] --> B[Add to Cart]
+    B --> C[Checkout]
+    C --> D[Payment Confirmation]
+    D --> E[Post-Purchase Support]
+
+    A --> A1[Low pain: cache/degrade]
+    B --> B1[Medium pain: read-your-writes]
+    C --> C1[High pain: validate/idempotency]
+    D --> D1[Extreme pain: confirm/pending/failed]
+    E --> E1[Medium pain: state + replay evidence]

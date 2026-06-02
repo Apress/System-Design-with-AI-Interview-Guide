@@ -1,0 +1,18 @@
+policyVersion: distribution-dag-budget-v1
+budgets:
+  maxCandidatesPerSurface: 500
+  maxEmbeddingLookupMs: 50
+  maxRerankAttemptsPerPostPerWindow: 2
+  maxSafetyRechecksBeforeReview: 2
+  maxFairnessAdjustmentPasses: 1
+  maxPromotionStages: 3
+  maxNotificationFanoutPerWindow: 10000
+  maxComputeBudgetMsPerDecisionPath: 250
+  requalificationRequiredAtEveryStage: true
+fallbacks:
+  onBudgetExhausted:
+    - freeze_promotion
+    - grant_only_mode
+    - simpler_ranking
+    - route_to_review
+    - suppress_expansion

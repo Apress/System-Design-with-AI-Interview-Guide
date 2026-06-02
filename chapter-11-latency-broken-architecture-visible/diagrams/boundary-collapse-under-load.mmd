@@ -1,0 +1,22 @@
+flowchart TB
+    A[Order Modification Boundary] --> B[Normal Traffic: Clear Flow]
+    A --> C[Load Pressure]
+
+    C --> D[Partner Lag]
+    C --> E[Policy Checks]
+    C --> F[Fraud Changes]
+    C --> G[Payment Settlement Timing]
+    C --> H[Fulfillment Cutoff]
+    C --> I[Tool Retries]
+    C --> J[Manual Overrides]
+
+    D --> K[Ambiguous State]
+    E --> K
+    F --> K
+    G --> K
+    H --> K
+    I --> K
+    J --> K
+
+    K --> L[Pending / Refuse / Escalate]
+    L --> M[Replay Evidence]

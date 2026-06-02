@@ -1,0 +1,45 @@
+policyVersion: auction-stop-authority-v1
+principle: "Stop risky close or settlement paths, not necessarily the entire marketplace."
+triggers:
+  closeMismatch:
+    condition: "close_mismatch_rate_greater_than_zero"
+    action:
+      - freeze_close_commits_for_affected_segment
+      - pause_settlement
+      - reconcile_with_pinned_evidence
+  replayCoverageDrop:
+    condition: "replay_coverage_below_100_percent_for_close_or_settlement"
+    action:
+      - freeze_close_or_settlement
+      - restore_receipt_path
+  ingestionLagExceeded:
+    condition: "bid_ingestion_lag_exceeds_hard_window"
+    action:
+      - delay_close
+      - extend_if_policy_allows
+      - route_to_review
+  fraudPressure:
+    condition: "fraud_pressure_above_threshold"
+    action:
+      - quarantine_bidder_cohort
+      - freeze_close_or_settlement
+      - require_review
+  settlementFailureSpike:
+    condition: "payment_or_settlement_failure_above_baseline"
+    action:
+      - pause_captures
+      - triage
+      - execute_compensation_policy
+owners:
+  close: auction-close-owner
+  policy: marketplace-policy-owner
+  fraud: fraud-risk-owner
+  settlement: settlement-owner
+  replay: replay-governance-owner
+reEnable:
+  requireCloseMismatchReconciled: true
+  requireReplayCoverageRestored: true
+  requireLagWithinBudget: true
+  requireFraudPressureReviewed: true
+  requireSettlementFailuresStable: true
+  requireOwnerApproval: true

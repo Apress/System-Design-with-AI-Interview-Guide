@@ -1,0 +1,12 @@
+flowchart TB
+    A[Signals Captured] --> B[Dashboards Glow]
+    B --> C[Alerts Fire]
+    C --> D[Meetings Happen]
+    D --> E[Postmortems Written]
+    E --> F{Can anyone change behavior?}
+
+    F -- No --> G[Instrumented Indecision]
+    F -- Yes --> H[ROCS Control]
+
+    H --> I[Pause / Degrade / Defer / Throttle / Roll Back]
+    I --> J[Prove with Replay and Telemetry]

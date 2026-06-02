@@ -1,0 +1,22 @@
+flowchart LR
+    U[User Request] --> API[API Gateway]
+    API --> PLAN[Planner / Intent Classifier]
+    PLAN --> RET[Retriever]
+    RET --> VDB[Vector DB]
+    VDB --> RERANK[Reranker]
+    RERANK --> PROMPT[Prompt Builder]
+    PROMPT --> ROUTER[LLM Router]
+    ROUTER --> LLM[Model Call]
+    LLM --> TOOLS[Tool Calls]
+    TOOLS --> EVAL[Evaluator / Safety Layer]
+    EVAL --> RESP[Response Generator]
+    RESP --> USER[User Response]
+
+    EVAL --> REPLAY[Decision Replay]
+    TOOLS --> SYS[Systems of Record]
+    PLAN --> MEM[Memory / Context Store]
+
+    API -. R/O/C/S .-> PLAN
+    RET -. R/O/C/S .-> VDB
+    ROUTER -. R/O/C/S .-> LLM
+    TOOLS -. R/O/C/S .-> SYS

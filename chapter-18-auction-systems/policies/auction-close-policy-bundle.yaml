@@ -1,0 +1,17 @@
+policyVersion: auction-close-bundle-v1
+closeAuthority: server_controlled
+requiredBeforeCloseCommit:
+  - auction_policy_pinned
+  - admissible_bid_set_computed
+  - price_formation_policy_pinned
+  - reserve_rule_evaluated
+  - fraud_pressure_evaluated
+  - tie_breaker_evaluated
+  - replay_receipt_ready
+  - singular_close_commit_constraint
+outcomes:
+  - committed
+  - no_sale
+  - frozen
+  - requires_review
+  - cancelled

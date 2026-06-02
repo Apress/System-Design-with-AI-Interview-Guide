@@ -1,0 +1,8 @@
+flowchart LR
+    A[Event Time] --> B[Ingestion Time]
+    B --> C[Decision Time]
+    C --> D[Enforcement / Step-Up]
+    D --> E[Appeal / Chargeback / Investigation]
+    E --> F[Label Time]
+    F --> G[Future Learning]
+    C --> R[Decision-Time Replay Evidence]

@@ -1,0 +1,18 @@
+flowchart LR
+    A[Ride Request] --> B[Candidate Search]
+    B --> C[ETA Inference]
+    C --> D[Pricing Inference]
+    D --> E[Ranking]
+    E --> F[Policy/Fairness Gates]
+    F --> G[Hold]
+    G --> H[Driver Acceptance]
+    H --> I[Commit Gate]
+    I --> J[MatchId]
+
+    B --> B1[Candidate Cap]
+    C --> C1[ETA TTL]
+    D --> D1[Hysteresis / Caps]
+    E --> E1[Compute Budget]
+    F --> F1[Max-Depth Budget]
+    G --> G1[Hold TTL]
+    I --> I1[Strict Admissibility]

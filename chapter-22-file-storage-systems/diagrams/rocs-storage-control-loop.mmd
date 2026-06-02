@@ -1,0 +1,6 @@
+flowchart LR
+    A[Sense: Receipts / Index / Integrity / Restore / Delete Velocity] --> B[Decide with Policy]
+    B --> C[Act: Truth-First / Freeze / Rebuild / Restore / Quarantine]
+    C --> D[Emit Receipts + Replay Card]
+    D --> E[Re-enable or Keep Frozen]
+    E --> A

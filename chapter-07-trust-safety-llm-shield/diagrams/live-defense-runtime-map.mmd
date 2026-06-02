@@ -1,0 +1,21 @@
+flowchart LR
+    A[Runtime Request] --> B[AI Firewall]
+    B --> C{Policy Decision}
+    C -- Allow --> D[Model / Agent Flow]
+    C -- Block --> E[Refuse]
+    C -- Redact --> F[Safe Context]
+    C -- Escalate --> G[Human Review]
+    C -- Rephrase --> H[Safe Response]
+
+    D --> I[Tool Call Check]
+    I --> J{Allowed Tool?}
+    J -- Yes --> K[Execute Tool]
+    J -- No --> G
+
+    K --> L[Replay Record]
+    E --> L
+    F --> L
+    G --> L
+    H --> L
+
+    L --> M[Observability / SIEM / Scorecard]

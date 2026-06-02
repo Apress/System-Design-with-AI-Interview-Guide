@@ -1,0 +1,74 @@
+policyVersion: storage-stop-authority-v1
+principle: "Do not stop all storage by default; freeze the unsafe state transition or capability."
+
+triggers:
+  replayCoverageDrop:
+    condition: "replay_coverage_below_100_percent_for_delete_hold_or_restore_transitions"
+    action:
+      - freeze_destructive_actions
+      - freeze_retention_changing_actions
+      - restore_receipt_path
+
+  indexDriftExceedsBudget:
+    condition: "index_freshness_lag_exceeds_policy_budget"
+    action:
+      - enter_truth_first_mode
+      - label_stored_not_discoverable
+      - rebuild_index
+      - prevent_lifecycle_decisions_from_stale_index
+
+  integrityVerificationFails:
+    condition: "hash_key_version_or_serve_path_verification_fails"
+    action:
+      - quarantine_affected_scope
+      - block_serve_claims
+      - block_restore_claims_until_verified
+
+  restoreDrillFailsOrStale:
+    condition: "restore_proof_missing_or_stale"
+    action:
+      - stop_claiming_recoverable
+      - force_restore_certification
+
+  deleteVelocitySpike:
+    condition: "delete_or_rename_velocity_above_attack_threshold"
+    action:
+      - assume_destructive_attack_until_proven_otherwise
+      - freeze_delete_and_lifecycle
+      - quarantine_scope
+
+  policyBundleMismatch:
+    condition: "storage_workers_apply_different_policy_versions"
+    action:
+      - quarantine_policy_bundle
+      - rollback_to_last_known_good
+      - freeze_lifecycle_and_delete
+
+  keyLineageMismatch:
+    condition: "key_lineage_or_encryption_context_cannot_be_replayed"
+    action:
+      - freeze_key_destruction
+      - freeze_re_encryption
+      - require_manual_approval
+
+owners:
+  write: storage-engine-owner
+  metadata: metadata-authority-owner
+  index: search-index-owner
+  lifecycle: lifecycle-owner
+  legalHold: legal-compliance-owner
+  deletion: deletion-owner
+  restore: restore-owner
+  kms: key-management-owner
+  derivatives: ai-derivative-owner
+  replay: governance-owner
+
+reEnable:
+  requireReplayCoverageRestored: true
+  requirePolicySchemaVersionsReconciled: true
+  requireIndexFreshnessInsideBudget: true
+  requireIntegrityVerificationPassed: true
+  requireRestoreProofCurrent: true
+  requireAffectedScopeAudited: true
+  requireReEnableReceipt: true
+  requireOwnerApproval: true

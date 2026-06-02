@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RankReceipt",
+  "type": "object",
+  "required": [
+    "rankReceiptId",
+    "queryId",
+    "rankPolicyId",
+    "rankingModelVersion",
+    "resultSetHash",
+    "rankedAt"
+  ],
+  "properties": {
+    "rankReceiptId": {
+      "type": "string"
+    },
+    "queryId": {
+      "type": "string"
+    },
+    "rankPolicyId": {
+      "type": "string"
+    },
+    "rankingModelVersion": {
+      "type": "string"
+    },
+    "candidateSetHash": {
+      "type": "string"
+    },
+    "featureSnapshotHash": {
+      "type": "string"
+    },
+    "resultSetHash": {
+      "type": "string"
+    },
+    "rankedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AdmissibilityContract",
+  "type": "object",
+  "required": [
+    "contractId",
+    "domain",
+    "policyVersion",
+    "evidenceRules"
+  ],
+  "properties": {
+    "contractId": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "evidenceRules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+flowchart LR
+    A[User Request] --> B[AI Assistant]
+    B --> C{Suggest or Act?}
+
+    C -- Suggest --> D[Draft / Explain / Recommend]
+    C -- Act --> E{Inside Authority Envelope?}
+
+    E -- No --> F[Refuse or Escalate]
+    E -- Yes --> G{Evidence Gate Passed?}
+
+    G -- No --> H[Assistive Mode or Pending Review]
+    G -- Yes --> I[Invoke Allowlisted Tool]
+
+    I --> J[Record Acting Principal]
+    J --> K[Create Replay Record]
+    K --> L[Return Safe Outcome]

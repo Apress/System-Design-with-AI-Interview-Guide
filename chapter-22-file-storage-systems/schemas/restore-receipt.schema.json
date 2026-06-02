@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RestoreReceipt",
+  "type": "object",
+  "required": [
+    "restoreReceiptId",
+    "objectId",
+    "versionId",
+    "restoreStatus",
+    "verifiedContentHash",
+    "restoredAt"
+  ],
+  "properties": {
+    "restoreReceiptId": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "versionId": {
+      "type": "string"
+    },
+    "restoreDrillId": {
+      "type": "string"
+    },
+    "restoreStatus": {
+      "type": "string",
+      "enum": [
+        "succeeded",
+        "failed",
+        "partial",
+        "quarantined"
+      ]
+    },
+    "verifiedContentHash": {
+      "type": "string"
+    },
+    "decryptionVerified": {
+      "type": "boolean"
+    },
+    "metadataRebuildVerified": {
+      "type": "boolean"
+    },
+    "serveReadinessVerified": {
+      "type": "boolean"
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "restoredAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

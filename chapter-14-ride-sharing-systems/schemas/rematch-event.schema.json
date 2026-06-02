@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RematchEvent",
+  "type": "object",
+  "required": [
+    "rematchEventId",
+    "correlationId",
+    "matchId",
+    "eventTime",
+    "phase",
+    "reasonCode",
+    "attemptNumber"
+  ],
+  "properties": {
+    "rematchEventId": {
+      "type": "string"
+    },
+    "correlationId": {
+      "type": "string"
+    },
+    "matchId": {
+      "type": "string"
+    },
+    "eventTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "pre_commit",
+        "commit_boundary",
+        "post_commit"
+      ]
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "attemptNumber": {
+      "type": "integer"
+    },
+    "budgetRemaining": {
+      "type": "integer"
+    },
+    "previousDriverId": {
+      "type": "string"
+    },
+    "newDriverId": {
+      "type": "string"
+    },
+    "userVisibleMessage": {
+      "type": "string"
+    },
+    "compensationTriggered": {
+      "type": "boolean"
+    }
+  }
+}

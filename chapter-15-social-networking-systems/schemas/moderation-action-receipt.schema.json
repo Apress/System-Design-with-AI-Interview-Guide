@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ModerationActionReceipt",
+  "type": "object",
+  "required": [
+    "moderationReceiptId",
+    "contentId",
+    "action",
+    "policyVersion",
+    "evidenceSnapshotId",
+    "createdAt",
+    "appealAvailable"
+  ],
+  "properties": {
+    "moderationReceiptId": {
+      "type": "string"
+    },
+    "contentId": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "no_action",
+        "label",
+        "downrank",
+        "suppress",
+        "remove",
+        "freeze",
+        "restore"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "evidenceSnapshotId": {
+      "type": "string"
+    },
+    "modelVersion": {
+      "type": "string"
+    },
+    "humanReviewerId": {
+      "type": "string"
+    },
+    "reasonCodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "appealAvailable": {
+      "type": "boolean"
+    },
+    "appealLink": {
+      "type": "string"
+    }
+  }
+}

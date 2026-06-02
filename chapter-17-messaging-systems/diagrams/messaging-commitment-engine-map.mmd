@@ -1,0 +1,13 @@
+flowchart TB
+    A[Producer Intent] --> B[Outbox]
+    B --> C[Event Stream / Broker]
+    C --> D[Consumer]
+    D --> E[Idempotency Gate]
+    E --> F[Side-Effect System]
+    F --> G[Side-Effect Receipt]
+    G --> H[Decision Replay Card]
+
+    D --> I[DLQ]
+    I --> J[Replay: Simulate]
+    J --> K[Replay: Execute with Approval]
+    K --> E

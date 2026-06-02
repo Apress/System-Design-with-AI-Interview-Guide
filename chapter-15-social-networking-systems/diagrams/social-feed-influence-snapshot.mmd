@@ -1,0 +1,10 @@
+flowchart TB
+    A[Create Content] --> B[Eligibility]
+    B --> C[Ranking]
+    C --> D[Distribution]
+    D --> E[Replay Receipt]
+
+    B --> P[Bind Policy Version]
+    C --> G[Evidence Gate]
+    D --> T[Mint Token]
+    E --> S[Stop Authority]

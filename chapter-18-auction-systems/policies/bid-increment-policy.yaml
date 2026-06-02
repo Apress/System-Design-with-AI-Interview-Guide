@@ -1,0 +1,16 @@
+policyVersion: bid-increment-v1
+currency: USD
+increments:
+  - min: 0
+    max: 99.99
+    increment: 1
+  - min: 100
+    max: 499.99
+    increment: 10
+  - min: 500
+    max: 999.99
+    increment: 25
+  - min: 1000
+    max: 99999999
+    increment: 50
+rule: "Next visible price must follow the increment table pinned at close."

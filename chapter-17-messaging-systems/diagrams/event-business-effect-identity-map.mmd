@@ -1,0 +1,8 @@
+flowchart LR
+    A[eventId: What arrived?] --> B[businessTxnId: Which business story?]
+    B --> C1[effectId: payment.capture]
+    B --> C2[effectId: inventory.reserve]
+    B --> C3[effectId: email.send]
+    C1 --> D[processed_effects]
+    C2 --> D
+    C3 --> D

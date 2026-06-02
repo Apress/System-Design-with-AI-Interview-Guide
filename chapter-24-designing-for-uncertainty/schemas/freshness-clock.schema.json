@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FreshnessClock",
+  "type": "object",
+  "required": [
+    "clockId",
+    "clockType",
+    "meaning",
+    "governsClaim"
+  ],
+  "properties": {
+    "clockId": {
+      "type": "string"
+    },
+    "clockType": {
+      "type": "string",
+      "enum": [
+        "eventTime",
+        "ingestTime",
+        "decisionTime",
+        "labelTime",
+        "restoreTime",
+        "answerTime"
+      ]
+    },
+    "meaning": {
+      "type": "string"
+    },
+    "governsClaim": {
+      "type": "string"
+    },
+    "maxAgeSeconds": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "onExceeded": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

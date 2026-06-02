@@ -1,0 +1,3 @@
+policyVersion: reenable-proof-v1
+principle: "Re-enable is a commitment, not a button."
+required: [evidence_restored, receipt_path_complete, policy_versions_reconciled, budgets_stable, drift_resolved, replay_tests_pass, sampled_validation_pass, owner_approval, reenable_receipt_emitted]

@@ -1,0 +1,4 @@
+policyVersion: reconciliation-policy-v1
+principle: Reconciliation confirms, corrects, or compensates without rewriting original ledger truth.
+truthSources: [provider_query_api, webhooks, settlement_files, ledger_entries, dispute_events]
+actions: [confirmed, mismatch, corrected, compensated, manualReview]

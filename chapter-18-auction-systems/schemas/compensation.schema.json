@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AuctionCompensation",
+  "type": "object",
+  "required": [
+    "compensationId",
+    "auctionId",
+    "reasonCode",
+    "compensationType",
+    "status",
+    "createdAt"
+  ],
+  "properties": {
+    "compensationId": {
+      "type": "string"
+    },
+    "auctionId": {
+      "type": "string"
+    },
+    "closeCommitId": {
+      "type": "string"
+    },
+    "reasonCode": {
+      "type": "string"
+    },
+    "compensationType": {
+      "type": "string",
+      "enum": [
+        "refund",
+        "credit",
+        "second_chance_offer",
+        "reauction",
+        "manual_resolution",
+        "cancellation"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "created",
+        "approved",
+        "executed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "owner": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policyVersion": {
+      "type": "string"
+    }
+  }
+}

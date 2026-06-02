@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "InventoryReservation",
+  "type": "object",
+  "required": [
+    "reservationId",
+    "inventoryHoldId",
+    "sku",
+    "quantity",
+    "reservationStatus",
+    "reservedAt",
+    "policyVersion"
+  ],
+  "properties": {
+    "reservationId": {
+      "type": "string"
+    },
+    "inventoryHoldId": {
+      "type": "string"
+    },
+    "sku": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "fulfillmentNodeId": {
+      "type": "string"
+    },
+    "reservationStatus": {
+      "type": "string",
+      "enum": [
+        "acknowledged",
+        "allocated",
+        "released",
+        "failed",
+        "expired"
+      ]
+    },
+    "reservedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "inventoryCommitId": {
+      "type": "string"
+    },
+    "policyVersion": {
+      "type": "string"
+    }
+  }
+}

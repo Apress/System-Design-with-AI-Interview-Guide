@@ -1,0 +1,28 @@
+sequenceDiagram
+    participant C as Customer
+    participant UI as Web/Mobile App
+    participant CO as Checkout Service
+    participant CART as Cart Service
+    participant PAY as Payment Service
+    participant INV as Inventory Service
+    participant FRAUD as Fraud Service
+    participant ORD as Order Service
+    participant BUS as Event Bus
+    participant NOTIF as Notification Service
+    participant FUL as Fulfillment Service
+
+    C->>UI: Place Order
+    UI->>CO: Submit Checkout Request
+    CO->>CART: Validate Cart and Price
+    CO->>PAY: Authorize Payment
+    CO->>INV: Reserve Inventory
+    CO->>FRAUD: Run Critical Fraud Check
+    CO->>ORD: Create Durable Order
+    ORD-->>CO: Order Confirmed
+    CO-->>UI: Confirmation Response
+    UI-->>C: Show Confirmation
+
+    ORD->>BUS: OrderConfirmed Event
+    BUS->>NOTIF: Send Confirmation
+    BUS->>FUL: Start Fulfillment
+    BUS->>FRAUD: Run Additional Risk Enrichment

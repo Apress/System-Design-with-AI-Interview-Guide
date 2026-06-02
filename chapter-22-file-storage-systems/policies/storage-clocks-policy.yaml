@@ -1,0 +1,21 @@
+policyVersion: storage-clocks-v1
+clocks:
+  writeTime:
+    meaning: "When bytes are committed and versionId exists."
+    governs: STORED
+  indexTime:
+    meaning: "When search/list/metadata discovery catches up."
+    governs: DISCOVERABLE
+  lifecycleTime:
+    meaning: "When tiering, archival, expiration, or transition executes."
+    governs: ARCHIVED_OR_EXPIRED
+  legalTime:
+    meaning: "When legal hold or retention becomes enforceable."
+    governs: RETAINED_AND_DELETE_BLOCKED
+  deleteTime:
+    meaning: "When soft or hard delete commits."
+    governs: DELETED
+  restoreTime:
+    meaning: "When recovery is demonstrated end to end."
+    governs: RECOVERABLE
+rule: "Storage may be asynchronous, but state claims must not be ambiguous."

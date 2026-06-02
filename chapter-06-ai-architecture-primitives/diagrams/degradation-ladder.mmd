@@ -1,0 +1,17 @@
+flowchart TD
+    A[Normal Automation] --> B{Evidence complete and systems healthy?}
+    B -- Yes --> C[Act]
+    B -- No --> D[Degraded Mode]
+
+    D --> E{Risk low?}
+    E -- Yes --> F[Assist / Recommend Only]
+    E -- No --> G[Pending Review]
+
+    G --> H{High risk or unsafe?}
+    H -- No --> I[Human Review]
+    H -- Yes --> J[Hard Stop / Refuse]
+
+    C --> K[Replay Card]
+    F --> K
+    I --> K
+    J --> K

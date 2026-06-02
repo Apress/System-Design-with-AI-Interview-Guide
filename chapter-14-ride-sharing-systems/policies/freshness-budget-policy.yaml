@@ -1,0 +1,18 @@
+policyVersion: freshness-budget-v1
+signals:
+  driverGps:
+    softTtlSeconds: 5
+    hardTtlSeconds: 10
+    hardRule: "Do not commit a match using hard-stale GPS."
+  demandSupply:
+    softTtlSeconds: 30
+    hardTtlSeconds: 60
+    hardRule: "Do not use hard-stale marketplace signals for surge or dispatch commitment."
+  trafficEta:
+    softTtlSeconds: 60
+    hardTtlSeconds: 120
+    hardRule: "Do not lock high-confidence ETA using hard-stale traffic/ETA evidence."
+actions:
+  insideSoftTtl: "Proceed and preserve signal timestamp."
+  betweenSoftAndHardTtl: "Refresh or proceed with caution and confidence band."
+  beyondHardTtl: "Refresh, defer, conservative fallback, or refuse commit."

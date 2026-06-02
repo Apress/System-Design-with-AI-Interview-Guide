@@ -1,0 +1,9 @@
+stateDiagram-v2
+    [*] --> Normal
+    Normal --> Degraded: confidence drops
+    Degraded --> Pending: commitment not defensible
+    Pending --> Escalated: specialist decision needed
+    Escalated --> HardStop: evidence/safety insufficient
+    Escalated --> Normal: approved and safe
+    HardStop --> Recovery
+    Recovery --> Normal: trust restored

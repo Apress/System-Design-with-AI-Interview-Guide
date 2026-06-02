@@ -1,0 +1,7 @@
+flowchart TB
+    A[Hard Constraints] --> B[Tier 1: System of Record]
+    B --> C[Tier 2: Model Evidence]
+    C --> D[Tier 3: Soft Signals]
+    D --> E[Step-Up / Review]
+    B --> F[Liability Action Only if Supported]
+    C -. cannot override .-> B

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SettlementIntent",
+  "type": "object",
+  "required": [
+    "settlementIntentId",
+    "auctionId",
+    "closeCommitId",
+    "winnerBidderId",
+    "amount",
+    "currency",
+    "intentStatus",
+    "createdAt"
+  ],
+  "properties": {
+    "settlementIntentId": {
+      "type": "string"
+    },
+    "auctionId": {
+      "type": "string"
+    },
+    "closeCommitId": {
+      "type": "string"
+    },
+    "winnerBidderId": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "intentStatus": {
+      "type": "string",
+      "enum": [
+        "created",
+        "approved",
+        "blocked",
+        "cancelled",
+        "requires_review"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policyVersion": {
+      "type": "string"
+    }
+  }
+}

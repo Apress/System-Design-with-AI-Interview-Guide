@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant U as Customer
+    participant C as Checkout
+    participant I as Inventory
+    participant P as Payment
+    participant O as Order
+    participant S as Support
+
+    U->>C: Place Order
+    C->>I: Check / Reserve Inventory
+    I-->>C: Delayed / Queued
+    C->>P: Authorize Payment
+    P-->>C: Delayed / Queued
+    U->>C: Click Again / Retry
+    C->>C: Duplicate Request Pressure
+    C->>O: Pending or Confirm?
+    C-->>U: Pending State Needed
+    U->>S: Contact Support

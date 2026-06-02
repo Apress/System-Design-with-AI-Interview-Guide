@@ -1,0 +1,8 @@
+flowchart LR
+    A[Event Time] --> B[Ingestion Time]
+    B --> C[Server Close Time]
+    C --> D[Late Window]
+    D --> E[Hard Cutoff]
+    B --> F{Bid Admissible?}
+    F --> G[Count]
+    F --> H[Exclude with Reason]

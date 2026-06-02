@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DeleteReceipt",
+  "type": "object",
+  "required": [
+    "deleteReceiptId",
+    "objectId",
+    "deleteMode",
+    "policyVersion",
+    "legalHoldStatus",
+    "retentionStatus",
+    "deletedAt"
+  ],
+  "properties": {
+    "deleteReceiptId": {
+      "type": "string"
+    },
+    "objectId": {
+      "type": "string"
+    },
+    "versionId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "deleteMode": {
+      "type": "string",
+      "enum": [
+        "soft_delete",
+        "hard_delete",
+        "lifecycle_expiry",
+        "key_destruction"
+      ]
+    },
+    "requestedBy": {
+      "type": "string"
+    },
+    "approvedBy": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "policyVersion": {
+      "type": "string"
+    },
+    "legalHoldStatus": {
+      "type": "string"
+    },
+    "retentionStatus": {
+      "type": "string"
+    },
+    "recoveryWindow": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "destructionProofId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "replayCardId": {
+      "type": "string"
+    },
+    "deletedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

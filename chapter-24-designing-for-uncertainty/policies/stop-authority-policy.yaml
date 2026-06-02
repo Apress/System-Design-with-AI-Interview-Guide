@@ -1,0 +1,9 @@
+policyVersion: stop-authority-v1
+principle: "Ownership is the ability to make the system more conservative before harm."
+modes:
+  normal: {condition: "proof healthy", allowedBehavior: [commit_normally]}
+  conservative: {condition: "signals drifting", allowedBehavior: [tighten_thresholds, lower_concurrency, narrow_sources, reduce_autonomy]}
+  defer: {condition: "evidence incomplete", allowedBehavior: [wait_for_more_evidence, park_workflow, return_pending]}
+  freezeLiabilityActions: {condition: "high-stakes action unsafe", allowedBehavior: [continue_safe_reads, stop_capture, stop_delete, stop_denial, suppress_final_answer, route_to_review]}
+  humanReview: {condition: "automation reached trust boundary", allowedBehavior: [escalate_with_context, include_receipts]}
+  reenableWithNewVersion: {condition: "proof restored", required: [receipts_complete, budgets_stable, drift_resolved, policy_version_bumped, validation_passed, owner_approval]}
