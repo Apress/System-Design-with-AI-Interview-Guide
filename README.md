@@ -19,10 +19,10 @@ This repository is intentionally not a free replacement for the book. The book g
 
 For the complete explanations, end-to-end design walkthroughs, architecture diagrams, trade-off reasoning, and interview strategy, read _System Design with AI Interview Guide_ from Apress / Springer Nature.
 
-When the official book page is available, add it here:
+The book is available from Apress / Springer Nature:
 
-- **Apress book page:** `BOOK_LINK_HERE`
-- **SpringerLink page:** `SPRINGER_LINK_HERE`
+- **Official publisher page:** [System Design with AI Interview Guide](https://link.springer.com/book/10.1007/979-8-8688-2782-2)
+- **Book DOI:** [10.1007/979-8-8688-2782-2](https://doi.org/10.1007/979-8-8688-2782-2)
 
 ## What This Repository Is
 
