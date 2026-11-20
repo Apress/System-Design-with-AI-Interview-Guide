@@ -36,6 +36,22 @@ Use this 45-minute format:
 | 6 | Practice AI-aware design questions |
 | 7 | Run one full mock interview and score yourself |
 
+## Pair the Sprint with Interactive Practice
+
+Use these activities within the daily practice block. The [challenge guide](CHALLENGES.md) includes access details and repository-only alternatives.
+
+| Day | Activity | Evidence to save |
+|---|---|---|
+| 1 | [Try a public quiz sample](https://www.aiarchitectcircle.com/quizzes#sample) | Your answer before the reveal and one corrected assumption |
+| 2 | Frame the actors and customer promise for [the refund drill](CHALLENGES.md#drill-1-the-reply-was-lost) | Scope, non-goals, and the customer-visible states |
+| 3 | Add a traffic spike to [the ticket drill](CHALLENGES.md#drill-2-one-seat-two-confirmations) | The first bottleneck and your overload policy |
+| 4 | Defend the ticket reservation's consistency boundary | Which operation owns the final seat and why |
+| 5 | Replay the refund drill with a lost reply and a worker restart | An event trace and recovery owner |
+| 6 | Complete [the tenant-isolation drill](CHALLENGES.md#drill-3-the-answer-crossed-a-tenant-boundary) | Authorization checks and a negative test |
+| 7 | Present one design, introduce a new constraint, and score it | A completed [scorecard](CHALLENGE-SCORECARD.md) and one revision |
+
+After attempting a problem, compare your reasoning with a relevant [YouTube walkthrough](https://www.youtube.com/@AIArchitectCircle). Bring an unresolved trade-off to a [live session](https://www.aiarchitectcircle.com/live.html).
+
 ## 30-Day Interview Plan
 
 ### Week 1: Method Foundation
@@ -60,7 +76,7 @@ Use the 30-day plan twice. The first pass builds familiarity. The second pass bu
 
 ## How to Use AI as a Coach
 
-Ask AI tools to challenge your design, not to simply produce answers. Strong prompts ask for critique, trade-off questions, failure cases, and scoring. Use `PROMPT-LIBRARY.md` for ready-to-use examples.
+Ask AI tools to challenge your design, not to simply produce answers. Strong prompts ask for critique, trade-off questions, failure cases, and scoring. Use the [prompt library](PROMPT-LIBRARY.md) for ready-to-use examples.
 
 ## Build a Portfolio
 

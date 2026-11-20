@@ -25,6 +25,18 @@ This repository is best used alongside the book. Read the relevant chapter first
 
 The goal is not to memorize a diagram. The goal is to learn how to reason under pressure.
 
+## Add an Interactive Practice Round
+
+1. Pick a [live lab or repository drill](CHALLENGES.md) related to the chapter you are reading.
+2. Predict the failure before revealing a hint or running the scenario.
+3. Change one decision and explain what evidence would show that the repair worked.
+4. Capture the result in a copy of the [challenge scorecard](CHALLENGE-SCORECARD.md).
+5. Revisit the chapter exercise and improve your original answer.
+
+For a short warm-up, [try a public quiz question](https://www.aiarchitectcircle.com/quizzes#sample). For a study group, have one person defend a design and another introduce a failure. Switch roles before comparing with the chapter's solution guide.
+
+[YouTube walkthroughs](https://www.youtube.com/@AIArchitectCircle) and [live sessions](https://www.aiarchitectcircle.com/live.html) provide another way to review your reasoning.
+
 ## If You Are an Interview Candidate
 
 Use this repository as a mock-interview gym. For each system, prepare a 35- to 45-minute answer. Start with requirements, identify actors, choose the core promise, draw the high-level architecture, deep dive into the most important flows, and defend trade-offs.
@@ -96,10 +108,10 @@ Do not skip requirements. Do not skip actors. Do not skip failure modes. Do not 
 
 ## Start Here
 
-1. Read `README.md`.
-2. Review `SEVEN-STEP-METHOD.md`.
-3. Pick one chapter from `BOOK-CODE-MAP.md`.
-4. Practice using `PRACTICE-GUIDE.md`.
-5. Score yourself using `INTERVIEW-RUBRIC.md`.
+1. Read the [repository introduction](README.md).
+2. Review the [seven-step method](SEVEN-STEP-METHOD.md).
+3. Pick one chapter from the [chapter map](BOOK-CODE-MAP.md).
+4. Choose a [challenge](CHALLENGES.md) or follow the [practice guide](PRACTICE-GUIDE.md).
+5. Score yourself using the [interview rubric](INTERVIEW-RUBRIC.md) and save your [scorecard](CHALLENGE-SCORECARD.md).
 
 For the complete learning path, use this repository with _System Design with AI Interview Guide_.
