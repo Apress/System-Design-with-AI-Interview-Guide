@@ -13,49 +13,52 @@ This file maps the book chapters to companion artifacts. It is a navigation guid
 
 > The repository gives you practice surfaces. The book gives you the reasoning model.
 
-## Suggested Folder Naming
-
-Use clear chapter folders such as:
-
-```text
-chapter-01-seven-step-method/
-chapter-02-customer-domain/
-chapter-14-ecommerce-system/
-chapter-18-video-streaming-system/
-```
-
 ## Chapter Map
 
-| Chapter | Topic / System | Suggested Folder | What to Practice in GitHub | What the Book Gives You |
-|---|---|---|---|---|
-| 1 | 7-Step System Design Method | `chapter-01-seven-step-method/` | Method worksheet, interview framing prompts | Full explanation of the method and why the sequence matters |
-| 2 | Customer Domain / Running Example | `chapter-02-customer-domain/` | Domain context worksheet | How domain knowledge changes architecture choices |
-| 3 | Customer Journey and Actors | `chapter-03-customer-journey/` | Journey map and actor checklist | How to design from user experience before drawing boxes |
-| 4 | Business Capabilities | `chapter-04-business-capabilities/` | Capability map template | How capabilities connect business goals to architecture |
-| 5 | High-Level Architecture | `chapter-05-high-level-architecture/` | Context and component diagrams | How to structure responsibility before implementation detail |
-| 6 | Scalability | `chapter-06-scalability/` | Scale assumptions and bottleneck worksheet | Trade-offs across horizontal scale, caching, queues, and partitions |
-| 7 | Data Modeling and Storage | `chapter-07-data-modeling-storage/` | Data model comparison worksheet | How to choose storage based on access patterns and consistency |
-| 8 | Availability and Fault Tolerance | `chapter-08-availability-fault-tolerance/` | Failure-mode checklist | How to design graceful degradation and recovery |
-| 9 | API Design | `chapter-09-api-design/` | API contract template | How to design APIs for humans, services, and AI agents |
-| 10 | Microservices | `chapter-10-microservices/` | Service boundary worksheet | How to avoid microservice sprawl and coupling traps |
-| 11 | Security | `chapter-11-security/` | Trust boundary checklist | How to reason about identity, abuse, privacy, and compliance |
-| 12 | Ride-Sharing System | `chapter-12-ride-sharing-system/` | Matching, location, surge, and replay artifacts | Complete end-to-end design walkthrough |
-| 13 | Social Networking System | `chapter-13-social-networking-system/` | Feed generation and graph modeling artifacts | Trade-offs for feeds, privacy, graph scale, and personalization |
-| 14 | E-Commerce System | `chapter-14-ecommerce-system/` | Checkout, inventory, and recommendation artifacts | Full applied design using the book method |
-| 15 | Messaging System | `chapter-15-messaging-system/` | Presence, delivery, ordering, and receipt artifacts | How to reason about real-time communication guarantees |
-| 16 | Auction System | `chapter-16-auction-system/` | Bid ordering and time-bound consistency artifacts | How to handle fairness, clocks, and concurrency |
-| 17 | Fraud Detection System | `chapter-17-fraud-detection-system/` | Feature pipeline and risk scoring artifacts | AI-aware risk design and false-positive trade-offs |
-| 18 | Video Streaming System | `chapter-18-video-streaming-system/` | CDN, ABR, rights, ads, and playback evidence artifacts | How streaming becomes a continuous-experience contract |
-| 19 | Payment Systems | `chapter-19-payment-systems/` | Idempotency, ledger, reconciliation, and fraud artifacts | How to design secure, reliable transaction flows |
-| 20 | File Storage Systems | `chapter-20-file-storage-systems/` | Object metadata, durability, and lifecycle artifacts | How storage becomes long-lived proof over time |
-| 21 | Search Engine Systems | `chapter-21-search-engine-systems/` | Crawling, indexing, ranking, and freshness artifacts | How search balances recall, relevance, latency, and trust |
-| 22+ | Additional / Advanced Chapters | `chapter-22-.../` | Chapter-specific exercises | Full synthesis and extension of earlier methods |
-| Final | Conclusion / Designing for Uncertainty | `chapter-final-conclusion/` | Personal practice plan and next-step checklist | How the book’s ideas come together into a design mindset |
+The links below match the chapter folders in this repository. Open a chapter's README for its resources, attempt the exercises, and then compare with its solution guide.
+
+| Chapter | Topic and folder | Exercises | Practice focus |
+|---|---|---|---|
+| 1 | [System Design Methodology](chapter-01-system-design-methodology/README.md) | [Practice](chapter-01-system-design-methodology/exercises.md) | Frame the problem and rehearse the seven-step answer |
+| 2 | [Understanding the Business Domain](chapter-02-understanding-the-business-domain/README.md) | [Practice](chapter-02-understanding-the-business-domain/exercises.md) | Map domain rules and business commitments |
+| 3 | [Empathizing with the Customer](chapter-03-empathizing-with-the-customer/README.md) | [Practice](chapter-03-empathizing-with-the-customer/exercises.md) | Identify actors, journeys, and customer promises |
+| 4 | [Business Capabilities](chapter-04-business-capabilities/README.md) | [Practice](chapter-04-business-capabilities/exercises.md) | Assign capability boundaries and ownership |
+| 5 | [High-Level Solution Architecture](chapter-05-high-level-solution-architecture/README.md) | [Practice](chapter-05-high-level-solution-architecture/exercises.md) | Draw responsibility and critical-flow views |
+| 6 | [AI Architecture Primitives](chapter-06-ai-architecture-primitives/README.md) | [Practice](chapter-06-ai-architecture-primitives/exercises.md) | Choose AI primitives and their evidence requirements |
+| 7 | [Trust, Safety, and the LLM-SHIELD Lens](chapter-07-trust-safety-llm-shield/README.md) | [Practice](chapter-07-trust-safety-llm-shield/exercises.md) | Review retrieval, tool access, and tenant isolation |
+| 8 | [ROCS Control System](chapter-08-rocs-control-system/README.md) | [Practice](chapter-08-rocs-control-system/exercises.md) | Define controls, recovery, and stop authority |
+| 9 | [Scale Is the Truth Serum](chapter-09-scale-is-the-truth-serum/README.md) | [Practice](chapter-09-scale-is-the-truth-serum/exercises.md) | Estimate load and identify bottlenecks |
+| 10 | [Consistency Is a Trust Contract](chapter-10-consistency-is-a-trust-contract/README.md) | [Practice](chapter-10-consistency-is-a-trust-contract/exercises.md) | Define consistency and admissible-evidence contracts |
+| 11 | [Latency Is How Broken Architecture Becomes Visible](chapter-11-latency-broken-architecture-visible/README.md) | [Practice](chapter-11-latency-broken-architecture-visible/exercises.md) | Trace critical paths and latency-driven failure |
+| 12 | [Failure Is a System Behavior](chapter-12-failure-is-a-system-behavior/README.md) | [Practice](chapter-12-failure-is-a-system-behavior/exercises.md) | Design degradation, recovery, and replay |
+| 13 | [Economics Is Architecture](chapter-13-economics-is-architecture/README.md) | [Practice](chapter-13-economics-is-architecture/exercises.md) | Explain cost drivers and resource budgets |
+| 14 | [Ride-Sharing Systems](chapter-14-ride-sharing-systems/README.md) | [Practice](chapter-14-ride-sharing-systems/exercises.md) | Defend matching, location, and trip commitments |
+| 15 | [Social Networking Systems](chapter-15-social-networking-systems/README.md) | [Practice](chapter-15-social-networking-systems/exercises.md) | Reason about feeds, privacy, and graph behavior |
+| 16 | [E-Commerce Systems](chapter-16-e-commerce-systems/README.md) | [Practice](chapter-16-e-commerce-systems/exercises.md) | Distinguish holds, orders, and confirmed commitments |
+| 17 | [Messaging Systems](chapter-17-messaging-systems/README.md) | [Practice](chapter-17-messaging-systems/exercises.md) | Defend delivery, ordering, and receipts |
+| 18 | [Auction Systems](chapter-18-auction-systems/README.md) | [Practice](chapter-18-auction-systems/exercises.md) | Reason about bid order, clocks, and fairness |
+| 19 | [Fraud Detection Systems](chapter-19-fraud-detection-systems/README.md) | [Practice](chapter-19-fraud-detection-systems/exercises.md) | Balance evidence, decisions, and false positives |
+| 20 | [Video Streaming Systems](chapter-20-video-streaming-systems/README.md) | [Practice](chapter-20-video-streaming-systems/exercises.md) | Protect playback continuity and rights decisions |
+| 21 | [Payment Systems](chapter-21-payment-systems/README.md) | [Practice](chapter-21-payment-systems/exercises.md) | Handle idempotency, ambiguous outcomes, and reconciliation |
+| 22 | [File Storage Systems](chapter-22-file-storage-systems/README.md) | [Practice](chapter-22-file-storage-systems/exercises.md) | Defend durability, lifecycle, and access decisions |
+| 23 | [Search Engine Systems](chapter-23-search-engine-systems/README.md) | [Practice](chapter-23-search-engine-systems/exercises.md) | Evaluate retrieval, freshness, citations, and AI answers |
+| 24 | [Designing for Uncertainty Is the Job Now](chapter-24-designing-for-uncertainty/README.md) | [Practice](chapter-24-designing-for-uncertainty/exercises.md) | Combine commitment boundaries, evidence, and stop authority |
+
+## Connect a Chapter to an Interactive Activity
+
+| Focus | Companion activity |
+|---|---|
+| Chapters 12 and 21: failure and payments | [Refund recovery challenge and drill](CHALLENGES.md#drill-1-the-reply-was-lost) |
+| Chapters 10 and 16: consistency and commerce | [Ticket booking challenge and drill](CHALLENGES.md#drill-2-one-seat-two-confirmations) |
+| Chapters 7 and 23: isolation and search | [Tenant isolation challenge and drill](CHALLENGES.md#drill-3-the-answer-crossed-a-tenant-boundary) |
+| Short practice across chapters | [Interactive quizzes](https://www.aiarchitectcircle.com/quizzes) |
+
+See the [live practice table](CHALLENGES.md#live-interactive-practice) for website links and access details. Track your attempts with the [challenge scorecard](CHALLENGE-SCORECARD.md).
 
 ## How to Use This Map
 
-Start with the chapter you are reading. Use the corresponding folder only after you understand the chapter narrative. If you start from the repository first, use this map to decide which chapter to read next in the book.
+Start with the chapter you are reading. Use the corresponding folder to practice the chapter's concepts. If you start from the repository first, use this map to choose a topic, then consult the book for the complete explanation.
 
 ## Maintaining This Map
 
-As chapter folders evolve, keep the table current. The map should remain a clear bridge between the book and the repository, not a second table of contents for the full manuscript.
+When a chapter folder changes, update its README and exercise links here. Keep the map aligned with the actual repository rather than proposed folder names.
